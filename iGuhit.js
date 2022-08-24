@@ -26,18 +26,24 @@ function freePenFunction() {return changeTool = 'pen';}
 function penTool() { return changeTool = 'penTool'; }
 function zoomTool() { return changeTool = 'zoomTool'; }
 function shapeTrimmer() {
+    if (selectGroup.length > 2) return alert('sorry we cant operate more than 2 objects');
+    // converts the array selectGroup into a group first
+    selectGroup = new Group(selectGroup);
     // continue if selectGroup is not null or it has a value greater then 1
     if (selectGroup && selectGroup.children.length > 1) {
         console.log(selectGroup.children);
+        selectGroup.children[0].bounds.selected = false;
+        selectGroup.children[1].bounds.selected = false;
         shapeTrim1 = selectGroup.children[0].subtract(selectGroup.children[1]);
         shapeTrim2 = selectGroup.children[0].intersect(selectGroup.children[1]);
         shapeTrim3 = selectGroup.children[1].subtract(selectGroup.children[0]);
+        shapeTrim1.bounds.selected = false;
+        shapeTrim2.bounds.selected = false;
+        shapeTrim3.bounds.selected = false;
 
         if (shapeTrim1 && shapeTrim1.segments != undefined && shapeTrim1.segments.length > 2) {
             shapeTrim1.selected = true;
             shapeTrim1.fillColor = { hue: 240, alpha: 0.01 };
-            //shapeTrim1.strokeWidth = 3;
-            //shapeTrim1.strokeColor = 'red';
             selectGroup.addChild(shapeTrim1);
             console.log('the shapetrim 1 success');
         } else {
@@ -46,8 +52,6 @@ function shapeTrimmer() {
         if (shapeTrim2 && shapeTrim2.segments != undefined && shapeTrim2.segments.length > 2) {
             shapeTrim2.selected = true;
             shapeTrim2.fillColor = { hue: 240, alpha: 0.01 };
-            //shapeTrim2.strokeWidth = 3;
-            //shapeTrim2.strokeColor = 'red';
             selectGroup.addChild(shapeTrim2);
             console.log('the shapetrim 2 success');
         } else {
@@ -56,8 +60,6 @@ function shapeTrimmer() {
         if (shapeTrim3 && shapeTrim3.segments != undefined && shapeTrim3.segments.length > 2) {
             shapeTrim3.selected = true;
             shapeTrim3.fillColor = { hue: 240, alpha: 0.01 };
-            //shapeTrim3.strokeWidth = 3;
-            //shapeTrim3.strokeColor = 'red';
             selectGroup.addChild(shapeTrim3);
             console.log('the shapetrim 3 success');
         } else {
@@ -113,7 +115,6 @@ function findHandle(point) {
     }
     return null;
 }
-
 // mouseDown section
 function onMouseDown(event) {
     // freepen section
@@ -223,7 +224,7 @@ function onMouseDown(event) {
             project.activeLayer.selected = false;
             project.activeLayer.fullySelected = false;
             console.log(selectGroup);
-            return selectGroup = new Group(0);
+            return selectGroup = [];
         }
     }
     // path editing section
@@ -388,7 +389,7 @@ function onMouseDown(event) {
                     selectGroup.removeChildren();
                     selectGroup.addChild(shapeResult);
                 }
-                return selectGroup;
+                return selectGroup = selectGroup.children;
             }
             if (hitResult && hitResult.item && hitResult.item == shapeTrim2) {
                 console.log('you  hit the shapeTrim2');
@@ -402,7 +403,7 @@ function onMouseDown(event) {
                     selectGroup.addChild(combinedShape2);
 
                 }
-                return;
+                return selectGroup = selectGroup.children;
             }
             if (hitResult && hitResult.item && hitResult.item == shapeTrim3) {
                 console.log('you  hit the shapeTrim3');
@@ -417,7 +418,7 @@ function onMouseDown(event) {
                     selectGroup.removeChildren();
                     selectGroup.addChild(shapeResult);
                 }
-                return;
+                return selectGroup = selectGroup.children;
             }
         }
     }
