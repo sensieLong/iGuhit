@@ -214,7 +214,7 @@ function onMouseDown(event) {
             return selectGroup;
         }
         if (!hitResult) {
-            if (selectGroup && selectGroup[0].bounds) {
+            if (selectGroup) {
                 for (i = 0; i < selectGroup.length; i++) {
                     selectGroup[i].bounds.selected = false;
                 }
