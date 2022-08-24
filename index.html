@@ -18,7 +18,7 @@
         var segment, path, handles;
         var movePath = false;
         var currentSegment, mode, type;
-        var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2;
+        var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
         var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 
         // get the html element and add click function
@@ -215,7 +215,6 @@
                                 selectGroup[i].bounds.selected = false;
                                 cloneCopy = selectGroup[i].clone();
                                 cloneCopy.selected = true;
-                                cloneCopy.bounds.selected = true;
                             }
                         };
                         selectGroup.selected = false;

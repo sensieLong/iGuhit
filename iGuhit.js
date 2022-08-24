@@ -205,7 +205,6 @@ function onMouseDown(event) {
                         selectGroup[i].bounds.selected = false;
                         cloneCopy = selectGroup[i].clone();
                         cloneCopy.selected = true;
-                        cloneCopy.bounds.selected = true;
                     }
                 };
                 selectGroup.selected = false;
