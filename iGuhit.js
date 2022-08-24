@@ -8,7 +8,7 @@ var changeTool;
 var segment, path, handles;
 var movePath = false;
 var currentSegment, mode, type;
-var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2;
+var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 
 // get the html element and add click function
@@ -148,23 +148,27 @@ function onMouseDown(event) {
             }
 
             if (event.key == '[') {
-                if (selectGroup && selectGroup.children.length > 0) {
-                    selectGroup.sendToBack();
+                if (selectGroup && selectGroup.length > 0) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].sendToBack();
+                    }
                 } else {
                     console.log('the selectGroup is false or undefined');
                 }
             }
 
             if (event.key == ']') {
-                if (selectGroup && selectGroup.children.length > 0) {
-                    selectGroup.bringToFront();
+                if (selectGroup && selectGroup.length > 0) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].bringToFront();
+                    }
                 } else {
                     console.log('the selectGroup is false or undefined');
                 }
             }
 
             if (event.key == '}') {
-                if (selectGroup && selectGroup.children.length > 0) {
+                if (selectGroup && selectGroup.length > 0) {
                     console.log('dapat aangat ang item');
                 } else {
                     console.log('the selectGroup is false or undefined');
@@ -172,7 +176,7 @@ function onMouseDown(event) {
             }
 
             if (event.key == '{') {
-                if (selectGroup && selectGroup.children.length > 0) {
+                if (selectGroup && selectGroup.length > 0) {
                     console.log('dapat bababa ang item');
                 } else {
                     console.log('the selectGroup is false or undefined');
@@ -185,22 +189,35 @@ function onMouseDown(event) {
         if (hitResult) {
             path = hitResult.item;
             path.selected = true;
-            selectGroup = new Group(project.selectedItems);
-            console.log(selectGroup.children);
-            if (selectGroup.hasChildren) {
-                selectGroup.bounds.selected = true;
+            selectGroup = project.selectedItems;
+            console.log(selectGroup);
+            console.log('selectGroup length is ', selectGroup.length);
+
+            if (selectGroup.length > 0) {
+                for (i = 0; i < selectGroup.length; i++) {
+                    selectGroup[i].bounds.selected = true;
+                }
             }
             if (event.modifiers.alt) {
-                if (selectGroup.hasChildren) {
-                    selectGroup.clone();
+                if (selectGroup.length > 0) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].selected = false;
+                        selectGroup[i].bounds.selected = false;
+                        cloneCopy = selectGroup[i].clone();
+                        cloneCopy.selected = true;
+                        cloneCopy.bounds.selected = true;
+                    }
                 };
+                selectGroup.selected = false;
                 return;
             }
             return selectGroup;
         }
         if (!hitResult) {
-            if (selectGroup && selectGroup.bounds) {
-                selectGroup.bounds.selected = false;
+            if (selectGroup && selectGroup[0].bounds) {
+                for (i = 0; i < selectGroup.length; i++) {
+                    selectGroup[i].bounds.selected = false;
+                }
             } else {
                 console.log('wala pang selection ang move tool');
             }
@@ -405,6 +422,7 @@ function onMouseDown(event) {
             }
         }
     }
+    // zoom section
     if (changeTool === 'zoomTool') {
         console.log('we are on zoom tool');
         if (event.modifiers.shift) {
@@ -451,7 +469,9 @@ function onMouseDrag(event) {
     // moveTool section.
     if (changeTool === 'moveTool') {
         if (selectGroup) {
-            selectGroup.translate(event.delta);
+            for (i = 0; i < selectGroup.length; i++) {
+                selectGroup[i].translate(event.delta);
+            }
         }
         return;
     }
