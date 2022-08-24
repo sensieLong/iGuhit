@@ -134,6 +134,8 @@ function onMouseDown(event) {
     // moveTool section
     if (changeTool === 'moveTool') {
         segment = path = handles = null;
+
+        // move keyboard interaction
         tool.onKeyDown = function (event) {
             if (event.key == 'delete') {
                 if (!path) {
@@ -144,7 +146,41 @@ function onMouseDown(event) {
                     return false;
                 }
             }
+
+            if (event.key == '[') {
+                if (selectGroup && selectGroup.children.length > 0) {
+                    selectGroup.sendToBack();
+                } else {
+                    console.log('the selectGroup is false or undefined');
+                }
+            }
+
+            if (event.key == ']') {
+                if (selectGroup && selectGroup.children.length > 0) {
+                    selectGroup.bringToFront();
+                } else {
+                    console.log('the selectGroup is false or undefined');
+                }
+            }
+
+            if (event.key == '}') {
+                if (selectGroup && selectGroup.children.length > 0) {
+                    console.log('dapat aangat ang item');
+                } else {
+                    console.log('the selectGroup is false or undefined');
+                }
+            }
+
+            if (event.key == '{') {
+                if (selectGroup && selectGroup.children.length > 0) {
+                    console.log('dapat bababa ang item');
+                } else {
+                    console.log('the selectGroup is false or undefined');
+                }
+            }
         }
+
+        // move hitest
         var hitResult = project.hitTest(event.point, hitOptions);
         if (hitResult) {
             path = hitResult.item;
@@ -155,8 +191,8 @@ function onMouseDown(event) {
                 selectGroup.bounds.selected = true;
             }
             if (event.modifiers.alt) {
-                if (hitResult && hitResult.item) {
-                    hitResult.item.clone();
+                if (selectGroup.hasChildren) {
+                    selectGroup.clone();
                 };
                 return;
             }

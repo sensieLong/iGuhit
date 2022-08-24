@@ -8,7 +8,7 @@
     <script type="text/javascript" canvas="canvas" src=".\paper-core.js"></script>
     <!-- <script type="text/paperscript" canvas="canvas"></script>  -->
     <script type="text/paperscript" canvas="canvas">
-        // aim to make a smooth and reliable software tool like adobe illustrator
+                // aim to make a smooth and reliable software tool like adobe illustrator
         // globals
         paper.install(window);
         var path;
@@ -144,6 +144,8 @@
             // moveTool section
             if (changeTool === 'moveTool') {
                 segment = path = handles = null;
+
+                // move keyboard interaction
                 tool.onKeyDown = function (event) {
                     if (event.key == 'delete') {
                         if (!path) {
@@ -154,7 +156,41 @@
                             return false;
                         }
                     }
+
+                    if (event.key == '[') {
+                        if (selectGroup && selectGroup.children.length > 0) {
+                            selectGroup.sendToBack();
+                        } else {
+                            console.log('the selectGroup is false or undefined');
+                        }
+                    }
+
+                    if (event.key == ']') {
+                        if (selectGroup && selectGroup.children.length > 0) {
+                            selectGroup.bringToFront();
+                        } else {
+                            console.log('the selectGroup is false or undefined');
+                        }
+                    }
+
+                    if (event.key == '}') {
+                        if (selectGroup && selectGroup.children.length > 0) {
+                            console.log('dapat aangat ang item');
+                        } else {
+                            console.log('the selectGroup is false or undefined');
+                        }
+                    }
+
+                    if (event.key == '{') {
+                        if (selectGroup && selectGroup.children.length > 0) {
+                            console.log('dapat bababa ang item');
+                        } else {
+                            console.log('the selectGroup is false or undefined');
+                        }
+                    }
                 }
+
+                // move hitest
                 var hitResult = project.hitTest(event.point, hitOptions);
                 if (hitResult) {
                     path = hitResult.item;
@@ -165,8 +201,8 @@
                         selectGroup.bounds.selected = true;
                     }
                     if (event.modifiers.alt) {
-                        if (hitResult && hitResult.item) {
-                            hitResult.item.clone();
+                        if (selectGroup.hasChildren) {
+                            selectGroup.clone();
                         };
                         return;
                     }
@@ -393,7 +429,6 @@
                 } else {
                     newZoom = paper.view.zoom * 1.05;
                 }
-
                 paper.view.zoom = newZoom;
                 paper.view.draw();
             }
@@ -467,7 +502,6 @@
                 } else {
                     newZoom = paper.view.zoom * 0.95;
                 }
-                paper.view.center = paper.view.center.add(event.delta);
                 paper.view.zoom = newZoom;
                 paper.view.draw();
             }
