@@ -10,6 +10,7 @@ var movePath = false;
 var currentSegment, mode, type;
 var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
+var handToolPan;
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -18,6 +19,7 @@ document.getElementById('pathEdit').addEventListener("click", pathEditing);
 document.getElementById('penTool').addEventListener("click", penTool);
 document.getElementById('zoomTool').addEventListener("click", zoomTool);
 document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
+document.getElementById('handTool').addEventListener("click", handTool);
 
 // creating function for each element
 function pathEditing() {return changeTool = 'pathEdit';}
@@ -25,6 +27,7 @@ function moveToolFunction() {return changeTool = 'moveTool';}
 function freePenFunction() {return changeTool = 'pen';}
 function penTool() { return changeTool = 'penTool'; }
 function zoomTool() { return changeTool = 'zoomTool'; }
+function handTool() { return changeTool = 'handTool'; }
 function shapeTrimmer() {
     if (selectGroup.length > 2) return alert('sorry we cant operate more than 2 objects');
     // converts the array selectGroup into a group first
@@ -515,7 +518,14 @@ function onMouseDrag(event) {
         paper.view.zoom = newZoom;
         paper.view.draw();
     }
-
+    // handTool section for drag
+    if (changeTool === 'handTool') {
+        console.log('handTool drag is working');
+        handToolPan = project.activeLayer.children;
+        for (var i = 0; i < handToolPan.length; i++) {
+            handToolPan[i].position += event.delta;
+        }
+    }
 }
 // mouseUp section
 function onMouseUp(event) {
