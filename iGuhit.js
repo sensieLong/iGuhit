@@ -443,6 +443,17 @@ function onMouseDown(event) {
         paper.view.zoom = newZoom;
         paper.view.draw();
     }
+    // handTool section
+    if (changeTool === 'handTool') {
+        console.log('handTool is working');
+        handToolPan = project.activeLayer.children;
+        tool.onKeyDown = function (event) {
+            if (event.key = ')') {
+                console.log('tool onkeydown is working');
+                handToolPan[0].position = paper.view.center;
+            }
+        }
+    }
 }
 // mouseMove section
 function onMouseMove(event) {
@@ -521,7 +532,6 @@ function onMouseDrag(event) {
     // handTool section for drag
     if (changeTool === 'handTool') {
         console.log('handTool drag is working');
-        handToolPan = project.activeLayer.children;
         for (var i = 0; i < handToolPan.length; i++) {
             handToolPan[i].position += event.delta;
         }
