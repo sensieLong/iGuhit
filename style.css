@@ -1,21 +1,49 @@
 
-html,
-body {
-    margin: 0;
+html {
+    background-color: #212121;
+    margin: auto;
+    vertical-align: middle;
+    max-width: 1500px;
     overflow: auto;
     height: 100%;
-    background-color: #191919;
+    display: table-cell;
+}
+
+body {
+    position: relative;
+    overflow: auto;
+    margin: auto;
+    height: 100%;
     display: table-cell;
     vertical-align: middle;
+    background-color: #191919;
+}
+#toolControl {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+#controlContainer {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #212121;
+    width: 550px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid antiquewhite;
 }
 
 #toolContainer {
     margin-left: 20px;
+    margin-right: 340px;
     margin-bottom: 20px;
-    background-color: darkslategray;
+    background-color: #212121;
     width: 550px;
     padding: 10px;
     border-radius: 10px;
+    border: 2px solid antiquewhite;
 }
 
 p {

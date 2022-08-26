@@ -76,8 +76,8 @@ function shapeTrimmer() {
 
 // some usefull objects
 var textItem = new PointText({
-    content: 'Click and drag to draw a line.',
-    point: new Point(20, 30),
+    content: 'You can drag our tool box where ever you want',
+    point: new Point(20, 50),
     fillColor: 'black',
 });
 
@@ -573,4 +573,5 @@ function onMouseUp(event) {
 // jQuery section
 $(function () {
     $("#toolContainer").draggable();
+    $("#controlContainer").draggable();
 });

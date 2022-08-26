@@ -89,8 +89,8 @@
 
         // some usefull objects
         var textItem = new PointText({
-            content: 'Click and drag to draw a line.',
-            point: new Point(20, 30),
+            content: 'You can drag our tool box where ever you want',
+            point: new Point(20, 50),
             fillColor: 'black',
         });
 
@@ -586,26 +586,35 @@
         // jQuery section
         $(function () {
             $("#toolContainer").draggable();
+            $("#controlContainer").draggable();
         });
 
     </script>
 
 </head>
 <body>
-    <p>
-        This software is made by: Salgarinos Creation || Programming laguange used: Java Script || styling: css || html markUp
-    </p>
-    <div id="toolContainer">
-        <button id="freePen">freePen</button>
-        <button id="moveTool">moveTool</button>
-        <button id="shapeTrimmer">shapeTrimmer</button>
-        <button id="pathEdit">pathEdit</button>
-        <button id="penTool">PenTool</button>
-        <button id="zoomTool">zoomTool</button>
-        <button id="handTool">handTool</button>
+    <div id="toolControl">
+        <div id="toolContainer">
+            <button id="freePen">freePen</button>
+            <button id="moveTool">moveTool</button>
+            <button id="shapeTrimmer">shapeTrimmer</button>
+            <button id="pathEdit">pathEdit</button>
+            <button id="penTool">PenTool</button>
+            <button id="zoomTool">zoomTool</button>
+            <button id="handTool">handTool</button>
+        </div>
+        <div id="controlContainer">
+            <button id="controls">X :</button>
+            <input type="text" placeholder="Value of X" />
+            <button id="controls">Y :</button>
+            <input type="text" placeholder="Value of Y" />
+        </div>
     </div>
     <div id="canvasContainer">
         <canvas id="canvas"></canvas>
     </div>
+    <p>
+        This software is made by: Sensie Long || Programming languange Used: Java Script || styling: css || html markUp
+    </p>
 </body>
 </html>
