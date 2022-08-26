@@ -12,6 +12,10 @@ body {
 #toolContainer {
     margin-left: 20px;
     margin-bottom: 20px;
+    background-color: darkslategray;
+    width: 550px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 p {
@@ -23,16 +27,16 @@ p {
     padding: 20px;
     border-width: thick;
     border-color: green;
-    width: 100%;
-    height: 100%;
+    width: 1000px;
+    height: 800px;
     background-color: dimgrey;
 }
 #canvas {
     background-color: white;
     overflow: auto;
     margin: auto;
-    width: 1000px;
-    height: 800px;
+    width: 800px;
+    height: 500px;
 }
 #canvas2 {
     background-color: white;

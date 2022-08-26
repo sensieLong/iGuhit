@@ -448,10 +448,10 @@ function onMouseDown(event) {
         console.log('handTool is working');
         handToolPan = project.activeLayer.children;
         tool.onKeyDown = function (event) {
-            if (event.key = ')') {
-                console.log('tool onkeydown is working');
-                handToolPan[0].position = paper.view.center;
-            }
+           if (event.key = ')') {
+               console.log('tool onkeydown is working');
+               handToolPan[0].position = paper.view.center;
+           }
         }
     }
 }
@@ -569,3 +569,8 @@ function onMouseUp(event) {
         }
     }
 }
+
+// jQuery section
+$(function () {
+    $("#toolContainer").draggable();
+});

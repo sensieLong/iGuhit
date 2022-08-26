@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>iGuhit</title>
+    <link rel="stylesheet" href=".\jquery-ui.css">
     <link rel="stylesheet" href=".\style.css">
-    <script type="text/javascript" canvas="canvas" src=".\paper-full.js"></script>
-    <script type="text/javascript" canvas="canvas" src=".\paper-core.js"></script>
+    <script type="text/javascript" canvas="canvas" defer src=".\paper-full.js"></script>
+    <script type="text/javascript" canvas="canvas" defer src=".\paper-core.js"></script>
+    <script type="text/javascript" canvas="canvas" defer src=".\jQuery.js"></script>
+    <script type="text/javascript" canvas="canvas" defer src=".\jquery-ui.js"></script>
     <!-- <script type="text/paperscript" canvas="canvas"></script>  -->
     <script type="text/paperscript" canvas="canvas">
                 // aim to make a smooth and reliable software tool like adobe illustrator
@@ -458,10 +461,10 @@
                 console.log('handTool is working');
                 handToolPan = project.activeLayer.children;
                 tool.onKeyDown = function (event) {
-                    if (event.key = ')') {
-                        console.log('tool onkeydown working');
-                        handToolPan[0].position = paper.view.center;
-                    }
+                   if (event.key = ')') {
+                       console.log('tool onkeydown is working');
+                       handToolPan[0].position = paper.view.center;
+                   }
                 }
             }
         }
@@ -579,6 +582,11 @@
                 }
             }
         }
+
+        // jQuery section
+        $(function () {
+            $("#toolContainer").draggable();
+        });
 
     </script>
 
