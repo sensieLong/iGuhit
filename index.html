@@ -11,7 +11,7 @@
     <script type="text/javascript" canvas="canvas" defer src=".\jquery-ui.js"></script>
     <!-- <script type="text/paperscript" canvas="canvas"></script>  -->
     <script type="text/paperscript" canvas="canvas">
-                // aim to make a smooth and reliable software tool like adobe illustrator
+        // aim to make a smooth and reliable software tool like adobe illustrator
         // globals
         paper.install(window);
         var path;
@@ -93,6 +93,11 @@
             point: new Point(20, 50),
             fillColor: 'black',
         });
+
+        var rectangle = new Rectangle(new Point(500, 50), new Point(1000, 800));
+        artboard = new Path.Rectangle(rectangle);
+        artboard.fillColor = 'white';
+        artboard.locked = true;
 
         var values = {
             paths: 50,

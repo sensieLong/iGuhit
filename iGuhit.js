@@ -1,6 +1,7 @@
 // aim to make a smooth and reliable software tool like adobe illustrator
 // globals
 paper.install(window);
+var artboard;
 var path;
 var group;
 var selectGroup;
@@ -80,6 +81,11 @@ var textItem = new PointText({
     point: new Point(20, 50),
     fillColor: 'black',
 });
+
+var rectangle = new Rectangle(new Point(500, 50), new Point(1000, 800));
+artboard = new Path.Rectangle(rectangle);
+artboard.fillColor = 'white';
+artboard.locked = true;
 
 var values = {
     paths: 50,

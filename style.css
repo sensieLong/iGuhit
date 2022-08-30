@@ -86,7 +86,8 @@ p {
     background-color: dimgrey;
 }
 #canvas {
-    background-color: white;
+    background-color: dimgrey;
+    border: 3px solid antiquewhite;
     overflow: auto;
     margin: auto;
     width: 100%;
