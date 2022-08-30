@@ -11,7 +11,7 @@
     <script type="text/javascript" canvas="canvas" defer src=".\jquery-ui.js"></script>
     <!-- <script type="text/paperscript" canvas="canvas"></script>  -->
     <script type="text/paperscript" canvas="canvas">
-        // aim to make a smooth and reliable software tool like adobe illustrator
+                // aim to make a smooth and reliable software tool like adobe illustrator
         // globals
         paper.install(window);
         var path;
@@ -595,25 +595,26 @@
 <body>
     <div id="toolControl">
         <div id="toolContainer">
-            <button id="freePen">freePen</button>
-            <button id="moveTool">moveTool</button>
-            <button id="shapeTrimmer">shapeTrimmer</button>
-            <button id="pathEdit">pathEdit</button>
-            <button id="penTool">PenTool</button>
-            <button id="zoomTool">zoomTool</button>
-            <button id="handTool">handTool</button>
+            <img src=".\toolImages\bx-move.svg" class="toolIcon" id="moveTool" />
+            <img src=".\toolImages\bxs-pencil.svg" class="toolIcon" id="freePen" />
+            <img src=".\toolImages\shapeTrimmer.svg" class="toolIcon" id="shapeTrimmer" />
+            <img src=".\toolImages\bx-edit.svg" class="toolIcon" id="pathEdit" />
+            <img src=".\toolImages\bxs-pen.svg" class="toolIcon" id="penTool" />
+            <img src=".\toolImages\bx-zoom-in.svg" class="toolIcon" id="zoomTool" />
+            <img src=".\toolImages\bxs-hand.svg" class="toolIcon" id="handTool" />
         </div>
         <div id="controlContainer">
-            <button id="controls">X :</button>
-            <input type="text" placeholder="Value of X" />
-            <button id="controls">Y :</button>
-            <input type="text" placeholder="Value of Y" />
+            <p id="canvasLabel">Canvas Size:</p>
+            <p class="widthHeight">Width :</p>
+            <input type="text" class="inputWidthSize" placeholder="Value" />
+            <p class="widthHeight">Height :</p>
+            <input type="text" class="inputWidthSize" placeholder="Value" />
         </div>
     </div>
     <div id="canvasContainer">
         <canvas id="canvas"></canvas>
     </div>
-    <p>
+    <p id="footNote">
         This software is made by: Sensie Long || Programming languange Used: Java Script || styling: css || html markUp
     </p>
 </body>

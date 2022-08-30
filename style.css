@@ -24,26 +24,52 @@ body {
     position: absolute;
 }
 
-#controlContainer {
+#toolContainer {
     margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 600px;
+    padding: 5px 3px 0px 15px;
+    width: 300px;
     background-color: #212121;
-    width: 550px;
-    padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: 2px solid antiquewhite;
 }
 
-#toolContainer {
+.toolIcon {
+    padding: 3px;
+    width: 30px;
+    height: auto;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+#controlContainer {
     margin-left: 20px;
-    margin-right: 340px;
-    margin-bottom: 20px;
-    background-color: #212121;
+    margin-right: 20px;
+    padding: 3px 3px 0px 3px;
     width: 550px;
-    padding: 10px;
-    border-radius: 10px;
+    height: 40px;
+    background-color: #212121;
+    border-radius: 20px;
     border: 2px solid antiquewhite;
+    display: flex;
+    justify-content: left;
+}
+
+#canvasLabel {
+    margin: 10px;
+    width: 100px;
+    height: 20px;
+}
+
+.widthHeight {
+    height: 26px;
+    margin: 10px 10px 10px 5px;
+}
+.inputWidthSize {
+    width: 100px;
+    height: 15px;
+    border-radius: 10px;
+    margin: 10px 10px 10px 3px;
 }
 
 p {

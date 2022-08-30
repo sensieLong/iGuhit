@@ -1,6 +1,5 @@
 // aim to make a smooth and reliable software tool like adobe illustrator
 // globals
-// you can also edit this code in github.dev
 paper.install(window);
 var path;
 var group;
