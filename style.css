@@ -34,12 +34,15 @@ body {
     border: 2px solid antiquewhite;
 }
 
+.toolToggle {
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
 .toolIcon {
     padding: 3px;
     width: 30px;
     height: auto;
-    border-radius: 15px;
-    background-color: aliceblue;
 }
 
 #controlContainer {

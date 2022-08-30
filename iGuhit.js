@@ -22,14 +22,84 @@ document.getElementById('zoomTool').addEventListener("click", zoomTool);
 document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
 document.getElementById('handTool').addEventListener("click", handTool);
 
+var toolFreePen = document.getElementById('freePen');
+var toolMove = document.getElementById('moveTool');
+var toolPathEdit = document.getElementById('pathEdit');
+var toolPen = document.getElementById('penTool');
+var toolZoom = document.getElementById('zoomTool');
+var toolShapeTrim = document.getElementById('shapeTrimmer');
+var toolHand = document.getElementById('handTool');
+
 // creating function for each element
-function pathEditing() {return changeTool = 'pathEdit';}
-function moveToolFunction() {return changeTool = 'moveTool';}
-function freePenFunction() {return changeTool = 'pen';}
-function penTool() { return changeTool = 'penTool'; }
-function zoomTool() { return changeTool = 'zoomTool'; }
-function handTool() { return changeTool = 'handTool'; }
+function pathEditing() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.add("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.remove("toolToggle");
+    return changeTool = 'pathEdit';
+}
+function moveToolFunction() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.add("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.remove("toolToggle");
+    return changeTool = 'moveTool';
+}
+function freePenFunction() {
+    toolFreePen.classList.add("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.remove("toolToggle");
+    return changeTool = 'pen';
+}
+function penTool() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.add("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.remove("toolToggle");
+    return changeTool = 'penTool';
+}
+function zoomTool() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.add("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.remove("toolToggle");
+    return changeTool = 'zoomTool';
+}
+function handTool() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.remove("toolToggle");
+    toolHand.classList.add("toolToggle");
+    return changeTool = 'handTool';
+}
 function shapeTrimmer() {
+    toolFreePen.classList.remove("toolToggle");
+    toolMove.classList.remove("toolToggle");
+    toolPathEdit.classList.remove("toolToggle");
+    toolPen.classList.remove("toolToggle");
+    toolZoom.classList.remove("toolToggle");
+    toolShapeTrim.classList.add("toolToggle");
+    toolHand.classList.remove("toolToggle");
+
     if (selectGroup.length > 2) return alert('sorry we cant operate more than 2 objects');
     // converts the array selectGroup into a group first
     selectGroup = new Group(selectGroup);
@@ -84,6 +154,7 @@ var textItem = new PointText({
 
 var rectangle = new Rectangle(new Point(500, 50), new Point(1000, 800));
 artboard = new Path.Rectangle(rectangle);
+artboard.position = paper.view.center;
 artboard.fillColor = 'white';
 artboard.locked = true;
 
