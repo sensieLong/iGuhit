@@ -32,8 +32,27 @@ var toolHand = document.getElementById('handTool');
 
 // key down global
 tool.onKeyDown = function (event) {
+    // toolSwitch section from pen
     if (event.key == 'z') {
-        console.log('you press the z');
+        return zoomTool();
+    }
+    if (event.key == 'p') {
+        return penTool();
+    }
+    if (event.key == 'a') {
+        return pathEditing();
+    }
+    if (event.key == 'h') {
+        return handTool();
+    }
+    if (event.key == 's') {
+        return shapeTrimmer();
+    }
+    if (event.key == 'n') {
+        return freePenFunction();
+    }
+    if (event.key == 'v') {
+        return moveToolFunction();
     }
 }
 
@@ -254,6 +273,30 @@ function findHandle(point) {
 function onMouseDown(event) {
     // freepen section
     if (changeTool === 'pen') {
+        tool.onKeyDown = function (event) {
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
+        }
         // If we produced a path before, deselect it:
         if (path) {
             path.selected = false;
@@ -317,6 +360,29 @@ function onMouseDown(event) {
                     console.log('the selectGroup is false or undefined');
                 }
             }
+
+            // toolSwitch section
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
         }
 
         // move hitest
@@ -374,6 +440,28 @@ function onMouseDown(event) {
                     console.log('nabura na ang pangit na path idolo');
                     return false;
                 }
+            }
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
             }
         }
         var hitResult = project.hitTest(event.point, hitOptions);
@@ -478,7 +566,30 @@ function onMouseDown(event) {
                         return false;
                     }
                 }
+                // toolSwitch section from pen
+                if (event.key == 'z') {
+                    return zoomTool();
+                }
+                if (event.key == 'p') {
+                    return penTool();
+                }
+                if (event.key == 'a') {
+                    return pathEditing();
+                }
+                if (event.key == 'h') {
+                    return handTool();
+                }
+                if (event.key == 's') {
+                    return shapeTrimmer();
+                }
+                if (event.key == 'n') {
+                    return freePenFunction();
+                }
+                if (event.key == 'v') {
+                    return moveToolFunction();
+                }
             }
+
             if (!currentSegment) {
                 currentSegment = path.add(event.point);
             }
@@ -507,6 +618,30 @@ function onMouseDown(event) {
     }
     // for shapeTrimmer section
     if (changeTool === 'shapeTrimmer') {
+        tool.onKeyDown = function (event) {
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
+        }
         var hitResult = project.hitTest(event.point, hitOptions);
         if (selectGroup === undefined) return console.log('wala pa tayong selection');
         if (selectGroup.children.length > 1) {
@@ -559,6 +694,30 @@ function onMouseDown(event) {
     // zoom section
     if (changeTool === 'zoomTool') {
         console.log('we are on zoom tool');
+        tool.onKeyDown = function (event) {
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
+        }
         if (event.modifiers.shift) {
             newZoom = paper.view.zoom * 0.95;
 
@@ -594,10 +753,28 @@ function onMouseDown(event) {
         console.log('handTool is working');
         handToolPan = project.activeLayer.children;
         tool.onKeyDown = function (event) {
-           if (event.key = ')') {
-               console.log('tool onkeydown is working');
-               handToolPan[0].position = paper.view.center;
-           }
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
         }
     }
 }
