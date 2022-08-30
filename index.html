@@ -572,8 +572,11 @@
                     newZoom = paper.view.zoom * 2;
 
                 } else if (event.modifiers.alt) {
-                    newZoom = paper.view.zoom * 0.5;
+                    newZoom = paper.view.zoom = 1;
 
+                } else if (event.modifiers.space) {
+                    console.log('handTool is working');
+                    handToolPan = project.activeLayer.children;
                 } else {
                     newZoom = paper.view.zoom * 1.05;
                 }
@@ -655,16 +658,22 @@
             }
             // zoomTool section
             if (changeTool === 'zoomTool') {
-                zoomStartPos = new Point(event.delta);
-                console.log(zoomStartPos);
-
-                if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
-                    newZoom = paper.view.zoom * 1.05;
+                if (event.modifiers.space) {
+                    console.log('handTool drag is working');
+                    for (var i = 0; i < handToolPan.length; i++) {
+                        handToolPan[i].position += event.delta;
+                    }
                 } else {
-                    newZoom = paper.view.zoom * 0.95;
+                    zoomStartPos = new Point(event.delta);
+                    console.log(zoomStartPos);
+                    if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
+                        newZoom = paper.view.zoom * 1.05;
+                    } else {
+                        newZoom = paper.view.zoom * 0.95;
+                    }
+                    paper.view.zoom = newZoom;
+                    paper.view.draw();
                 }
-                paper.view.zoom = newZoom;
-                paper.view.draw();
             }
             // handTool section for drag
             if (changeTool === 'handTool') {
