@@ -11,7 +11,7 @@ var movePath = false;
 var currentSegment, mode, type;
 var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
-var handToolPan;
+var handToolPan, artboardMove, diffDelta;
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -29,6 +29,13 @@ var toolPen = document.getElementById('penTool');
 var toolZoom = document.getElementById('zoomTool');
 var toolShapeTrim = document.getElementById('shapeTrimmer');
 var toolHand = document.getElementById('handTool');
+
+// key down global
+tool.onKeyDown = function (event) {
+    if (event.key == 'z') {
+        console.log('you press the z');
+    }
+}
 
 // creating function for each element
 function pathEditing() {
@@ -194,11 +201,11 @@ function shapeTrimmer() {
 }
 
 // some usefull objects
-var textItem = new PointText({
-    content: 'You can drag our tool box where ever you want',
-    point: new Point(20, 50),
-    fillColor: 'black',
-});
+// var textItem = new PointText({
+//     content: 'You can drag our tool box where ever you want',
+//     point: new Point(20, 50),
+//     fillColor: 'black',
+// });
 
 var rectangle = new Rectangle(new Point(500, 50), new Point(1000, 800));
 artboard = new Path.Rectangle(rectangle);
@@ -561,9 +568,21 @@ function onMouseDown(event) {
         } else if (event.modifiers.alt) {
             newZoom = paper.view.zoom = 1;
 
+            // center everything in the canvas
+            artboardMove = project.activeLayer.children;
+            console.log(artboard.position);
+            console.log(paper.view.center);
+            diffDelta = new Point(paper.view.center.x - artboard.position.x, paper.view.center.y - artboard.position.y);
+            console.log('the distance of artboard from the center is ', diffDelta);
+
+            for (var i = 0; i < artboardMove.length; i++) {
+                artboardMove[i].position += diffDelta;
+            }
+
         } else if (event.modifiers.space) {
             console.log('handTool is working');
             handToolPan = project.activeLayer.children;
+
         } else {
             newZoom = paper.view.zoom * 1.05;
         }
@@ -605,7 +624,7 @@ function onMouseDrag(event) {
         path.add(event.point);
         // Update the content of the text item to show how many
         // segments it has:
-        textItem.content = 'Segment count: ' + path.segments.length;
+        // textItem.content = 'Segment count: ' + path.segments.length;
     }
     // moveTool section.
     if (changeTool === 'moveTool') {
@@ -673,7 +692,7 @@ function onMouseDrag(event) {
 // mouseUp section
 function onMouseUp(event) {
     if (changeTool === 'pen') {
-        var segmentCount = path.segments.length;
+        // var segmentCount = path.segments.length;
 
         // When the mouse is released, simplify it:
         path.simplify(10);
@@ -681,10 +700,10 @@ function onMouseUp(event) {
         // Select the path, so we can see its segments:
         path.fullySelected = true;
 
-        var newSegmentCount = path.segments.length;
-        var difference = segmentCount - newSegmentCount;
-        var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
-        textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
+        // var newSegmentCount = path.segments.length;
+        // var difference = segmentCount - newSegmentCount;
+        // var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
+        // textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
         path.fillColor = {
             hue: 360 * Math.random(),
             saturation: 1,
