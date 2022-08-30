@@ -39,6 +39,14 @@ function pathEditing() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'pathEdit';
 }
 function moveToolFunction() {
@@ -49,6 +57,14 @@ function moveToolFunction() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'moveTool';
 }
 function freePenFunction() {
@@ -59,6 +75,14 @@ function freePenFunction() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'pen';
 }
 function penTool() {
@@ -69,6 +93,14 @@ function penTool() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'penTool';
 }
 function zoomTool() {
@@ -79,6 +111,14 @@ function zoomTool() {
     toolZoom.classList.add("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'zoomTool';
 }
 function handTool() {
@@ -89,6 +129,14 @@ function handTool() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.add("toolToggle");
+
+    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
+    if (shapeTrim1, shapeTrim2, shapeTrim3) {
+        shapeTrim1.remove();
+        shapeTrim2.remove();
+        shapeTrim3.remove();
+        console.log('shapetrimmer template is successfully removed');
+    }
     return changeTool = 'handTool';
 }
 function shapeTrimmer() {
@@ -215,7 +263,6 @@ function onMouseDown(event) {
     // moveTool section
     if (changeTool === 'moveTool') {
         segment = path = handles = null;
-
         // move keyboard interaction
         tool.onKeyDown = function (event) {
             if (event.key == 'delete') {
