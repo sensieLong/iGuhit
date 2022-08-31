@@ -336,7 +336,7 @@ function onMouseDown(event) {
                 }
             }
 
-            if (event.key == '[') {
+            if (event.key == '{') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].sendToBack();
@@ -347,7 +347,7 @@ function onMouseDown(event) {
                 }
             }
 
-            if (event.key == ']') {
+            if (event.key == '}') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].bringToFront();
@@ -358,7 +358,7 @@ function onMouseDown(event) {
                 }
             }
 
-            if (event.key == '}') {
+            if (event.key == ']') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].insertAbove(selectGroup[i].nextSibling);
@@ -369,7 +369,7 @@ function onMouseDown(event) {
                 }
             }
 
-            if (event.key == '{') {
+            if (event.key == '[') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].insertBelow(selectGroup[i].previousSibling);
@@ -405,47 +405,53 @@ function onMouseDown(event) {
         }
 
         // move hitest
-        var hitResult = project.hitTest(event.point, hitOptions);
-        if (hitResult && hitResult.type != 'bounds') {
-            path = hitResult.item;
-            path.selected = true;
-            selectGroup = project.selectedItems;
-            console.log(selectGroup);
-            console.log('selectGroup length is ', selectGroup.length);
+        if (event.modifiers.space) {
+            console.log('handTool is working');
+            handToolPan = project.activeLayer.children;
+        } else {
+            var hitResult = project.hitTest(event.point, hitOptions);
+            if (hitResult && hitResult.type != 'bounds') {
+                path = hitResult.item;
+                path.selected = true;
+                selectGroup = project.selectedItems;
+                console.log(selectGroup);
+                console.log('selectGroup length is ', selectGroup.length);
 
-            if (selectGroup.length > 0) {
-                for (i = 0; i < selectGroup.length; i++) {
-                    selectGroup[i].bounds.selected = true;
-                }
-            }
-            if (event.modifiers.alt) {
                 if (selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
-                        selectGroup[i].selected = false;
-                        selectGroup[i].bounds.selected = false;
-                        cloneCopy = selectGroup[i].clone();
-                        cloneCopy.selected = true;
+                        selectGroup[i].bounds.selected = true;
                     }
-                };
-                selectGroup.selected = false;
-                return;
-            }
-            return selectGroup;
-        }
-        // if there is no hit
-        if (!hitResult) {
-            pathScaled = null;
-            if (selectGroup) {
-                for (i = 0; i < selectGroup.length; i++) {
-                    selectGroup[i].bounds.selected = false;
                 }
-            } else {
-                console.log('wala pang selection ang move tool');
+
+                if (event.modifiers.alt) {
+                    if (selectGroup.length > 0) {
+                        for (i = 0; i < selectGroup.length; i++) {
+                            selectGroup[i].selected = false;
+                            selectGroup[i].bounds.selected = false;
+                            cloneCopy = selectGroup[i].clone();
+                            cloneCopy.selected = true;
+                        }
+                    };
+                    selectGroup.selected = false;
+                    return;
+                }
+                return selectGroup;
             }
-            project.activeLayer.selected = false;
-            project.activeLayer.fullySelected = false;
-            console.log(selectGroup);
-            return selectGroup = [];
+            // if there is no hit
+            if (!hitResult) {
+                pathScaled = null;
+                if (selectGroup) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].bounds.selected = false;
+                    }
+                } else {
+                    console.log('wala pang selection ang move tool');
+                }
+                project.activeLayer.selected = false;
+                project.activeLayer.fullySelected = false;
+                console.log(selectGroup);
+                return selectGroup = [];
+            }
         }
     }
     // path editing section
@@ -489,6 +495,11 @@ function onMouseDown(event) {
         if (!hitResult)
             return;
         // event modifiers section
+        if (event.modifiers.space) {
+            console.log('handTool is working');
+            handToolPan = project.activeLayer.children;
+        }
+
         if (event.modifiers.alt) {
             if (hitResult.type == 'segment') {
                 hitResult.segment.handleOut = null;
@@ -614,7 +625,10 @@ function onMouseDown(event) {
             if (!currentSegment) {
                 currentSegment = path.add(event.point);
             }
-
+            if (event.modifiers.space) {
+                console.log('handTool is working');
+                handToolPan = project.activeLayer.children;
+            }
             if (event.modifiers.alt) {
                 if (currentSegment) {
                     currentSegment.handleOut = null;
@@ -762,7 +776,6 @@ function onMouseDown(event) {
         } else if (event.modifiers.space) {
             console.log('handTool is working');
             handToolPan = project.activeLayer.children;
-
         } else {
             newZoom = paper.view.zoom * 1.05;
         }
@@ -826,47 +839,59 @@ function onMouseDrag(event) {
     }
     // moveTool section.
     if (changeTool === 'moveTool') {
-        var hitResult = project.hitTest(event.point, hitOptionsDrag);
-        if (hitResult && hitResult.item.bounds.selected && hitResult.type === 'bounds') {
-            var scaleDelta = 0;
-            pathScaled = hitResult.item;
-            var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
-
-            console.log('path position ', pathScaled.position);
-            console.log('path bounds bottomRight', pathScaled.bounds.bottomRight)
-            console.log('our mouse position', event.point);
-            console.log('the gap is ', scaleGap);
-
-            if (event.delta.x > 0 && event.delta.y > 0) {
-                console.log(event.delta);
-                pathScaled.position -= scaleGap;
-                scaleDelta = 1.05;
-            } else if (event.delta.x < 0 && event.delta.y < 0) {
-                console.log(event.delta);
-                pathScaled.position -= scaleGap;
-                scaleDelta = 0.98;
-            } else {
-                pathScaled.position -= scaleGap;
-                scaleDelta = 1;
+        if (event.modifiers.space) {
+            console.log('handTool drag is working');
+            for (var i = 0; i < handToolPan.length; i++) {
+                handToolPan[i].position += event.delta;
             }
-            pathScaled.scale(scaleDelta);
-        }
-        if (!hitResult) {
-            pathScaled = null;
-            console.log('no hit');
+        } else {
+            var hitResult = project.hitTest(event.point, hitOptionsDrag);
+            if (hitResult && hitResult.item.bounds.selected && hitResult.type === 'bounds') {
+                var scaleDelta = 0;
+                pathScaled = hitResult.item;
+                var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
+
+                console.log('path position ', pathScaled.position);
+                console.log('path bounds bottomRight', pathScaled.bounds.bottomRight)
+                console.log('our mouse position', event.point);
+                console.log('the gap is ', scaleGap);
+
+                if (event.delta.x > 0 && event.delta.y > 0) {
+                    console.log(event.delta);
+                    pathScaled.position -= scaleGap;
+                    scaleDelta = 1.05;
+                } else if (event.delta.x < 0 && event.delta.y < 0) {
+                    console.log(event.delta);
+                    pathScaled.position -= scaleGap;
+                    scaleDelta = 0.98;
+                } else {
+                    pathScaled.position -= scaleGap;
+                    scaleDelta = 1;
+                }
+                pathScaled.scale(scaleDelta);
+            }
+            if (!hitResult) {
+                pathScaled = null;
+                console.log('no hit');
+                return;
+            }
+
+            if (selectGroup && hitResult && hitResult.type != 'bounds') {
+                for (i = 0; i < selectGroup.length; i++) {
+                    selectGroup[i].translate(event.delta);
+                }
+            }
             return;
         }
-
-        if (selectGroup && hitResult && hitResult.type != 'bounds') {
-            for (i = 0; i < selectGroup.length; i++) {
-                selectGroup[i].translate(event.delta);
-            }
-        }
-        return;
     }
     // path editing section
     if (changeTool === 'pathEdit') {
-        if (segment) {
+        if (event.modifiers.space) {
+            console.log('handTool drag is working');
+            for (var i = 0; i < handToolPan.length; i++) {
+                handToolPan[i].position += event.delta;
+            }
+        } else if (segment) {
             segment.point += event.delta;
             //path.smooth();
         } else if (handles) {
@@ -881,7 +906,12 @@ function onMouseDrag(event) {
     }
     // penTool section
     if (changeTool === 'penTool') {
-        if (mode == 'move' && type == 'point') {
+        if (event.modifiers.space) {
+            console.log('handTool drag is working');
+            for (var i = 0; i < handToolPan.length; i++) {
+                handToolPan[i].position += event.delta;
+            }
+        } else if (mode == 'move' && type == 'point') {
             currentSegment.point = event.point;
         } else if (mode != 'close') {
             var delta = event.delta.clone();
