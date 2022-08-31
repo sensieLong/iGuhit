@@ -226,7 +226,7 @@ function shapeTrimmer() {
 //     fillColor: 'black',
 // });
 
-var rectangle = new Rectangle(new Point(500, 50), new Point(1000, 800));
+var rectangle = new Rectangle(new Point(0, 0), new Point(850, 1100));
 artboard = new Path.Rectangle(rectangle);
 artboard.position = paper.view.center;
 artboard.fillColor = 'white';
@@ -245,7 +245,17 @@ var hitOptions = {
     handles: true,
     stroke: true,
     fill: true,
+    bounds: true,
     tolerance: 5
+};
+
+var hitOptionsDrag = {
+    segments: true,
+    handles: true,
+    stroke: true,
+    fill: true,
+    bounds: true,
+    tolerance: 20
 };
 
 // global functions
@@ -387,7 +397,7 @@ function onMouseDown(event) {
 
         // move hitest
         var hitResult = project.hitTest(event.point, hitOptions);
-        if (hitResult) {
+        if (hitResult && hitResult.type != 'bounds') {
             path = hitResult.item;
             path.selected = true;
             selectGroup = project.selectedItems;
@@ -413,6 +423,7 @@ function onMouseDown(event) {
             }
             return selectGroup;
         }
+        // if there is no hit
         if (!hitResult) {
             if (selectGroup) {
                 for (i = 0; i < selectGroup.length; i++) {
@@ -805,7 +816,37 @@ function onMouseDrag(event) {
     }
     // moveTool section.
     if (changeTool === 'moveTool') {
-        if (selectGroup) {
+        var hitResult = project.hitTest(event.point, hitOptionsDrag);
+        if (hitResult && hitResult.type === 'bounds') {
+            var scaleDelta = 0;
+            var pathScaled = hitResult.item;
+            var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
+
+            console.log('path position ', pathScaled.position);
+            console.log('path bounds bottomRight', pathScaled.bounds.bottomRight)
+            console.log('our mouse position', event.point);
+            console.log('the gap is ', scaleGap);
+
+            if (event.delta.x > 0 && event.delta.y > 0) {
+                console.log(event.delta);
+                pathScaled.position -= scaleGap;
+                scaleDelta = 1.05;
+            } else if (event.delta.x < 0 && event.delta.y < 0) {
+                console.log(event.delta);
+                pathScaled.position -= scaleGap;
+                scaleDelta = 0.98;
+            } else {
+                pathScaled.position -= scaleGap;
+                scaleDelta = 1;
+            }
+            pathScaled.scale(scaleDelta);
+        }
+        if (!hitResult) {
+            console.log('no hit');
+            return;
+        }
+
+        if (selectGroup && hitResult && hitResult.type != 'bounds') {
             for (i = 0; i < selectGroup.length; i++) {
                 selectGroup[i].translate(event.delta);
             }
