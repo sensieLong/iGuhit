@@ -360,7 +360,10 @@ function onMouseDown(event) {
 
             if (event.key == '}') {
                 if (selectGroup && selectGroup.length > 0) {
-                    console.log('dapat aangat ang item');
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].insertAbove(selectGroup[i].nextSibling);
+                        artboard.sendToBack();
+                    }
                 } else {
                     console.log('the selectGroup is false or undefined');
                 }
@@ -368,7 +371,10 @@ function onMouseDown(event) {
 
             if (event.key == '{') {
                 if (selectGroup && selectGroup.length > 0) {
-                    console.log('dapat bababa ang item');
+                    for (i = 0; i < selectGroup.length; i++) {
+                        selectGroup[i].insertBelow(selectGroup[i].previousSibling);
+                        artboard.sendToBack();
+                    }
                 } else {
                     console.log('the selectGroup is false or undefined');
                 }
@@ -821,7 +827,7 @@ function onMouseDrag(event) {
     // moveTool section.
     if (changeTool === 'moveTool') {
         var hitResult = project.hitTest(event.point, hitOptionsDrag);
-        if (hitResult && hitResult.type === 'bounds') {
+        if (hitResult && hitResult.item.bounds.selected && hitResult.type === 'bounds') {
             var scaleDelta = 0;
             pathScaled = hitResult.item;
             var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
