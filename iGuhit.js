@@ -11,7 +11,8 @@ var movePath = false;
 var currentSegment, mode, type;
 var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
-var handToolPan, artboardMove, diffDelta;
+var handToolPan, artboardMove, diffDelta, pathScaled;
+
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -339,6 +340,7 @@ function onMouseDown(event) {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].sendToBack();
+                        artboard.sendToBack();
                     }
                 } else {
                     console.log('the selectGroup is false or undefined');
@@ -349,6 +351,7 @@ function onMouseDown(event) {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].bringToFront();
+                        artboard.sendToBack();
                     }
                 } else {
                     console.log('the selectGroup is false or undefined');
@@ -425,6 +428,7 @@ function onMouseDown(event) {
         }
         // if there is no hit
         if (!hitResult) {
+            pathScaled = null;
             if (selectGroup) {
                 for (i = 0; i < selectGroup.length; i++) {
                     selectGroup[i].bounds.selected = false;
@@ -819,7 +823,7 @@ function onMouseDrag(event) {
         var hitResult = project.hitTest(event.point, hitOptionsDrag);
         if (hitResult && hitResult.type === 'bounds') {
             var scaleDelta = 0;
-            var pathScaled = hitResult.item;
+            pathScaled = hitResult.item;
             var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
 
             console.log('path position ', pathScaled.position);
@@ -842,6 +846,7 @@ function onMouseDrag(event) {
             pathScaled.scale(scaleDelta);
         }
         if (!hitResult) {
+            pathScaled = null;
             console.log('no hit');
             return;
         }
