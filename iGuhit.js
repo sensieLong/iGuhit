@@ -13,7 +13,6 @@ var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShap
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 var handToolPan, artboardMove, diffDelta, pathScaled;
 
-
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
 document.getElementById('moveTool').addEventListener("click", moveToolFunction);
@@ -220,13 +219,6 @@ function shapeTrimmer() {
     return changeTool = 'shapeTrimmer';
 }
 
-// some usefull objects
-// var textItem = new PointText({
-//     content: 'You can drag our tool box where ever you want',
-//     point: new Point(20, 50),
-//     fillColor: 'black',
-// });
-
 var rectangle = new Rectangle(new Point(0, 0), new Point(850, 1100));
 artboard = new Path.Rectangle(rectangle);
 artboard.position = paper.view.center;
@@ -256,7 +248,7 @@ var hitOptionsDrag = {
     stroke: true,
     fill: true,
     bounds: true,
-    tolerance: 20
+    tolerance: 30
 };
 
 // global functions
@@ -859,7 +851,7 @@ function onMouseDrag(event) {
                 if (event.delta.x > 0 && event.delta.y > 0) {
                     console.log(event.delta);
                     pathScaled.position -= scaleGap;
-                    scaleDelta = 1.05;
+                    scaleDelta = 1.02;
                 } else if (event.delta.x < 0 && event.delta.y < 0) {
                     console.log(event.delta);
                     pathScaled.position -= scaleGap;
