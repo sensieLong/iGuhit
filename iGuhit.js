@@ -920,9 +920,11 @@ function onMouseDrag(event) {
             zoomStartPos = new Point(event.delta);
             console.log(zoomStartPos);
             if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
-                newZoom = paper.view.zoom * 1.05;
+                newZoom = paper.view.zoom * 1.02;
+            } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                newZoom = paper.view.zoom * 1;
             } else {
-                newZoom = paper.view.zoom * 0.95;
+                newZoom = paper.view.zoom * 0.98;
             }
             paper.view.zoom = newZoom;
             paper.view.draw();
