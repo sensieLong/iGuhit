@@ -24,7 +24,7 @@
         var currentSegment, mode, type;
         var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
         var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
-        var handToolPan, artboardMove, diffDelta, pathScaled;
+        var handToolPan, artboardMove, diffDelta, pathScaled,  moveDrag;
 
         // get the html element and add click function
         document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -440,7 +440,15 @@
                             selectGroup.selected = false;
                             return;
                         }
+                        moveDrag = 'ready';
                         return selectGroup;
+                    }
+                    if (hitResult && hitResult.type === 'bounds') {
+                        path = hitResult.item;
+                        console.log('you hit the bounds baby');
+                        console.log(path);
+                        pathScaled = 'ready';
+                        console.log(pathScaled);
                     }
                     // if there is no hit
                     if (!hitResult) {
@@ -850,38 +858,25 @@
                         handToolPan[i].position += event.delta;
                     }
                 } else {
-                    var hitResult = project.hitTest(event.point, hitOptionsDrag);
-                    if (hitResult && hitResult.item.bounds.selected && hitResult.type === 'bounds') {
-                        var scaleDelta = 0;
-                        pathScaled = hitResult.item;
-                        var scaleGap = new Point((pathScaled.bounds.bottomRight.x - event.point.x), (pathScaled.bounds.bottomRight.y - event.point.y));
+                    if (pathScaled === 'ready') {
+                        console.log('pathScaled is in drag');
+                        var topLeftBounds = new Point(path.bounds.topLeft);
+                        console.log(path.bounds.bottomRight);
+                        path.bounds.topLeft = new Point(topLeftBounds);
 
-                        console.log('path position ', pathScaled.position);
-                        console.log('path bounds bottomRight', pathScaled.bounds.bottomRight)
-                        console.log('our mouse position', event.point);
-                        console.log('the gap is ', scaleGap);
-
-                        if (event.delta.x > 0 && event.delta.y > 0) {
-                            console.log(event.delta);
-                            pathScaled.position -= scaleGap;
-                            scaleDelta = 1.02;
-                        } else if (event.delta.x < 0 && event.delta.y < 0) {
-                            console.log(event.delta);
-                            pathScaled.position -= scaleGap;
-                            scaleDelta = 0.98;
+                        zoomStartPos = new Point(event.delta);
+                        console.log(zoomStartPos);
+                        if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
+                            var scaleIt = 1.01;
+                        } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                            var scaleIt = 1;
                         } else {
-                            pathScaled.position -= scaleGap;
-                            scaleDelta = 1;
+                            var scaleIt = 0.99;
                         }
-                        pathScaled.scale(scaleDelta);
-                    }
-                    if (!hitResult) {
-                        pathScaled = null;
-                        console.log('no hit');
-                        return;
+                        path.scale(scaleIt, path.bounds.topLeft);
                     }
 
-                    if (selectGroup && hitResult && hitResult.type != 'bounds') {
+                    if (selectGroup && moveDrag === 'ready') {
                         for (i = 0; i < selectGroup.length; i++) {
                             selectGroup[i].translate(event.delta);
                         }
@@ -955,6 +950,7 @@
         }
         // mouseUp section
         function onMouseUp(event) {
+            // freePen section
             if (changeTool === 'pen') {
                 // var segmentCount = path.segments.length;
 
@@ -976,13 +972,18 @@
                 };
                 path.closed = true;
             }
-            // moveit section in mouse up event
+            // pathEdit section in mouse up event
             if (changeTool === 'pathEdit') {
                 if (!path) {
                     return;
                 } else {
                     path.fullySelected = true;
                 }
+            }
+            // moveTool section in up
+            if (changeTool === 'moveTool') {
+                pathScaled = moveDrag = null;
+                console.log(pathScaled, moveDrag);
             }
         }
 
