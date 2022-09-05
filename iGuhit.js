@@ -11,7 +11,7 @@ var movePath = false;
 var currentSegment, mode, type;
 var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
-var handToolPan, artboardMove, diffDelta, pathScaled,  moveDrag;
+var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -65,13 +65,10 @@ function pathEditing() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
-
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'pathEdit';
 }
@@ -83,13 +80,10 @@ function moveToolFunction() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
-
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'moveTool';
 }
@@ -102,12 +96,10 @@ function freePenFunction() {
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
 
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'pen';
 }
@@ -120,12 +112,10 @@ function penTool() {
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
 
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'penTool';
 }
@@ -137,13 +127,10 @@ function zoomTool() {
     toolZoom.classList.add("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.remove("toolToggle");
-
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'zoomTool';
 }
@@ -155,13 +142,10 @@ function handTool() {
     toolZoom.classList.remove("toolToggle");
     toolShapeTrim.classList.remove("toolToggle");
     toolHand.classList.add("toolToggle");
-
-    console.log('the template of shape trimmer is ', shapeTrim1, shapeTrim2, shapeTrim3);
     if (shapeTrim1, shapeTrim2, shapeTrim3) {
         shapeTrim1.remove();
         shapeTrim2.remove();
         shapeTrim3.remove();
-        console.log('shapetrimmer template is successfully removed');
     }
     return changeTool = 'handTool';
 }
@@ -179,7 +163,6 @@ function shapeTrimmer() {
     selectGroup = new Group(selectGroup);
     // continue if selectGroup is not null or it has a value greater then 1
     if (selectGroup && selectGroup.children.length > 1) {
-        console.log(selectGroup.children);
         selectGroup.children[0].bounds.selected = false;
         selectGroup.children[1].bounds.selected = false;
         shapeTrim1 = selectGroup.children[0].subtract(selectGroup.children[1]);
@@ -193,28 +176,25 @@ function shapeTrimmer() {
             shapeTrim1.selected = true;
             shapeTrim1.fillColor = { hue: 240, alpha: 0.01 };
             selectGroup.addChild(shapeTrim1);
-            console.log('the shapetrim 1 success');
         } else {
-            console.log('the shapetrim 1 is not added');
+            return;
         }
         if (shapeTrim2 && shapeTrim2.segments != undefined && shapeTrim2.segments.length > 2) {
             shapeTrim2.selected = true;
             shapeTrim2.fillColor = { hue: 240, alpha: 0.01 };
             selectGroup.addChild(shapeTrim2);
-            console.log('the shapetrim 2 success');
         } else {
-            console.log('the shapetrim 2 is not added');
+            return;
         }
         if (shapeTrim3 && shapeTrim3.segments != undefined && shapeTrim3.segments.length > 2) {
             shapeTrim3.selected = true;
             shapeTrim3.fillColor = { hue: 240, alpha: 0.01 };
             selectGroup.addChild(shapeTrim3);
-            console.log('the shapetrim 3 success');
         } else {
-            console.log('the shapetrim 3 is not added');
+            return;
         }
     } else {
-        console.log('selectGroup is not ready, because we dont operate with 1 value');
+        return;
     }
     return changeTool = 'shapeTrimmer';
 }
@@ -323,7 +303,6 @@ function onMouseDown(event) {
                     alert('anong buburahin mo?');
                 } else {
                     path.remove();
-                    console.log('nabura na ang pangit na path idolo');
                     return false;
                 }
             }
@@ -335,7 +314,7 @@ function onMouseDown(event) {
                         artboard.sendToBack();
                     }
                 } else {
-                    console.log('the selectGroup is false or undefined');
+                    return;
                 }
             }
 
@@ -346,7 +325,7 @@ function onMouseDown(event) {
                         artboard.sendToBack();
                     }
                 } else {
-                    console.log('the selectGroup is false or undefined');
+                    return;
                 }
             }
 
@@ -357,7 +336,7 @@ function onMouseDown(event) {
                         artboard.sendToBack();
                     }
                 } else {
-                    console.log('the selectGroup is false or undefined');
+                    return;
                 }
             }
 
@@ -368,7 +347,7 @@ function onMouseDown(event) {
                         artboard.sendToBack();
                     }
                 } else {
-                    console.log('the selectGroup is false or undefined');
+                    return;
                 }
             }
 
@@ -398,16 +377,13 @@ function onMouseDown(event) {
 
         // move hitest
         if (event.modifiers.space) {
-            console.log('handTool is working');
             handToolPan = project.activeLayer.children;
         } else {
             var hitResult = project.hitTest(event.point, hitOptions);
             if (hitResult && hitResult.type != 'bounds') {
-                path = hitResult.item;
-                path.selected = true;
+                item = hitResult.item;
+                item.selected = true;
                 selectGroup = project.selectedItems;
-                console.log(selectGroup);
-                console.log('selectGroup length is ', selectGroup.length);
 
                 if (selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
@@ -428,15 +404,11 @@ function onMouseDown(event) {
                     return;
                 }
                 moveDrag = 'ready';
-                console.log('moveDrag is ', moveDrag);
                 return selectGroup;
             }
             if (hitResult && hitResult.type === 'bounds') {
-                path = hitResult.item;
-                console.log('you hit the bounds baby');
-                console.log(path);
+                item = hitResult.item;
                 pathScaled = 'ready';
-                console.log('pathScaled is ', pathScaled);
             }
             // if there is no hit
             if (!hitResult) {
@@ -446,18 +418,16 @@ function onMouseDown(event) {
                         selectGroup[i].bounds.selected = false;
                     }
                 } else {
-                    console.log('wala pang selection ang move tool');
+                    return;
                 }
                 project.activeLayer.selected = false;
                 project.activeLayer.fullySelected = false;
-                console.log(selectGroup);
                 return selectGroup = [];
             }
         }
     }
     // path editing section
     if (changeTool === 'pathEdit') {
-        console.log('path Editing tool is working');
         segment = path = handles = null;
         tool.onKeyDown = function (event) {
             if (event.key == 'delete') {
@@ -465,7 +435,6 @@ function onMouseDown(event) {
                     alert('anong buburahin mo?');
                 } else {
                     path.remove();
-                    console.log('nabura na ang pangit na path idolo');
                     return false;
                 }
             }
@@ -497,7 +466,6 @@ function onMouseDown(event) {
             return;
         // event modifiers section
         if (event.modifiers.space) {
-            console.log('handTool is working');
             handToolPan = project.activeLayer.children;
         }
 
@@ -513,7 +481,7 @@ function onMouseDown(event) {
                 if (hitResult.segment.handleIn != null) {
                     hitResult.segment.handleIn = null;
                 } else {
-                    console.log('walang handle in and segment');
+                    return;
                 }
             };
             return;
@@ -595,7 +563,6 @@ function onMouseDown(event) {
                     } else {
                         currentSegment.remove();
                         currentSegment = path.lastSegment;
-                        console.log('tuloy mo lang');
                         return false;
                     }
                 }
@@ -627,7 +594,6 @@ function onMouseDown(event) {
                 currentSegment = path.add(event.point);
             }
             if (event.modifiers.space) {
-                console.log('handTool is working');
                 handToolPan = project.activeLayer.children;
             }
             if (event.modifiers.alt) {
@@ -682,7 +648,6 @@ function onMouseDown(event) {
         if (selectGroup === undefined) return console.log('wala pa tayong selection');
         if (selectGroup.children.length > 1) {
             if (hitResult && hitResult.item && hitResult.item == shapeTrim1) {
-                console.log('you  hit the shapeTrim1');
                 if (shapeTrim1.segments != undefined && shapeTrim1.segments.length > 2) {
                     shapeResult = selectGroup.children[0].subtract(selectGroup.children[1]);
                     combinedShape = selectGroup.children[1];
@@ -697,7 +662,6 @@ function onMouseDown(event) {
                 return selectGroup = selectGroup.children;
             }
             if (hitResult && hitResult.item && hitResult.item == shapeTrim2) {
-                console.log('you  hit the shapeTrim2');
                 if (shapeTrim2.segments.length > 2) {
                     shapeResult = selectGroup.children[0].intersect(selectGroup.children[1]);
                     combinedShape = selectGroup.children[0].subtract(selectGroup.children[1]);
@@ -711,7 +675,6 @@ function onMouseDown(event) {
                 return selectGroup = selectGroup.children;
             }
             if (hitResult && hitResult.item && hitResult.item == shapeTrim3) {
-                console.log('you  hit the shapeTrim3');
                 if (shapeTrim3.segments != undefined && shapeTrim3.segments.length > 2) {
                     shapeResult = selectGroup.children[1].subtract(selectGroup.children[0]);
                     combinedShape = selectGroup.children[0];
@@ -729,7 +692,6 @@ function onMouseDown(event) {
     }
     // zoom section
     if (changeTool === 'zoomTool') {
-        console.log('we are on zoom tool');
         tool.onKeyDown = function (event) {
             // toolSwitch section from pen
             if (event.key == 'z') {
@@ -765,17 +727,13 @@ function onMouseDown(event) {
 
             // center everything in the canvas
             artboardMove = project.activeLayer.children;
-            console.log(artboard.position);
-            console.log(paper.view.center);
             diffDelta = new Point(paper.view.center.x - artboard.position.x, paper.view.center.y - artboard.position.y);
-            console.log('the distance of artboard from the center is ', diffDelta);
 
             for (var i = 0; i < artboardMove.length; i++) {
                 artboardMove[i].position += diffDelta;
             }
 
         } else if (event.modifiers.space) {
-            console.log('handTool is working');
             handToolPan = project.activeLayer.children;
         } else {
             newZoom = paper.view.zoom * 1.05;
@@ -785,7 +743,6 @@ function onMouseDown(event) {
     }
     // handTool section
     if (changeTool === 'handTool') {
-        console.log('handTool is working');
         handToolPan = project.activeLayer.children;
         tool.onKeyDown = function (event) {
             // toolSwitch section from pen
@@ -841,27 +798,129 @@ function onMouseDrag(event) {
     // moveTool section.
     if (changeTool === 'moveTool') {
         if (event.modifiers.space) {
-            console.log('handTool drag is working');
             for (var i = 0; i < handToolPan.length; i++) {
                 handToolPan[i].position += event.delta;
             }
         } else {
             if (pathScaled === 'ready') {
-                console.log('pathScaled is in drag');
-                var topLeftBounds = new Point(path.bounds.topLeft);
-                console.log(path.bounds.bottomRight);
-                path.bounds.topLeft = new Point(topLeftBounds);
+                if (event.modifiers.shift) {
+                    var topLeftBounds = new Point(item.bounds.topLeft);
+                    item.bounds.topLeft = new Point(topLeftBounds);
 
-                zoomStartPos = new Point(event.delta);
-                console.log(zoomStartPos);
-                if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
-                    var scaleIt = 1.01;
-                } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
-                    var scaleIt = 1;
+                    zoomStartPos = new Point(event.delta);
+                    if (zoomStartPos.x > 0) {
+                        if (event.delta.x > 10) {
+                            var scaleIt = 1.10;
+                        } else if (event.delta.x > 8) {
+                            var scaleIt = 1.08;
+                        } else if (event.delta.x > 5) {
+                            var scaleIt = 1.05;
+                        } else if (event.delta.x > 3) {
+                            var scaleIt = 1.02;
+                        } else {
+                            var scaleIt = 1.01;
+                        }
+                        if (item.bounds.bottomRight.x > event.point.x) {
+                            return;
+                        }
+                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                        var scaleIt = 1;
+                    } else {
+                        if (event.delta.x < -10) {
+                            var scaleIt = 0.80;
+                        } else if (event.delta.x < -8) {
+                            var scaleIt = 0.92;
+                        } else if (event.delta.x < -5) {
+                            var scaleIt = 0.95;
+                        } else if (event.delta.x < -3) {
+                            var scaleIt = 0.98;
+                        } else {
+                            var scaleIt = 0.99;
+                        }
+                        if (item.bounds.bottomRight.x < event.point.x) {
+                            return;
+                        }
+                    }
+                    item.scale(scaleIt, 1, item.bounds.topLeft);
+                } else if (event.modifiers.alt) {
+                    var topLeftBounds = new Point(item.bounds.topLeft);
+                    item.bounds.topLeft = new Point(topLeftBounds);
+
+                    zoomStartPos = new Point(event.delta);
+                    if (zoomStartPos.y > 0 ) {
+                        if (event.delta.y > 10) {
+                            var scaleIt = 1.10;
+                        } else if (event.delta.y > 8) {
+                            var scaleIt = 1.08;
+                        } else if (event.delta.y > 5) {
+                            var scaleIt = 1.05;
+                        } else if (event.delta.y > 3) {
+                            var scaleIt = 1.02;
+                        } else {
+                            var scaleIt = 1.01;
+                        }
+                        if (item.bounds.bottomRight.y > event.point.y) {
+                            return;
+                        }
+                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                        var scaleIt = 1;
+                    } else {
+                        if (event.delta.y < -10) {
+                            var scaleIt = 0.80;
+                        } else if (event.delta.y < -8) {
+                            var scaleIt = 0.92;
+                        } else if (event.delta.y < -5) {
+                            var scaleIt = 0.95;
+                        } else if (event.delta.y < -3) {
+                            var scaleIt = 0.98;
+                        } else {
+                            var scaleIt = 0.99;
+                        }
+                        if (item.bounds.bottomRight.y < event.point.y) {
+                            return;
+                        }
+                    }
+                    item.scale(1, scaleIt, item.bounds.topLeft);
                 } else {
-                    var scaleIt = 0.99;
+                    var topLeftBounds = new Point(item.bounds.topLeft);
+                    item.bounds.topLeft = new Point(topLeftBounds);
+
+                    zoomStartPos = new Point(event.delta);
+                    if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
+                        if (zoomStartPos.x > 10 && zoomStartPos.y > 10) {
+                            var scaleIt = 1.10;
+                        } else if (zoomStartPos.x > 8 && zoomStartPos.y > 8) {
+                            var scaleIt = 1.08;
+                        } else if (zoomStartPos.x > 5 && zoomStartPos.y > 5) {
+                            var scaleIt = 1.05;
+                        } else if (zoomStartPos.x > 3 && zoomStartPos.y > 3) {
+                            var scaleIt = 1.02;
+                        } else {
+                            var scaleIt = 1.01;
+                        }
+                        if (item.bounds.bottomRight.x > event.point.x && item.bounds.bottomRight.y > event.point.y) {
+                            return;
+                        }
+                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                        var scaleIt = 1;
+                    } else {
+                        if (event.delta.x < -10 && event.delta.y < -10) {
+                            var scaleIt = 0.80;
+                        } else if (event.delta.x < -8 && event.delta.y < -8) {
+                            var scaleIt = 0.92;
+                        } else if (event.delta.x < -5 && event.delta.y < -5) {
+                            var scaleIt = 0.95;
+                        } else if (event.delta.x < -3 && event.delta.y < -3) {
+                            var scaleIt = 0.98;
+                        } else {
+                            var scaleIt = 0.99;
+                        }
+                        if (item.bounds.bottomRight.x < event.point.x) {
+                            return;
+                        }
+                    }
+                    item.scale(scaleIt, item.bounds.topLeft);
                 }
-                path.scale(scaleIt, path.bounds.topLeft);
             }
 
             if (selectGroup && moveDrag === 'ready') {
@@ -875,7 +934,6 @@ function onMouseDrag(event) {
     // path editing section
     if (changeTool === 'pathEdit') {
         if (event.modifiers.space) {
-            console.log('handTool drag is working');
             for (var i = 0; i < handToolPan.length; i++) {
                 handToolPan[i].position += event.delta;
             }
@@ -895,7 +953,6 @@ function onMouseDrag(event) {
     // penTool section
     if (changeTool === 'penTool') {
         if (event.modifiers.space) {
-            console.log('handTool drag is working');
             for (var i = 0; i < handToolPan.length; i++) {
                 handToolPan[i].position += event.delta;
             }
@@ -911,14 +968,12 @@ function onMouseDrag(event) {
     }
     // zoomTool section
     if (changeTool === 'zoomTool') {
-        if (event.modifiers.space) {
-            console.log('handTool drag is working');
+        if (event.modifiers.space) {;
             for (var i = 0; i < handToolPan.length; i++) {
                 handToolPan[i].position += event.delta;
             }
         } else {
             zoomStartPos = new Point(event.delta);
-            console.log(zoomStartPos);
             if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
                 newZoom = paper.view.zoom * 1.02;
             } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
@@ -932,7 +987,6 @@ function onMouseDrag(event) {
     }
     // handTool section for drag
     if (changeTool === 'handTool') {
-        console.log('handTool drag is working');
         for (var i = 0; i < handToolPan.length; i++) {
             handToolPan[i].position += event.delta;
         }
@@ -973,7 +1027,6 @@ function onMouseUp(event) {
     // moveTool section in up
     if (changeTool === 'moveTool') {
         pathScaled = moveDrag = null;
-        console.log(pathScaled, moveDrag);
     }
 }
 
