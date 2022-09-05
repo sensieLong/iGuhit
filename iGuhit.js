@@ -293,10 +293,10 @@ function onMouseDown(event) {
         // move keyboard interaction
         tool.onKeyDown = function (event) {
             if (event.key == 'delete') {
-                if (!path) {
+                if (!item.selected) {
                     alert('anong buburahin mo?');
                 } else {
-                    path.remove();
+                    item.remove();
                     return false;
                 }
             }
@@ -304,44 +304,40 @@ function onMouseDown(event) {
             if (event.key == '{') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
-                        selectGroup[i].sendToBack();
+                        item = selectGroup[i];
+                        item.sendToBack();
                         artboard.sendToBack();
                     }
-                } else {
-                    return;
                 }
             }
 
             if (event.key == '}') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
-                        selectGroup[i].bringToFront();
+                        item = selectGroup[i];
+                        item.bringToFront();
                         artboard.sendToBack();
                     }
-                } else {
-                    return;
                 }
             }
 
             if (event.key == ']') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
-                        selectGroup[i].insertAbove(selectGroup[i].nextSibling);
+                        item = selectGroup[i];
+                        item.insertAbove(item.nextSibling);
                         artboard.sendToBack();
                     }
-                } else {
-                    return;
                 }
             }
 
             if (event.key == '[') {
                 if (selectGroup && selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
-                        selectGroup[i].insertBelow(selectGroup[i].previousSibling);
+                        item = selectGroup[i];
+                        item.insertBelow(item.previousSibling);
                         artboard.sendToBack();
                     }
-                } else {
-                    return;
                 }
             }
 
@@ -378,6 +374,7 @@ function onMouseDown(event) {
                 item = hitResult.item;
                 item.selected = true;
                 selectGroup = project.selectedItems;
+                console.log(selectGroup);
 
                 if (selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
@@ -394,6 +391,7 @@ function onMouseDown(event) {
                             cloneCopy.selected = true;
                         }
                     };
+                    moveDrag = 'ready';
                     selectGroup.selected = false;
                     return;
                 }
@@ -527,7 +525,6 @@ function onMouseDown(event) {
                 hue: 360 * Math.random(),
                 saturation: 1,
                 brightness: 1,
-                alpha: 0.5
             };
             path.strokeColor = 'black';
         }
@@ -785,9 +782,6 @@ function onMouseDrag(event) {
     // freePen section
     if (changeTool === 'pen') {
         path.add(event.point);
-        // Update the content of the text item to show how many
-        // segments it has:
-        // textItem.content = 'Segment count: ' + path.segments.length;
     }
     // moveTool section.
     if (changeTool === 'moveTool') {
@@ -841,7 +835,7 @@ function onMouseDrag(event) {
                     item.bounds.topLeft = new Point(topLeftBounds);
 
                     zoomStartPos = new Point(event.delta);
-                    if (zoomStartPos.y > 0 ) {
+                    if (zoomStartPos.y > 0) {
                         if (event.delta.y > 10) {
                             var scaleIt = 1.10;
                         } else if (event.delta.y > 8) {
@@ -915,14 +909,15 @@ function onMouseDrag(event) {
                     }
                     item.scale(scaleIt, item.bounds.topLeft);
                 }
-            }
-
-            if (selectGroup && moveDrag === 'ready') {
-                for (i = 0; i < selectGroup.length; i++) {
-                    selectGroup[i].translate(event.delta);
+            } else {
+                if (selectGroup && moveDrag === 'ready') {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        item = selectGroup[i];
+                        item.translate(event.delta);
+                    }
                 }
+                return;
             }
-            return;
         }
     }
     // path editing section
@@ -1006,7 +1001,6 @@ function onMouseUp(event) {
             hue: 360 * Math.random(),
             saturation: 1,
             brightness: 1,
-            alpha: 0.5
         };
         path.closed = true;
     }
