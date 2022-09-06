@@ -15,7 +15,6 @@
         // globals
         paper.install(window);
         var artboard;
-        var path;
         var group;
         var selectGroup;
         var changeTool;
@@ -377,7 +376,6 @@
                         return moveToolFunction();
                     }
                 }
-
                 // move hitest
                 if (event.modifiers.space) {
                     handToolPan = project.activeLayer.children;
@@ -412,6 +410,33 @@
                         return selectGroup;
                     }
                     if (hitResult && hitResult.type === 'bounds') {
+                        tool.onKeyDown = function (event) {
+                            if (event.key == ']') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.insertAbove(item.nextSibling);
+                                    artboard.sendToBack();
+                                }
+                            }
+
+                            if (event.key == '[') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.insertBelow(item.previousSibling);
+                                    artboard.sendToBack();
+                                }
+                            }
+                            if (event.key == '{') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.sendToBack();
+                                    artboard.sendToBack();
+                                }
+                            }
+                            if (event.key == '}') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.bringToFront();
+                                    artboard.sendToBack();
+                                }
+                            }
+                        }
                         item = hitResult.item;
                         pathScaled = 'ready';
                     }
