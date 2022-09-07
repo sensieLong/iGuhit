@@ -215,6 +215,12 @@ var hitOptions = {
     tolerance: 5
 };
 
+var hitOptionsMove = {
+    fill: true,
+    bounds: true,
+    tolerance: 10
+};
+
 var hitOptionsDrag = {
     segments: true,
     handles: true,
@@ -367,7 +373,7 @@ function onMouseDown(event) {
         if (event.modifiers.space) {
             handToolPan = project.activeLayer.children;
         } else {
-            var hitResult = project.hitTest(event.point, hitOptions);
+            var hitResult = project.hitTest(event.point, hitOptionsMove);
             if (hitResult && hitResult.type != 'bounds') {
                 item = hitResult.item;
                 item.selected = true;
