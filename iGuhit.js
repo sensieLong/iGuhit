@@ -12,6 +12,10 @@ var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShap
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 
+// variables for artboard
+var artboardWidth = artboardWidth = document.getElementById('controlWidth').value;
+var artboardHeight = document.getElementById('controlHeight').value;
+
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
 document.getElementById('moveTool').addEventListener("click", moveToolFunction);
@@ -20,6 +24,7 @@ document.getElementById('penTool').addEventListener("click", penTool);
 document.getElementById('zoomTool').addEventListener("click", zoomTool);
 document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
 document.getElementById('handTool').addEventListener("click", handTool);
+document.getElementById('controlWidth').addEventListener("click", canvasResizedWidth);
 
 var toolFreePen = document.getElementById('freePen');
 var toolMove = document.getElementById('moveTool');
@@ -52,6 +57,17 @@ tool.onKeyDown = function (event) {
     }
     if (event.key == 'v') {
         return moveToolFunction();
+    }
+}
+
+// function for resizing canvas
+function canvasResizedWidth() {
+    tool.onKeyDown = function (event) {
+        if (event.key === 'enter') {
+            artboard.bounds.width = document.getElementById('controlWidth').value;
+            console.log(artboardWidth);
+            return artboard;
+        }
     }
 }
 
@@ -192,7 +208,8 @@ function shapeTrimmer() {
     return changeTool = 'shapeTrimmer';
 }
 
-var rectangle = new Rectangle(new Point(0, 0), new Point(850, 1100));
+console.log(artboardWidth, artboardHeight);
+var rectangle = new Rectangle(new Point(0, 0), artboardWidth, artboardHeight);
 artboard = new Path.Rectangle(rectangle);
 artboard.position = paper.view.center;
 artboard.fillColor = 'white';
