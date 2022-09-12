@@ -752,7 +752,7 @@ function onMouseDown(event) {
             newZoom = paper.view.zoom * 0.95;
 
         } else if (event.modifiers.control) {
-            newZoom = paper.view.zoom * 2;
+            newZoom = paper.view.zoom * 0.5;
 
         } else if (event.modifiers.alt) {
             newZoom = paper.view.zoom = 1;
