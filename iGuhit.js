@@ -230,7 +230,7 @@ var hitOptions = {
 var hitOptionsMove = {
     fill: true,
     bounds: true,
-    tolerance: 10
+    tolerance: 50
 };
 
 var hitOptionsDrag = {
@@ -833,122 +833,15 @@ function onMouseDrag(event) {
         } else {
             if (pathScaled === 'ready') {
                 if (event.modifiers.shift) {
-                    var topLeftBounds = new Point(item.bounds.topLeft);
-                    item.bounds.topLeft = new Point(topLeftBounds);
-
-                    zoomStartPos = new Point(event.delta);
-                    if (zoomStartPos.x > 0) {
-                        if (event.delta.x > 10) {
-                            var scaleIt = 1.10;
-                        } else if (event.delta.x > 8) {
-                            var scaleIt = 1.08;
-                        } else if (event.delta.x > 5) {
-                            var scaleIt = 1.05;
-                        } else if (event.delta.x > 3) {
-                            var scaleIt = 1.02;
-                        } else {
-                            var scaleIt = 1.01;
-                        }
-                        if (item.bounds.bottomRight.x > event.point.x) {
-                            return;
-                        }
-                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
-                        var scaleIt = 1;
-                    } else {
-                        if (event.delta.x < -10) {
-                            var scaleIt = 0.80;
-                        } else if (event.delta.x < -8) {
-                            var scaleIt = 0.92;
-                        } else if (event.delta.x < -5) {
-                            var scaleIt = 0.95;
-                        } else if (event.delta.x < -3) {
-                            var scaleIt = 0.98;
-                        } else {
-                            var scaleIt = 0.99;
-                        }
-                        if (item.bounds.bottomRight.x < event.point.x) {
-                            return;
-                        }
-                    }
-                    item.scale(scaleIt, 1, item.bounds.topLeft);
+                    item.bounds.width = (event.point.x - item.bounds.topLeft.x);
                 } else if (event.modifiers.alt) {
-                    var topLeftBounds = new Point(item.bounds.topLeft);
-                    item.bounds.topLeft = new Point(topLeftBounds);
-
-                    zoomStartPos = new Point(event.delta);
-                    if (zoomStartPos.y > 0) {
-                        if (event.delta.y > 10) {
-                            var scaleIt = 1.10;
-                        } else if (event.delta.y > 8) {
-                            var scaleIt = 1.08;
-                        } else if (event.delta.y > 5) {
-                            var scaleIt = 1.05;
-                        } else if (event.delta.y > 3) {
-                            var scaleIt = 1.02;
-                        } else {
-                            var scaleIt = 1.01;
-                        }
-                        if (item.bounds.bottomRight.y > event.point.y) {
-                            return;
-                        }
-                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
-                        var scaleIt = 1;
-                    } else {
-                        if (event.delta.y < -10) {
-                            var scaleIt = 0.80;
-                        } else if (event.delta.y < -8) {
-                            var scaleIt = 0.92;
-                        } else if (event.delta.y < -5) {
-                            var scaleIt = 0.95;
-                        } else if (event.delta.y < -3) {
-                            var scaleIt = 0.98;
-                        } else {
-                            var scaleIt = 0.99;
-                        }
-                        if (item.bounds.bottomRight.y < event.point.y) {
-                            return;
-                        }
-                    }
-                    item.scale(1, scaleIt, item.bounds.topLeft);
+                    item.bounds.height = (event.point.y - item.bounds.topLeft.y);
+                } else if (event.modifiers.control) {
+                    item.bounds.width = (event.point.x - item.bounds.topLeft.x);
+                    item.bounds.height = (event.point.y - item.bounds.topLeft.y);
                 } else {
-                    var topLeftBounds = new Point(item.bounds.topLeft);
-                    item.bounds.topLeft = new Point(topLeftBounds);
-
-                    zoomStartPos = new Point(event.delta);
-                    if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
-                        if (zoomStartPos.x > 10 && zoomStartPos.y > 10) {
-                            var scaleIt = 1.10;
-                        } else if (zoomStartPos.x > 8 && zoomStartPos.y > 8) {
-                            var scaleIt = 1.08;
-                        } else if (zoomStartPos.x > 5 && zoomStartPos.y > 5) {
-                            var scaleIt = 1.05;
-                        } else if (zoomStartPos.x > 3 && zoomStartPos.y > 3) {
-                            var scaleIt = 1.02;
-                        } else {
-                            var scaleIt = 1.01;
-                        }
-                        if (item.bounds.bottomRight.x > event.point.x && item.bounds.bottomRight.y > event.point.y) {
-                            return;
-                        }
-                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
-                        var scaleIt = 1;
-                    } else {
-                        if (event.delta.x < -10 && event.delta.y < -10) {
-                            var scaleIt = 0.80;
-                        } else if (event.delta.x < -8 && event.delta.y < -8) {
-                            var scaleIt = 0.92;
-                        } else if (event.delta.x < -5 && event.delta.y < -5) {
-                            var scaleIt = 0.95;
-                        } else if (event.delta.x < -3 && event.delta.y < -3) {
-                            var scaleIt = 0.98;
-                        } else {
-                            var scaleIt = 0.99;
-                        }
-                        if (item.bounds.bottomRight.x < event.point.x) {
-                            return;
-                        }
-                    }
-                    item.scale(scaleIt, item.bounds.topLeft);
+                    item.bounds.width = (event.point.x - item.bounds.topLeft.x);
+                    item.bounds.height = (event.point.x - item.bounds.topLeft.x);
                 }
             } else {
                 if (selectGroup && moveDrag === 'ready') {
