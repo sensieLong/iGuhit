@@ -26,8 +26,8 @@
         var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 
         // variables for artboard
-        var artboardWidth = artboardWidth = document.getElementById('controlWidth').value;
-        var artboardHeight = document.getElementById('controlHeight').value;
+        var artboardWidth = document.getElementById('controlWidth').value *300;
+        var artboardHeight = document.getElementById('controlHeight').value *300;
 
         // get the html element and add click function
         document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -37,7 +37,7 @@
         document.getElementById('zoomTool').addEventListener("click", zoomTool);
         document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
         document.getElementById('handTool').addEventListener("click", handTool);
-        document.getElementById('controlWidth').addEventListener("click", canvasResizedWidth);
+        document.getElementById('canvasUpdateButton').addEventListener("click", canvasResizedWH);
 
         var toolFreePen = document.getElementById('freePen');
         var toolMove = document.getElementById('moveTool');
@@ -74,14 +74,10 @@
         }
 
         // function for resizing canvas
-        function canvasResizedWidth() {
-            tool.onKeyDown = function (event) {
-                if (event.key === 'enter') {
-                    artboard.bounds.width = document.getElementById('controlWidth').value;
-                    console.log(artboardWidth);
-                    return artboard;
-                }
-            }
+        function canvasResizedWH() {
+            artboard.bounds.width = document.getElementById('controlWidth').value *300;
+            artboard.bounds.height = document.getElementById('controlHeight').value * 300;
+            return artboard;
         }
 
         // creating function for each element
@@ -221,7 +217,6 @@
             return changeTool = 'shapeTrimmer';
         }
 
-        console.log(artboardWidth, artboardHeight);
         var rectangle = new Rectangle(new Point(0, 0), artboardWidth, artboardHeight);
         artboard = new Path.Rectangle(rectangle);
         artboard.position = paper.view.center;
@@ -408,7 +403,6 @@
                         item = hitResult.item;
                         item.selected = true;
                         selectGroup = project.selectedItems;
-                        console.log(selectGroup);
 
                         if (selectGroup.length > 0) {
                             for (i = 0; i < selectGroup.length; i++) {
@@ -1102,9 +1096,11 @@
         <div id="controlContainer">
             <p id="canvasLabel">Canvas Size:</p>
             <p class="widthHeight">Width :</p>
-            <input type="text" id="controlWidth" class="inputWidthSize" value="850" />
+            <input type="text" id="controlWidth" class="inputWidthSize" value="3.5" />
             <p class="widthHeight">Height :</p>
-            <input type="text" id="controlHeight" class="inputWidthSize" value="1100" />
+            <input type="text" id="controlHeight" class="inputWidthSize" value="2" />
+            <p class="widthHeight">in</p>
+            <button id="canvasUpdateButton"><strong>✓</strong></button>
         </div>
     </div>
     <div id="canvasContainer">

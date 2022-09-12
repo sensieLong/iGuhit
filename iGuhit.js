@@ -13,8 +13,8 @@ var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 
 // variables for artboard
-var artboardWidth = artboardWidth = document.getElementById('controlWidth').value;
-var artboardHeight = document.getElementById('controlHeight').value;
+var artboardWidth = document.getElementById('controlWidth').value *300;
+var artboardHeight = document.getElementById('controlHeight').value *300;
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -24,7 +24,7 @@ document.getElementById('penTool').addEventListener("click", penTool);
 document.getElementById('zoomTool').addEventListener("click", zoomTool);
 document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
 document.getElementById('handTool').addEventListener("click", handTool);
-document.getElementById('controlWidth').addEventListener("click", canvasResizedWidth);
+document.getElementById('canvasUpdateButton').addEventListener("click", canvasResizedWH);
 
 var toolFreePen = document.getElementById('freePen');
 var toolMove = document.getElementById('moveTool');
@@ -61,14 +61,10 @@ tool.onKeyDown = function (event) {
 }
 
 // function for resizing canvas
-function canvasResizedWidth() {
-    tool.onKeyDown = function (event) {
-        if (event.key === 'enter') {
-            artboard.bounds.width = document.getElementById('controlWidth').value;
-            console.log(artboardWidth);
-            return artboard;
-        }
-    }
+function canvasResizedWH() {
+    artboard.bounds.width = document.getElementById('controlWidth').value *300;
+    artboard.bounds.height = document.getElementById('controlHeight').value * 300;
+    return artboard;
 }
 
 // creating function for each element
@@ -208,7 +204,6 @@ function shapeTrimmer() {
     return changeTool = 'shapeTrimmer';
 }
 
-console.log(artboardWidth, artboardHeight);
 var rectangle = new Rectangle(new Point(0, 0), artboardWidth, artboardHeight);
 artboard = new Path.Rectangle(rectangle);
 artboard.position = paper.view.center;
@@ -395,7 +390,6 @@ function onMouseDown(event) {
                 item = hitResult.item;
                 item.selected = true;
                 selectGroup = project.selectedItems;
-                console.log(selectGroup);
 
                 if (selectGroup.length > 0) {
                     for (i = 0; i < selectGroup.length; i++) {
@@ -709,7 +703,6 @@ function onMouseDown(event) {
                     selectGroup.addChild(shapeResult);
                     selectGroup.addChild(combinedShape);
                     selectGroup.addChild(combinedShape2);
-
                 }
                 return selectGroup = selectGroup.children;
             }
