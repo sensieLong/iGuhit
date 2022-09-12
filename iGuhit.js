@@ -840,8 +840,10 @@ function onMouseDrag(event) {
                     item.bounds.width = (event.point.x - item.bounds.topLeft.x);
                     item.bounds.height = (event.point.y - item.bounds.topLeft.y);
                 } else {
+                    var constraintsScale = item.bounds.width;
                     item.bounds.width = (event.point.x - item.bounds.topLeft.x);
-                    item.bounds.height = (event.point.x - item.bounds.topLeft.x);
+                    var heightConstraints = item.bounds.width / constraintsScale;
+                    item.bounds.height = item.bounds.height * heightConstraints;
                 }
             } else {
                 if (selectGroup && moveDrag === 'ready') {
