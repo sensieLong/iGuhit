@@ -13,8 +13,8 @@ var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 
 // variables for artboard
-var artboardWidth = document.getElementById('controlWidth').value *300;
-var artboardHeight = document.getElementById('controlHeight').value *300;
+var artboardWidth = document.getElementById('controlWidth').value * 300;
+var artboardHeight = document.getElementById('controlHeight').value * 300;
 
 // get the html element and add click function
 document.getElementById('freePen').addEventListener("click", freePenFunction);
@@ -62,7 +62,7 @@ tool.onKeyDown = function (event) {
 
 // function for resizing canvas
 function canvasResizedWH() {
-    artboard.bounds.width = document.getElementById('controlWidth').value *300;
+    artboard.bounds.width = document.getElementById('controlWidth').value * 300;
     artboard.bounds.height = document.getElementById('controlHeight').value * 300;
     return artboard;
 }
@@ -230,7 +230,7 @@ var hitOptions = {
 var hitOptionsMove = {
     fill: true,
     bounds: true,
-    tolerance: 50
+    tolerance: 10
 };
 
 var hitOptionsDrag = {
@@ -239,7 +239,7 @@ var hitOptionsDrag = {
     stroke: true,
     fill: true,
     bounds: true,
-    tolerance: 30
+    tolerance: 10
 };
 
 // global functions
@@ -451,12 +451,10 @@ function onMouseDown(event) {
                     for (i = 0; i < selectGroup.length; i++) {
                         selectGroup[i].bounds.selected = false;
                     }
-                } else {
-                    return;
                 }
                 project.activeLayer.selected = false;
                 project.activeLayer.fullySelected = false;
-                return selectGroup = [];
+                return selectGroup = null;
             }
         }
     }
@@ -893,7 +891,8 @@ function onMouseDrag(event) {
     }
     // zoomTool section
     if (changeTool === 'zoomTool') {
-        if (event.modifiers.space) {;
+        if (event.modifiers.space) {
+            ;
             for (var i = 0; i < handToolPan.length; i++) {
                 handToolPan[i].position += event.delta;
             }
