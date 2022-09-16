@@ -84,15 +84,11 @@ body {
     color: antiquewhite;
 }
 
-div.moveToolDiv {
-    background-color: green;
-    width: 100px;
-    margin-left: 20px;
-}
-div.moveToolDiv2 {
-    background-color: green;
-    width: 100px;
-    margin-left: 20px;
+#toolPropertiesLabelBtn {
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
 }
 
 #canvasUpdateButton {
