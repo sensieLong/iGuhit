@@ -28,7 +28,7 @@ body {
 #toolContainer {
     margin-top: 3px;
     margin-left: 20px;
-    margin-right: 600px;
+    margin-right: auto;
     padding: 5px 3px 0px 15px;
     width: 300px;
     background-color: #212121;
@@ -91,6 +91,14 @@ body {
     border-radius: 10px;
 }
 
+.buttonGlobal {
+    margin-top: 3px;
+    margin-left: 10px;
+    width: 120px;
+    height: 30px;
+    border-radius: 10px;
+}
+
 #canvasUpdateButton {
     margin-top: 3px;
     width: 30px;
@@ -103,13 +111,28 @@ body {
     margin-right: 20px;
     margin-top: 3px;
     padding: 3px 3px 0px 3px;
-    width: 550px;
+    width: 800px;
     height: 40px;
     background-color: #212121;
     border-radius: 20px;
     border: 2px solid antiquewhite;
     display: flex;
     justify-content: left;
+}
+
+#uploadFile {
+    margin-top: 5px;
+    border: 2px dashed antiquewhite;
+    border-radius: 10px;
+    height: 20px;
+    width: 90px;
+    padding-left: 15px;
+    padding-top: 3px;
+}
+
+.globalText {
+    margin-left: 10px;
+    color: antiquewhite;
 }
 
 #canvasLabel {
