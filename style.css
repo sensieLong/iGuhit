@@ -120,12 +120,20 @@ body {
     border-radius: 10px;
 }
 
+.canvasUpdateScale {
+    margin-top: 3px;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+}
+
 #controlContainer {
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 3px;
     padding: 3px 3px 0px 3px;
-    width: 800px;
+    width: 1000px;
     height: 40px;
     background-color: #212121;
     border-radius: 20px;
@@ -154,10 +162,13 @@ body {
     width: 100px;
     height: 20px;
 }
-
 .widthHeight {
     height: 26px;
     margin: 10px 10px 10px 5px;
+}
+.ScaleCanvas {
+    height: 26px;
+    margin: 10px 10px 10px 30px;
 }
 .inputWidthSize {
     width: 75px;
