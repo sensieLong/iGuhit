@@ -18,6 +18,34 @@ body {
     vertical-align: middle;
     background-color: #191919;
 }
+#fileContainer{
+    width: 80px;
+    height: 135px;
+}
+.containerAccent {
+    padding: 5px 3px 0px 15px;
+    background-color: #212121;
+    border-radius: 20px;
+    border: 2px solid antiquewhite;
+    position: absolute;
+}
+.globalText {
+    margin-left: 10px;
+    color: antiquewhite;
+}
+.dropDownText {
+    margin-top: 5px;
+    color: antiquewhite;
+}
+
+#windowContainer{
+    margin-left: 335px;
+    width: 60px;
+    height: 80px;
+}
+#current-color-text {
+    margin-left: 50px;
+}
 
 #toolControl {
     display: flex;
@@ -30,7 +58,7 @@ body {
     margin-left: 20px;
     margin-right: auto;
     padding: 5px 3px 0px 15px;
-    width: 300px;
+    width: 350px;
     background-color: #212121;
     border-radius: 20px;
     border: 2px solid antiquewhite;
@@ -150,11 +178,6 @@ body {
     width: 90px;
     padding-left: 15px;
     padding-top: 3px;
-}
-
-.globalText {
-    margin-left: 10px;
-    color: antiquewhite;
 }
 
 #canvasLabel {
