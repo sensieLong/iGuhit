@@ -18,10 +18,7 @@ body {
     vertical-align: middle;
     background-color: #191919;
 }
-#fileContainer{
-    width: 80px;
-    height: 135px;
-}
+
 .containerAccent {
     padding: 5px 3px 0px 15px;
     background-color: #212121;
@@ -38,11 +35,74 @@ body {
     color: antiquewhite;
 }
 
+/* menu bar section */
+#fileContainer {
+    width: 80px;
+    height: 135px;
+}
+
+#editContainer {
+    margin-left: 10px;
+    width: 90px;
+    height: 130px;
+}
+
 #windowContainer{
     margin-left: 335px;
     width: 60px;
-    height: 80px;
+    height: 110px;
 }
+
+/* layer section */
+/* kung napapansin mo mayron munang layer parent div bago ang layer container */
+/* kailangan kasi tong mga properties na ito para sa draggable function ng jquery */
+
+#layerParentDiv {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+#layerContainer {
+    background-color: #212121;
+    border-radius: 20px;
+    border: 2px solid antiquewhite;
+    margin-left: 2790px;
+    margin-top: 55px;
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+}
+#layerPanel { /* the text inside the layerContainer */
+    padding: 10px 0 0 0;
+    margin: 0;
+    text-align: center;
+    border-radius: 15px;
+    background-color: black;
+    height: 30px;
+}
+/* end of menu bar section */
+
+/* toggle all section*/
+#toggleAllElements {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+#toggleAllContainer {
+    color: antiquewhite;
+    background-color: orangered;
+    border-radius: 20px;
+    border: 2px solid antiquewhite;
+    margin-left: 2950px;
+    margin-top: 3px;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    text-align: center;
+    font-size: 32px;
+}
+
 #current-color-text {
     margin-left: 50px;
 }
@@ -233,6 +293,14 @@ canvas[resize] {
     height: 100%;
 }
 
+#myLinks, a {
+    margin: 15px 15px 0px 15px;
+    color: antiquewhite;  
+}
+#myLinks {
+    display: flex;
+    justify-content: center;
+}
 
 
 
