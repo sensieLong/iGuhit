@@ -12,14 +12,1581 @@
     <script type="text/javascript" canvas="canvas" defer src=".\jquery-ui.js"></script>
     <!-- <script defer type="text/paperscript" canvas="canvas"></script>  -->
     <script defer type="text/paperscript" canvas="canvas">
-        var _0x183a6b=_0x5b69;(function(_0x58b132,_0xee47f7){var _0x56699f=_0x5b69,_0x2fd877=_0x58b132();while(!![]){try{var _0x155428=-parseInt(_0x56699f(0x19f))/0x1+-parseInt(_0x56699f(0x187))/0x2+-parseInt(_0x56699f(0x1b7))/0x3+parseInt(_0x56699f(0x1c4))/0x4*(parseInt(_0x56699f(0x207))/0x5)+parseInt(_0x56699f(0x18e))/0x6+-parseInt(_0x56699f(0x1dd))/0x7+-parseInt(_0x56699f(0x176))/0x8*(-parseInt(_0x56699f(0x214))/0x9);if(_0x155428===_0xee47f7)break;else _0x2fd877['push'](_0x2fd877['shift']());}catch(_0x26a0cd){_0x2fd877['push'](_0x2fd877['shift']());}}}(_0x2fa3,0x751d8));var theDivcolor;$(function(){var _0x4be37f=_0x5b69,_0x1ac354=$(':input')[_0x4be37f(0x1d0)](function(_0x3a85ff){if(_0x3a85ff['which']==0xd){_0x3a85ff['preventDefault']();var _0x4416d8=_0x1ac354['get'](_0x1ac354['index'](this)+0x1);_0x4416d8&&_0x4416d8['focus']();}});$(_0x4be37f(0x1e7))[_0x4be37f(0x215)](),$(_0x4be37f(0x1e4))[_0x4be37f(0x215)](),$('#toolProperties')[_0x4be37f(0x215)](),$(_0x4be37f(0x1e0))[_0x4be37f(0x203)](function(){var _0x52ea74=_0x4be37f;$(_0x52ea74(0x1eb))[_0x52ea74(0x190)]();}),$(_0x4be37f(0x213))[_0x4be37f(0x203)](function(){var _0x5190aa=_0x4be37f;$('#windowContainer')[_0x5190aa(0x190)]();}),$('#toolWindow')[_0x4be37f(0x203)](function(){var _0x55d255=_0x4be37f;$('#toolContainer')[_0x55d255(0x190)](),$(_0x55d255(0x1b1))[_0x55d255(0x190)]();}),$(_0x4be37f(0x17b))['click'](function(){var _0x482dc1=_0x4be37f;$(_0x482dc1(0x1e4))[_0x482dc1(0x190)](),$(_0x482dc1(0x1b1))[_0x482dc1(0x190)]();}),$('#controlWindow')[_0x4be37f(0x203)](function(){var _0x2995fe=_0x4be37f;$(_0x2995fe(0x18c))['toggle'](),$('#windowContainer')['toggle']();}),$(_0x4be37f(0x1b3))['click'](function(){var _0x2371a1=_0x4be37f,_0x30ced2=$(this)['css'](_0x2371a1(0x1c9));return $(_0x2371a1(0x1d3))[_0x2371a1(0x1da)](_0x30ced2),(theDivcolor=document[_0x2371a1(0x1d8)]('current-color-text')[_0x2371a1(0x1f1)],itemChangeColor());});}),paper[_0x183a6b(0x1ba)](window);var raster,rasterColorHolder,pathFillToggle=![],item,colorPickValue,itemColorToDiv,myPalette,spiokoks,artboard,raster,itemOldWidth,itemOldHeight,group,selectGroup=[],shapeHit=[],changeTool,segment,path,handles,movePath=![],currentSegment,mode,type,shapeTrim1,shapeTrim2,shapeTrim3,shapeResult,combinedShape,combinedShape2,cloneCopy,newZoom,zoomStartPos,zoomEndPos,mousePosition,viewPosition,handToolPan,artboardMove,diffDelta,pathScaled,itemScaledH,itemScaledY,moveDrag,colorGroup,artboardWidth=document[_0x183a6b(0x1d8)](_0x183a6b(0x1c5))[_0x183a6b(0x212)]*0x12c,artboardHeight=document['getElementById'](_0x183a6b(0x191))[_0x183a6b(0x212)]*0x12c;document[_0x183a6b(0x1d8)](_0x183a6b(0x1d1))[_0x183a6b(0x1ff)](_0x183a6b(0x203),freePenFunction),document[_0x183a6b(0x1d8)](_0x183a6b(0x20a))[_0x183a6b(0x1ff)](_0x183a6b(0x203),moveToolFunction),document['getElementById'](_0x183a6b(0x189))[_0x183a6b(0x1ff)](_0x183a6b(0x203),pathEditing),document[_0x183a6b(0x1d8)](_0x183a6b(0x21f))[_0x183a6b(0x1ff)](_0x183a6b(0x203),penTool),document['getElementById']('zoomTool')[_0x183a6b(0x1ff)](_0x183a6b(0x203),zoomTool),document['getElementById'](_0x183a6b(0x1e9))[_0x183a6b(0x1ff)](_0x183a6b(0x203),shapeTrimmer),document[_0x183a6b(0x1d8)](_0x183a6b(0x181))['addEventListener'](_0x183a6b(0x203),handTool),document[_0x183a6b(0x1d8)](_0x183a6b(0x21b))['addEventListener'](_0x183a6b(0x203),eyeDropper),document[_0x183a6b(0x1d8)](_0x183a6b(0x1f7))[_0x183a6b(0x1ff)](_0x183a6b(0x203),canvasResizedWH),document[_0x183a6b(0x1d8)](_0x183a6b(0x1a5))['addEventListener']('click',toolPropertiesLabelBtn),document[_0x183a6b(0x1d8)](_0x183a6b(0x1fb))[_0x183a6b(0x1ff)](_0x183a6b(0x203),downloadSVG),document[_0x183a6b(0x1d8)]('canvasUpdateScaleDown')[_0x183a6b(0x1ff)](_0x183a6b(0x203),scaleCanvasDown),document[_0x183a6b(0x1d8)]('canvasUpdateScaleUp')['addEventListener'](_0x183a6b(0x203),scaleCanvasUp),document[_0x183a6b(0x1d8)](_0x183a6b(0x1d2))['addEventListener'](_0x183a6b(0x203),removeFill);var toolFreePen=document[_0x183a6b(0x1d8)](_0x183a6b(0x1d1)),toolMove=document[_0x183a6b(0x1d8)](_0x183a6b(0x20a)),toolPathEdit=document[_0x183a6b(0x1d8)](_0x183a6b(0x189)),toolPen=document['getElementById'](_0x183a6b(0x21f)),toolZoom=document[_0x183a6b(0x1d8)](_0x183a6b(0x183)),toolShapeTrim=document[_0x183a6b(0x1d8)]('shapeTrimmer'),toolHand=document[_0x183a6b(0x1d8)](_0x183a6b(0x181)),toolEyedropper=document['getElementById'](_0x183a6b(0x21b));tool['onKeyDown']=function(_0x136934){var _0x1fd723=_0x183a6b;if(_0x136934[_0x1fd723(0x184)]=='z')return zoomTool();if(_0x136934[_0x1fd723(0x184)]=='p')return penTool();if(_0x136934[_0x1fd723(0x184)]=='a')return pathEditing();if(_0x136934[_0x1fd723(0x184)]=='h')return handTool();if(_0x136934[_0x1fd723(0x184)]=='s')return shapeTrimmer();if(_0x136934['key']=='n')return freePenFunction();if(_0x136934[_0x1fd723(0x184)]=='v')return moveToolFunction();if(_0x136934[_0x1fd723(0x184)]=='i')return eyeDropper();};function canvasResizedWH(){var _0x558c64=_0x183a6b;return artboard['bounds']['width']=document[_0x558c64(0x1d8)](_0x558c64(0x1c5))['value']*0x12c,artboard[_0x558c64(0x20e)][_0x558c64(0x1b8)]=document['getElementById'](_0x558c64(0x191))[_0x558c64(0x212)]*0x12c,artboard;}function scaleCanvasDown(){var _0x1e64b6=_0x183a6b;for(i=0x0;i<project[_0x1e64b6(0x1a6)][_0x1e64b6(0x1c3)]['length'];i++){project[_0x1e64b6(0x1a6)][_0x1e64b6(0x1c3)][i][_0x1e64b6(0x1ed)](0.6);}return![];}function scaleCanvasUp(){var _0x2c5de1=_0x183a6b;for(i=0x0;i<project['activeLayer'][_0x2c5de1(0x1c3)][_0x2c5de1(0x1a8)];i++){project[_0x2c5de1(0x1a6)]['children'][i][_0x2c5de1(0x1ed)](1.4);}return![];}function toolPropertiesLabelBtn(){var _0x15c513=_0x183a6b;return item[_0x15c513(0x20e)][_0x15c513(0x1f8)]=document['getElementById'](_0x15c513(0x19d))[_0x15c513(0x212)]*0x12c,item[_0x15c513(0x20e)][_0x15c513(0x1b8)]=document[_0x15c513(0x1d8)](_0x15c513(0x219))[_0x15c513(0x212)]*0x12c,item[_0x15c513(0x1f4)]['x']=document[_0x15c513(0x1d8)](_0x15c513(0x20c))['value']*0x12c,item[_0x15c513(0x1f4)]['y']=document[_0x15c513(0x1d8)](_0x15c513(0x1ec))[_0x15c513(0x212)]*0x12c,item;}var itemWidth=document[_0x183a6b(0x1d8)](_0x183a6b(0x19d));itemWidth[_0x183a6b(0x1ff)]('keypress',function(_0x3d5ae8){var _0x1c11e7=_0x183a6b;if(_0x3d5ae8[_0x1c11e7(0x184)]===_0x1c11e7(0x1ef)){_0x3d5ae8[_0x1c11e7(0x1cd)](),item[_0x1c11e7(0x20e)][_0x1c11e7(0x1f8)]=document[_0x1c11e7(0x1d8)]('itemWidth')[_0x1c11e7(0x212)]*0x12c;var _0x327117=item[_0x1c11e7(0x20e)][_0x1c11e7(0x1f8)],_0x102a19=itemOldWidth/0x12c/(_0x327117/0x12c);item[_0x1c11e7(0x20e)]['height']=item['bounds'][_0x1c11e7(0x1b8)]/_0x102a19;}});var itemHeight=document['getElementById']('itemHeight');itemHeight['addEventListener'](_0x183a6b(0x1d0),function(_0x27b31d){var _0x53294a=_0x183a6b;if(_0x27b31d[_0x53294a(0x184)]==='Enter'){_0x27b31d[_0x53294a(0x1cd)](),item[_0x53294a(0x20e)]['height']=document[_0x53294a(0x1d8)]('itemHeight')[_0x53294a(0x212)]*0x12c;var _0x8ad31d=item[_0x53294a(0x20e)][_0x53294a(0x1b8)],_0xb213c8=itemOldHeight/0x12c/(_0x8ad31d/0x12c);item[_0x53294a(0x20e)]['width']=item[_0x53294a(0x20e)][_0x53294a(0x1f8)]/_0xb213c8;}});var inputColorPicker=document[_0x183a6b(0x1d8)](_0x183a6b(0x1c6));inputColorPicker[_0x183a6b(0x1ff)](_0x183a6b(0x1d0),function(_0x26f73a){var _0x2bf974=_0x183a6b;if(_0x26f73a['key']===_0x2bf974(0x1ef))return _0x26f73a[_0x2bf974(0x1cd)](),colorPickValue=document[_0x2bf974(0x1d8)](_0x2bf974(0x1c6))[_0x2bf974(0x212)],item&&(item[_0x2bf974(0x199)]=colorPickValue),document[_0x2bf974(0x1d8)]('colorPickPreview')[_0x2bf974(0x1e5)][_0x2bf974(0x195)]=colorPickValue;});function itemChangeColor(){var _0x349bab=_0x183a6b;item[_0x349bab(0x199)]=theDivcolor;}var inputColorPickerStroke=document[_0x183a6b(0x1d8)](_0x183a6b(0x1ad));inputColorPickerStroke[_0x183a6b(0x1ff)](_0x183a6b(0x1d0),function(_0x361bf8){var _0x135972=_0x183a6b;_0x361bf8['key']===_0x135972(0x1ef)&&(_0x361bf8[_0x135972(0x1cd)](),item['strokeColor']=document[_0x135972(0x1d8)](_0x135972(0x1ad))[_0x135972(0x212)],document[_0x135972(0x1d8)]('colorPickPreviewStroke')[_0x135972(0x1e5)][_0x135972(0x195)]=document['getElementById'](_0x135972(0x1ad))[_0x135972(0x212)]);});var strokeThickness=document[_0x183a6b(0x1d8)](_0x183a6b(0x17c));function _0x5b69(_0x5c2680,_0x27ccc3){var _0x2fa307=_0x2fa3();return _0x5b69=function(_0x5b69ea,_0x16995c){_0x5b69ea=_0x5b69ea-0x176;var _0x8ddb43=_0x2fa307[_0x5b69ea];return _0x8ddb43;},_0x5b69(_0x5c2680,_0x27ccc3);}strokeThickness['addEventListener'](_0x183a6b(0x1d0),function(_0x4f7b09){var _0x193690=_0x183a6b;_0x4f7b09['key']===_0x193690(0x1ef)&&(_0x4f7b09[_0x193690(0x1cd)](),item[_0x193690(0x1a0)]=document[_0x193690(0x1d8)]('strokeThickness')['value']);});var pathOpacity=document[_0x183a6b(0x1d8)](_0x183a6b(0x204));pathOpacity[_0x183a6b(0x1ff)](_0x183a6b(0x1d0),function(_0x62133e){var _0x136403=_0x183a6b;_0x62133e[_0x136403(0x184)]==='Enter'&&(_0x62133e[_0x136403(0x1cd)](),item['opacity']=document[_0x136403(0x1d8)]('pathOpacity')[_0x136403(0x212)]/0x64);});var rectangle=new Rectangle(new Point(0x0,0x0),artboardWidth,artboardHeight);artboard=new Path[(_0x183a6b(0x1b0))](rectangle),artboard['position']=paper[_0x183a6b(0x193)][_0x183a6b(0x216)],artboard['fillColor']=_0x183a6b(0x1cc),artboard[_0x183a6b(0x1b9)]=!![];var imageUpload=document[_0x183a6b(0x1d8)](_0x183a6b(0x1ee));imageUpload[_0x183a6b(0x1e8)]=function(){var _0x542494=_0x183a6b;const [_0x38b2e5]=imageUpload[_0x542494(0x17e)];return _0x38b2e5&&(myImageUrl=URL[_0x542494(0x1f0)](_0x38b2e5)),raster=new Raster({'source':myImageUrl,'position':view[_0x542494(0x216)]}),raster[_0x542494(0x1d6)]=function(){var _0x50b232=_0x542494;console[_0x50b232(0x1b5)](_0x50b232(0x1ab));},raster;};function downloadSVG(){var _0x29a7e6=_0x183a6b,_0x6ed70f=_0x29a7e6(0x1e1),_0x4cdaac=_0x29a7e6(0x1df)+encodeURIComponent(paper['project']['exportSVG']({'asString':!![]})),_0x25de0a=document[_0x29a7e6(0x220)]('a');_0x25de0a[_0x29a7e6(0x209)]=_0x6ed70f,_0x25de0a[_0x29a7e6(0x210)]=_0x4cdaac,_0x25de0a[_0x29a7e6(0x203)](),alert('file\x20saved\x20successfully');}function removeFill(){var _0x22e069=_0x183a6b,_0x20a663=document[_0x22e069(0x1d8)]('myItemFill');if(_0x20a663['style'][_0x22e069(0x1a1)]===_0x22e069(0x1aa)){_0x20a663[_0x22e069(0x1e5)][_0x22e069(0x1a1)]='antiquewhite';var _0x256c0f=document[_0x22e069(0x1d8)](_0x22e069(0x1c0))[_0x22e069(0x1e5)]['backgroundColor'];path&&(path[_0x22e069(0x199)]=_0x256c0f);if(selectGroup)for(i=0x0;i<selectGroup['length'];i++){item=selectGroup[i],item['fillColor']=_0x256c0f;}return document['getElementById'](_0x22e069(0x1c6))[_0x22e069(0x212)]=_0x256c0f;}else{_0x20a663[_0x22e069(0x1e5)]['color']=_0x22e069(0x1aa);path&&(path[_0x22e069(0x199)]=null);if(selectGroup)for(i=0x0;i<selectGroup['length'];i++){item=selectGroup[i],item[_0x22e069(0x199)]=null;}return document[_0x22e069(0x1d8)](_0x22e069(0x1c6))[_0x22e069(0x212)]='';}}function pathEditing(){var _0xb575ef=_0x183a6b;return toolFreePen['classList']['remove'](_0xb575ef(0x1f2)),toolMove[_0xb575ef(0x1f3)][_0xb575ef(0x1a4)]('toolToggle'),toolPathEdit[_0xb575ef(0x1f3)][_0xb575ef(0x178)]('toolToggle'),toolPen[_0xb575ef(0x1f3)][_0xb575ef(0x1a4)](_0xb575ef(0x1f2)),toolZoom['classList'][_0xb575ef(0x1a4)]('toolToggle'),toolShapeTrim['classList'][_0xb575ef(0x1a4)](_0xb575ef(0x1f2)),toolHand['classList'][_0xb575ef(0x1a4)](_0xb575ef(0x1f2)),toolEyedropper[_0xb575ef(0x1f3)]['remove'](_0xb575ef(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1[_0xb575ef(0x1a4)](),shapeTrim2[_0xb575ef(0x1a4)](),shapeTrim3[_0xb575ef(0x1a4)]()),changeTool=_0xb575ef(0x189);}function moveToolFunction(){var _0x2ccf4b=_0x183a6b;return toolFreePen['classList']['remove']('toolToggle'),toolMove[_0x2ccf4b(0x1f3)][_0x2ccf4b(0x178)]('toolToggle'),toolPathEdit['classList'][_0x2ccf4b(0x1a4)](_0x2ccf4b(0x1f2)),toolPen[_0x2ccf4b(0x1f3)]['remove'](_0x2ccf4b(0x1f2)),toolZoom[_0x2ccf4b(0x1f3)]['remove']('toolToggle'),toolShapeTrim['classList'][_0x2ccf4b(0x1a4)]('toolToggle'),toolHand[_0x2ccf4b(0x1f3)][_0x2ccf4b(0x1a4)](_0x2ccf4b(0x1f2)),toolEyedropper[_0x2ccf4b(0x1f3)][_0x2ccf4b(0x1a4)](_0x2ccf4b(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1['remove'](),shapeTrim2['remove'](),shapeTrim3[_0x2ccf4b(0x1a4)]()),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1d2))[_0x2ccf4b(0x1e5)]['display']='block',document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1c0))['style'][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1c6))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x206))[_0x2ccf4b(0x1e5)]['display']='block',document['getElementById'](_0x2ccf4b(0x20b))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1ad))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document['getElementById']('strokeThickness')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document['getElementById'](_0x2ccf4b(0x1ce))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('pathOpacity')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x200))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)]('alignLeft')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('alignCenter')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1c7))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('---')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x196))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1bf))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document['getElementById'](_0x2ccf4b(0x1ca))['style'][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x1a2))[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x20c))[_0x2ccf4b(0x1e5)]['display']=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x201))['style']['display']='block',document['getElementById']('itemYlocation')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('widthLabel')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]='block',document[_0x2ccf4b(0x1d8)]('itemWidth')['style'][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('heightLabel')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)](_0x2ccf4b(0x219))[_0x2ccf4b(0x1e5)]['display']=_0x2ccf4b(0x1bd),document[_0x2ccf4b(0x1d8)]('toolPropertiesLabelBtn')[_0x2ccf4b(0x1e5)][_0x2ccf4b(0x202)]=_0x2ccf4b(0x1bd),changeTool=_0x2ccf4b(0x20a);}function freePenFunction(){var _0x405701=_0x183a6b;return toolFreePen[_0x405701(0x1f3)][_0x405701(0x178)](_0x405701(0x1f2)),toolMove[_0x405701(0x1f3)][_0x405701(0x1a4)](_0x405701(0x1f2)),toolPathEdit[_0x405701(0x1f3)]['remove'](_0x405701(0x1f2)),toolPen[_0x405701(0x1f3)][_0x405701(0x1a4)](_0x405701(0x1f2)),toolZoom[_0x405701(0x1f3)]['remove'](_0x405701(0x1f2)),toolShapeTrim[_0x405701(0x1f3)][_0x405701(0x1a4)](_0x405701(0x1f2)),toolHand['classList'][_0x405701(0x1a4)](_0x405701(0x1f2)),toolEyedropper[_0x405701(0x1f3)][_0x405701(0x1a4)](_0x405701(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1[_0x405701(0x1a4)](),shapeTrim2[_0x405701(0x1a4)](),shapeTrim3[_0x405701(0x1a4)]()),document['getElementById'](_0x405701(0x1d2))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x1bd),document[_0x405701(0x1d8)](_0x405701(0x1c0))[_0x405701(0x1e5)][_0x405701(0x202)]='block',document['getElementById'](_0x405701(0x1c6))[_0x405701(0x1e5)][_0x405701(0x202)]='block',document['getElementById'](_0x405701(0x206))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x1bd),document[_0x405701(0x1d8)]('colorPickPreviewStroke')['style'][_0x405701(0x202)]=_0x405701(0x1bd),document['getElementById']('inputColorStroke')[_0x405701(0x1e5)]['display']=_0x405701(0x1bd),document[_0x405701(0x1d8)](_0x405701(0x17c))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x1bd),document[_0x405701(0x1d8)](_0x405701(0x1ce))['style'][_0x405701(0x202)]='block',document[_0x405701(0x1d8)](_0x405701(0x204))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x1bd),document[_0x405701(0x1d8)](_0x405701(0x200))['style']['display']=_0x405701(0x1bd),document['getElementById'](_0x405701(0x1f9))[_0x405701(0x1e5)]['display']=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x19e))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x1c7))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x19b),document[_0x405701(0x1d8)]('---')[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x19b),document[_0x405701(0x1d8)]('alignTop')['style'][_0x405701(0x202)]=_0x405701(0x19b),document['getElementById'](_0x405701(0x1bf))['style'][_0x405701(0x202)]='none',document['getElementById'](_0x405701(0x1ca))[_0x405701(0x1e5)]['display']=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x1a2))[_0x405701(0x1e5)][_0x405701(0x202)]='none',document[_0x405701(0x1d8)](_0x405701(0x20c))['style']['display']=_0x405701(0x19b),document[_0x405701(0x1d8)]('yPos')['style'][_0x405701(0x202)]=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x1ec))[_0x405701(0x1e5)][_0x405701(0x202)]='none',document['getElementById'](_0x405701(0x1ac))[_0x405701(0x1e5)]['display']=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x19d))[_0x405701(0x1e5)][_0x405701(0x202)]=_0x405701(0x19b),document[_0x405701(0x1d8)](_0x405701(0x197))[_0x405701(0x1e5)]['display']=_0x405701(0x19b),document[_0x405701(0x1d8)]('itemHeight')[_0x405701(0x1e5)][_0x405701(0x202)]='none',document[_0x405701(0x1d8)](_0x405701(0x1a5))['style'][_0x405701(0x202)]=_0x405701(0x19b),changeTool=_0x405701(0x1e2);}function _0x2fa3(){var _0x8e666e=['imageUpload','Enter','createObjectURL','innerHTML','toolToggle','classList','position','type','fill','canvasUpdateButton','width','alignLeft','anong\x20buburahin\x20mo?','download-to-svg','removeChildren','subtract','ready','addEventListener','labelAlign','yPos','display','click','pathOpacity','alt','strokeLabel','5Uaipna','zoom','download','moveTool','colorPickPreviewStroke','itemXlocation','nextSibling','bounds','selected','href','previousSibling','value','#WindowMenuLabel','18joBcti','draggable','center','strokeColor','handle-out','itemHeight','handle-in','eyedropper','toCSS','control','handleOut','penTool','createElement','7977328nKuLmt','shift','add','modifiers','Raster','#canvasWindow','strokeThickness','translate','files','item','point','handTool','smooth','zoomTool','key','floor','selectedItems','1874742gbrFku','wala\x20kapa\x20ngang\x20path','pathEdit','intersect','draw','#toolPropertiesContainer','className','2393598nLYyRZ','capsLock','toggle','controlHeight','lastSegment','view','tuloy\x20mo\x20lang','backgroundColor','alignTop','heightLabel','itama\x20mo\x20naman\x20idolo,\x20buti\x20pa\x20ako\x20may\x20tama','fillColor','bringToFront','none','stroke','itemWidth','alignCenter','193692sOUyES','strokeWidth','color','xPos','close','remove','toolPropertiesLabelBtn','activeLayer','location','length','delta','red','Successfully\x20loaded\x20image!','widthLabel','inputColorStroke','topLeft','CompoundPath','Rectangle','#windowContainer','sendToBack','#colorPickPreview','addChild','log','fullySelected','148473HAmPIm','height','locked','install','onKeyDown','insertAbove','block','simplify','alignVerticalCenter','colorPickPreview','clone','insert','children','240484GuiJJC','controlWidth','inputColor','alignRight','handleIn','background-color','alignBot','push','white','preventDefault','itemOpacity','space','keypress','freePen','myItemFill','#current-color-text','hitTest','getAverageColor','onLoad','closed','getElementById','move','text','segment','index','5551896oARPST','dapat\x202\x20objects\x20and\x20selected','data:image/svg+xml;utf8,','#fileMenuLabel','iGuhit.svg','pen','insertBelow','#controlContainer','style','segments','#toolContainer','onchange','shapeTrimmer','black','#fileContainer','itemYlocation','scale'];_0x2fa3=function(){return _0x8e666e;};return _0x2fa3();}function penTool(){var _0x8f9a45=_0x183a6b;return toolFreePen[_0x8f9a45(0x1f3)]['remove'](_0x8f9a45(0x1f2)),toolMove['classList']['remove']('toolToggle'),toolPathEdit['classList'][_0x8f9a45(0x1a4)]('toolToggle'),toolPen[_0x8f9a45(0x1f3)][_0x8f9a45(0x178)](_0x8f9a45(0x1f2)),toolZoom[_0x8f9a45(0x1f3)][_0x8f9a45(0x1a4)]('toolToggle'),toolShapeTrim[_0x8f9a45(0x1f3)][_0x8f9a45(0x1a4)](_0x8f9a45(0x1f2)),toolHand[_0x8f9a45(0x1f3)][_0x8f9a45(0x1a4)](_0x8f9a45(0x1f2)),toolEyedropper[_0x8f9a45(0x1f3)][_0x8f9a45(0x1a4)](_0x8f9a45(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1[_0x8f9a45(0x1a4)](),shapeTrim2['remove'](),shapeTrim3[_0x8f9a45(0x1a4)]()),changeTool=_0x8f9a45(0x21f);}function zoomTool(){var _0x5cc485=_0x183a6b;return toolFreePen['classList'][_0x5cc485(0x1a4)](_0x5cc485(0x1f2)),toolMove[_0x5cc485(0x1f3)]['remove'](_0x5cc485(0x1f2)),toolPathEdit[_0x5cc485(0x1f3)]['remove']('toolToggle'),toolPen[_0x5cc485(0x1f3)][_0x5cc485(0x1a4)](_0x5cc485(0x1f2)),toolZoom[_0x5cc485(0x1f3)][_0x5cc485(0x178)](_0x5cc485(0x1f2)),toolShapeTrim[_0x5cc485(0x1f3)][_0x5cc485(0x1a4)](_0x5cc485(0x1f2)),toolHand[_0x5cc485(0x1f3)]['remove'](_0x5cc485(0x1f2)),toolEyedropper[_0x5cc485(0x1f3)][_0x5cc485(0x1a4)](_0x5cc485(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1['remove'](),shapeTrim2['remove'](),shapeTrim3[_0x5cc485(0x1a4)]()),changeTool=_0x5cc485(0x183);}function handTool(){var _0x5956c0=_0x183a6b;return toolFreePen['classList'][_0x5956c0(0x1a4)](_0x5956c0(0x1f2)),toolMove['classList'][_0x5956c0(0x1a4)](_0x5956c0(0x1f2)),toolPathEdit[_0x5956c0(0x1f3)][_0x5956c0(0x1a4)]('toolToggle'),toolPen['classList']['remove'](_0x5956c0(0x1f2)),toolZoom[_0x5956c0(0x1f3)]['remove'](_0x5956c0(0x1f2)),toolShapeTrim[_0x5956c0(0x1f3)]['remove'](_0x5956c0(0x1f2)),toolHand[_0x5956c0(0x1f3)][_0x5956c0(0x178)](_0x5956c0(0x1f2)),toolEyedropper[_0x5956c0(0x1f3)][_0x5956c0(0x1a4)]('toolToggle'),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1['remove'](),shapeTrim2[_0x5956c0(0x1a4)](),shapeTrim3[_0x5956c0(0x1a4)]()),changeTool=_0x5956c0(0x181);}function shapeTrimmer(){var _0x2c4229=_0x183a6b;toolFreePen['classList']['remove'](_0x2c4229(0x1f2)),toolMove[_0x2c4229(0x1f3)][_0x2c4229(0x1a4)](_0x2c4229(0x1f2)),toolPathEdit[_0x2c4229(0x1f3)][_0x2c4229(0x1a4)]('toolToggle'),toolPen['classList'][_0x2c4229(0x1a4)](_0x2c4229(0x1f2)),toolZoom[_0x2c4229(0x1f3)]['remove'](_0x2c4229(0x1f2)),toolShapeTrim['classList'][_0x2c4229(0x178)](_0x2c4229(0x1f2)),toolHand[_0x2c4229(0x1f3)][_0x2c4229(0x1a4)](_0x2c4229(0x1f2)),toolEyedropper[_0x2c4229(0x1f3)][_0x2c4229(0x1a4)](_0x2c4229(0x1f2));if(selectGroup==undefined||selectGroup[_0x2c4229(0x1a8)]===0x0||selectGroup[_0x2c4229(0x1a8)]!=0x2)return alert(_0x2c4229(0x1de));selectGroup=new Group(selectGroup);if(selectGroup&&selectGroup[_0x2c4229(0x1c3)]['length']>0x1)selectGroup[_0x2c4229(0x1c3)][0x0][_0x2c4229(0x20e)][_0x2c4229(0x20f)]=![],selectGroup[_0x2c4229(0x1c3)][0x1][_0x2c4229(0x20e)]['selected']=![],shapeTrim1=selectGroup['children'][0x0][_0x2c4229(0x1fd)](selectGroup['children'][0x1]),shapeTrim2=selectGroup[_0x2c4229(0x1c3)][0x0][_0x2c4229(0x18a)](selectGroup[_0x2c4229(0x1c3)][0x1]),shapeTrim3=selectGroup[_0x2c4229(0x1c3)][0x1][_0x2c4229(0x1fd)](selectGroup['children'][0x0]),shapeTrim1['bounds']['selected']=![],shapeTrim2[_0x2c4229(0x20e)][_0x2c4229(0x20f)]=![],shapeTrim3[_0x2c4229(0x20e)][_0x2c4229(0x20f)]=![],shapeTrim1&&shapeTrim1[_0x2c4229(0x1e6)]!=undefined&&shapeTrim1[_0x2c4229(0x1e6)][_0x2c4229(0x1a8)]>0x2&&(shapeTrim1['selected']=!![],shapeTrim1['fillColor']={'hue':0xf0,'alpha':0.01},selectGroup[_0x2c4229(0x1b4)](shapeTrim1)),shapeTrim2&&shapeTrim2[_0x2c4229(0x1e6)]!=undefined&&shapeTrim2[_0x2c4229(0x1e6)][_0x2c4229(0x1a8)]>0x2&&(shapeTrim2[_0x2c4229(0x20f)]=!![],shapeTrim2[_0x2c4229(0x199)]={'hue':0xf0,'alpha':0.01},selectGroup[_0x2c4229(0x1b4)](shapeTrim2)),shapeTrim3&&shapeTrim3[_0x2c4229(0x1e6)]!=undefined&&shapeTrim3[_0x2c4229(0x1e6)][_0x2c4229(0x1a8)]>0x2&&(shapeTrim3[_0x2c4229(0x20f)]=!![],shapeTrim3[_0x2c4229(0x199)]={'hue':0xf0,'alpha':0.01},selectGroup['addChild'](shapeTrim3));else return;return changeTool=_0x2c4229(0x1e9);}function eyeDropper(){var _0x48c3ca=_0x183a6b;return toolFreePen[_0x48c3ca(0x1f3)][_0x48c3ca(0x1a4)](_0x48c3ca(0x1f2)),toolMove['classList']['remove'](_0x48c3ca(0x1f2)),toolPathEdit[_0x48c3ca(0x1f3)]['remove']('toolToggle'),toolPen[_0x48c3ca(0x1f3)][_0x48c3ca(0x1a4)](_0x48c3ca(0x1f2)),toolZoom[_0x48c3ca(0x1f3)][_0x48c3ca(0x1a4)](_0x48c3ca(0x1f2)),toolShapeTrim['classList']['remove']('toolToggle'),toolHand[_0x48c3ca(0x1f3)][_0x48c3ca(0x1a4)]('toolToggle'),toolEyedropper['classList'][_0x48c3ca(0x178)](_0x48c3ca(0x1f2)),(shapeTrim1,shapeTrim2,shapeTrim3)&&(shapeTrim1[_0x48c3ca(0x1a4)](),shapeTrim2['remove'](),shapeTrim3[_0x48c3ca(0x1a4)]()),changeTool='eyedropper';}var values={'paths':0x32,'minPoints':0x5,'maxPoints':0xf,'minRadius':0x1e,'maxRadius':0x5a},hitOptions={'segments':!![],'handles':!![],'stroke':!![],'fill':!![],'bounds':!![],'tolerance':0x5},hitOptionsMove={'fill':!![],'bounds':!![],'stroke':!![],'tolerance':0xa},hitOptionsDrag={'segments':!![],'handles':!![],'stroke':!![],'fill':!![],'bounds':!![],'tolerance':0xa},types=[_0x183a6b(0x180),'handleIn',_0x183a6b(0x21e)];function findHandle(_0x2cd3ac){var _0x406562=_0x183a6b;for(var _0x94ada9=0x0,_0x2dd8f6=path[_0x406562(0x1e6)][_0x406562(0x1a8)];_0x94ada9<_0x2dd8f6;_0x94ada9++){for(var _0x23bda7=0x0;_0x23bda7<0x3;_0x23bda7++){var _0x16b82a=types[_0x23bda7],_0x3fd810=path[_0x406562(0x1e6)][_0x94ada9],_0x4198e0=_0x16b82a==_0x406562(0x180)?_0x3fd810[_0x406562(0x180)]:_0x3fd810[_0x406562(0x180)]+_0x3fd810[_0x16b82a],_0x1f010c=(_0x2cd3ac-_0x4198e0)[_0x406562(0x1a8)];if(_0x1f010c<0x3)return{'type':_0x16b82a,'segment':_0x3fd810};}}return null;}function onMouseDown(_0x14c304){var _0xce51ae=_0x183a6b;changeTool===_0xce51ae(0x1e2)&&(tool[_0xce51ae(0x1bb)]=function(_0x344ccb){var _0x16cbf9=_0xce51ae;if(_0x344ccb['key']=='delete'){if(!path[_0x16cbf9(0x20f)])alert(_0x16cbf9(0x1fa));else return path[_0x16cbf9(0x1a4)](),![];}if(_0x344ccb[_0x16cbf9(0x184)]=='z')return zoomTool();if(_0x344ccb['key']=='p')return penTool();if(_0x344ccb['key']=='e')return pathEditing();if(_0x344ccb['key']=='h')return handTool();if(_0x344ccb[_0x16cbf9(0x184)]=='s')return shapeTrimmer();if(_0x344ccb[_0x16cbf9(0x184)]=='n')return freePenFunction();if(_0x344ccb['key']=='v')return moveToolFunction();if(_0x344ccb[_0x16cbf9(0x184)]=='i')return eyeDropper();},selectGroup=null,path&&(path[_0xce51ae(0x20f)]=![]),path=new Path({'segments':[_0x14c304['point']],'strokeColor':_0xce51ae(0x1ea),'fullySelected':!![]}));if(changeTool===_0xce51ae(0x20a)){segment=path=handles=null,tool[_0xce51ae(0x1bb)]=function(_0x2a9b52){var _0x49e9f4=_0xce51ae;if(_0x2a9b52[_0x49e9f4(0x184)]=='delete'){if(!item['selected'])alert(_0x49e9f4(0x1fa));else{for(_0xfd883f=0x0;_0xfd883f<selectGroup[_0x49e9f4(0x1a8)];_0xfd883f++){item=selectGroup[_0xfd883f],item[_0x49e9f4(0x1a4)]();}return![];}}if(_0x2a9b52[_0x49e9f4(0x184)]=='z')return zoomTool();if(_0x2a9b52[_0x49e9f4(0x184)]=='p')return penTool();if(_0x2a9b52[_0x49e9f4(0x184)]=='e')return pathEditing();if(_0x2a9b52[_0x49e9f4(0x184)]=='h')return handTool();if(_0x2a9b52[_0x49e9f4(0x184)]=='s')return shapeTrimmer();if(_0x2a9b52[_0x49e9f4(0x184)]=='n')return freePenFunction();if(_0x2a9b52[_0x49e9f4(0x184)]=='v')return moveToolFunction();if(_0x2a9b52['key']=='i')return eyeDropper();_0x2a9b52['key']==']'&&(selectGroup&&selectGroup[_0x49e9f4(0x1a8)]>0x0&&(item[_0x49e9f4(0x1bc)](item[_0x49e9f4(0x20d)]),artboard[_0x49e9f4(0x1b2)]())),_0x2a9b52[_0x49e9f4(0x184)]=='['&&(selectGroup&&selectGroup[_0x49e9f4(0x1a8)]>0x0&&(item[_0x49e9f4(0x1e3)](item[_0x49e9f4(0x211)]),artboard[_0x49e9f4(0x1b2)]())),_0x2a9b52[_0x49e9f4(0x184)]=='{'&&(selectGroup&&selectGroup[_0x49e9f4(0x1a8)]>0x0&&(item['sendToBack'](),artboard[_0x49e9f4(0x1b2)]())),_0x2a9b52['key']=='}'&&(selectGroup&&selectGroup[_0x49e9f4(0x1a8)]>0x0&&(item[_0x49e9f4(0x19a)](),artboard[_0x49e9f4(0x1b2)]()));};_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x1cf)]&&(handToolPan=project[_0xce51ae(0x1a6)][_0xce51ae(0x1c3)]);if(_0x14c304['modifiers']['shift']){var _0x29713f=project[_0xce51ae(0x1d4)](_0x14c304[_0xce51ae(0x180)],hitOptionsMove);_0x29713f&&(item=_0x29713f['item'],item['selected']=![],item[_0xce51ae(0x20e)][_0xce51ae(0x20f)]=![],selectGroup=project[_0xce51ae(0x186)]);}else{var _0x29713f=project[_0xce51ae(0x1d4)](_0x14c304[_0xce51ae(0x180)],hitOptionsMove);if(_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]!='bounds'&&_0x29713f[_0xce51ae(0x17f)][_0xce51ae(0x18d)]!=_0xce51ae(0x1af)){item=_0x29713f[_0xce51ae(0x17f)],item[_0xce51ae(0x20f)]=!![],selectGroup=project[_0xce51ae(0x186)],document[_0xce51ae(0x1d8)](_0xce51ae(0x20c))[_0xce51ae(0x212)]=Math['floor'](item[_0xce51ae(0x1f4)]['x'])/0x12c,document[_0xce51ae(0x1d8)](_0xce51ae(0x1ec))[_0xce51ae(0x212)]=Math[_0xce51ae(0x185)](item[_0xce51ae(0x1f4)]['y'])/0x12c,document[_0xce51ae(0x1d8)](_0xce51ae(0x19d))[_0xce51ae(0x212)]=Math[_0xce51ae(0x185)](item['bounds']['width'])/0x12c,document['getElementById'](_0xce51ae(0x219))['value']=Math['floor'](item[_0xce51ae(0x20e)]['height'])/0x12c,itemOldWidth=document[_0xce51ae(0x1d8)]('itemWidth')[_0xce51ae(0x212)]*0x12c,itemOldHeight=document[_0xce51ae(0x1d8)](_0xce51ae(0x219))['value']*0x12c;if(selectGroup[_0xce51ae(0x1a8)]>0x0)for(_0xfd883f=0x0;_0xfd883f<selectGroup['length'];_0xfd883f++){selectGroup[_0xfd883f][_0xce51ae(0x20e)][_0xce51ae(0x20f)]=!![];}if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x205)]){if(selectGroup['length']>0x0)for(_0xfd883f=0x0;_0xfd883f<selectGroup['length'];_0xfd883f++){selectGroup[_0xfd883f][_0xce51ae(0x20f)]=![],selectGroup[_0xfd883f][_0xce51ae(0x20e)][_0xce51ae(0x20f)]=![],cloneCopy=selectGroup[_0xfd883f][_0xce51ae(0x1c1)](),cloneCopy[_0xce51ae(0x20f)]=!![];};moveDrag=_0xce51ae(0x1fe),selectGroup[_0xce51ae(0x20f)]=![];return;}return moveDrag=_0xce51ae(0x1fe),selectGroup;}if(_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]===_0xce51ae(0x1f6)&&_0x29713f[_0xce51ae(0x17f)][_0xce51ae(0x18d)]==_0xce51ae(0x1af)){item=_0x29713f['item'],item['selected']=!![],selectGroup=project['selectedItems'],document['getElementById']('itemXlocation')[_0xce51ae(0x212)]=Math[_0xce51ae(0x185)](item[_0xce51ae(0x1f4)]['x'])/0x12c,document[_0xce51ae(0x1d8)](_0xce51ae(0x1ec))[_0xce51ae(0x212)]=Math[_0xce51ae(0x185)](item[_0xce51ae(0x1f4)]['y'])/0x12c,document[_0xce51ae(0x1d8)](_0xce51ae(0x19d))[_0xce51ae(0x212)]=Math['floor'](item[_0xce51ae(0x20e)][_0xce51ae(0x1f8)])/0x12c,document[_0xce51ae(0x1d8)]('itemHeight')[_0xce51ae(0x212)]=Math[_0xce51ae(0x185)](item[_0xce51ae(0x20e)][_0xce51ae(0x1b8)])/0x12c,itemOldWidth=document['getElementById'](_0xce51ae(0x19d))[_0xce51ae(0x212)]*0x12c,itemOldHeight=document[_0xce51ae(0x1d8)](_0xce51ae(0x219))[_0xce51ae(0x212)]*0x12c;if(selectGroup[_0xce51ae(0x1a8)]>0x0)for(_0xfd883f=0x0;_0xfd883f<selectGroup[_0xce51ae(0x1a8)];_0xfd883f++){selectGroup[_0xfd883f][_0xce51ae(0x20e)][_0xce51ae(0x20f)]=!![];}if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x205)]){if(selectGroup[_0xce51ae(0x1a8)]>0x0)for(_0xfd883f=0x0;_0xfd883f<selectGroup[_0xce51ae(0x1a8)];_0xfd883f++){selectGroup[_0xfd883f]['selected']=![],selectGroup[_0xfd883f][_0xce51ae(0x20e)][_0xce51ae(0x20f)]=![],cloneCopy=selectGroup[_0xfd883f]['clone'](),cloneCopy['selected']=!![];};moveDrag='ready',selectGroup['selected']=![];return;}return moveDrag=_0xce51ae(0x1fe),selectGroup;}_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]===_0xce51ae(0x20e)&&(tool[_0xce51ae(0x1bb)]=function(_0x6b3eb1){var _0x239330=_0xce51ae;_0x6b3eb1['key']==']'&&(selectGroup&&selectGroup['length']>0x0&&(item[_0x239330(0x1bc)](item[_0x239330(0x20d)]),artboard[_0x239330(0x1b2)]())),_0x6b3eb1[_0x239330(0x184)]=='['&&(selectGroup&&selectGroup[_0x239330(0x1a8)]>0x0&&(item[_0x239330(0x1e3)](item[_0x239330(0x211)]),artboard[_0x239330(0x1b2)]())),_0x6b3eb1[_0x239330(0x184)]=='{'&&(selectGroup&&selectGroup[_0x239330(0x1a8)]>0x0&&(item[_0x239330(0x1b2)](),artboard[_0x239330(0x1b2)]())),_0x6b3eb1[_0x239330(0x184)]=='}'&&(selectGroup&&selectGroup['length']>0x0&&(item[_0x239330(0x19a)](),artboard['sendToBack']())),_0x6b3eb1[_0x239330(0x184)]=='g'&&(group=new Group(selectGroup));},item=_0x29713f['item'],pathScaled=_0xce51ae(0x1fe));if(!_0x29713f){pathScaled=item=null;if(selectGroup)for(_0xfd883f=0x0;_0xfd883f<selectGroup[_0xce51ae(0x1a8)];_0xfd883f++){selectGroup[_0xfd883f]['bounds'][_0xce51ae(0x20f)]=![];}return project[_0xce51ae(0x1a6)][_0xce51ae(0x20e)]['selected']=![],project[_0xce51ae(0x1a6)]['selected']=![],project['activeLayer'][_0xce51ae(0x1b6)]=![],selectGroup=null;}}}if(changeTool===_0xce51ae(0x189)){segment=path=handles=null,tool['onKeyDown']=function(_0x2369cf){var _0x1a243e=_0xce51ae;if(_0x2369cf['key']=='z')return zoomTool();if(_0x2369cf[_0x1a243e(0x184)]=='p')return penTool();if(_0x2369cf['key']=='e')return pathEditing();if(_0x2369cf[_0x1a243e(0x184)]=='h')return handTool();if(_0x2369cf[_0x1a243e(0x184)]=='s')return shapeTrimmer();if(_0x2369cf['key']=='n')return freePenFunction();if(_0x2369cf[_0x1a243e(0x184)]=='v')return moveToolFunction();if(_0x2369cf[_0x1a243e(0x184)]=='i')return eyeDropper();};var _0x29713f=project['hitTest'](_0x14c304[_0xce51ae(0x180)],hitOptions);if(!_0x29713f)return;_0x14c304['modifiers'][_0xce51ae(0x1cf)]&&(handToolPan=project[_0xce51ae(0x1a6)][_0xce51ae(0x1c3)]);if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x205)]){_0x29713f[_0xce51ae(0x1f5)]==_0xce51ae(0x1db)&&(_0x29713f[_0xce51ae(0x1db)]['handleOut']=null);;return;}if(_0x14c304['modifiers']['shift']){if(_0x29713f[_0xce51ae(0x1f5)]==_0xce51ae(0x1db)){if(_0x29713f['segment'][_0xce51ae(0x1c8)]!=null)_0x29713f[_0xce51ae(0x1db)][_0xce51ae(0x1c8)]=null;else return;};return;}if(_0x14c304['modifiers'][_0xce51ae(0x21d)]){_0x29713f[_0xce51ae(0x1f5)]==_0xce51ae(0x1db)&&_0x29713f['segment'][_0xce51ae(0x182)]();;return;}if(_0x14c304['modifiers'][_0xce51ae(0x18f)]){_0x29713f[_0xce51ae(0x1f5)]=='segment'&&_0x29713f['segment']['remove']();;return;}if(_0x29713f){path=_0x29713f[_0xce51ae(0x17f)];if(_0x29713f['type']==_0xce51ae(0x1db))segment=_0x29713f[_0xce51ae(0x1db)];else{if(_0x29713f['type']==_0xce51ae(0x21a))handles=_0x29713f[_0xce51ae(0x1db)],handlePoints=_0x29713f[_0xce51ae(0x1f5)];else{if(_0x29713f[_0xce51ae(0x1f5)]==_0xce51ae(0x218))handles=_0x29713f[_0xce51ae(0x1db)],handlePoints=_0x29713f[_0xce51ae(0x1f5)];else{if(_0x29713f[_0xce51ae(0x1f5)]==_0xce51ae(0x19c)){var _0x5b9ad0=_0x29713f[_0xce51ae(0x1a7)];segment=path[_0xce51ae(0x1c2)](_0x5b9ad0[_0xce51ae(0x1dc)]+0x1,_0x14c304['point']);}}}}}movePath=_0x29713f[_0xce51ae(0x1f5)]=='fill',movePath&&(project['activeLayer'][_0xce51ae(0x1b4)](_0x29713f[_0xce51ae(0x17f)]),path[_0xce51ae(0x1b6)]=!![]);}if(changeTool===_0xce51ae(0x21f)){if(currentSegment)currentSegment[_0xce51ae(0x20f)]=![];mode=type=currentSegment=null;!path&&(path=new Path(),path[_0xce51ae(0x217)]='black');var _0x450ed7=findHandle(_0x14c304[_0xce51ae(0x180)]);_0x450ed7&&(currentSegment=_0x450ed7[_0xce51ae(0x1db)],type=_0x450ed7['type'],path['segments']['length']>0x1&&_0x450ed7['type']==_0xce51ae(0x180)&&_0x450ed7[_0xce51ae(0x1db)][_0xce51ae(0x1dc)]==0x0&&(mode=_0xce51ae(0x1a3),path[_0xce51ae(0x1d7)]=!![],path['selected']=![],path=null));if(mode!=_0xce51ae(0x1a3)){mode=currentSegment?_0xce51ae(0x1d9):_0xce51ae(0x178),tool[_0xce51ae(0x1bb)]=function(_0x26b854){var _0x5d2736=_0xce51ae;if(_0x26b854[_0x5d2736(0x184)]=='x'){if(!currentSegment)alert(_0x5d2736(0x188));else return currentSegment['remove'](),currentSegment=path[_0x5d2736(0x192)],console['log'](_0x5d2736(0x194)),![];}if(_0x26b854[_0x5d2736(0x184)]=='z')return zoomTool();if(_0x26b854[_0x5d2736(0x184)]=='p')return penTool();if(_0x26b854[_0x5d2736(0x184)]=='e')return pathEditing();if(_0x26b854[_0x5d2736(0x184)]=='h')return handTool();if(_0x26b854[_0x5d2736(0x184)]=='s')return shapeTrimmer();if(_0x26b854[_0x5d2736(0x184)]=='n')return freePenFunction();if(_0x26b854[_0x5d2736(0x184)]=='v')return moveToolFunction();if(_0x26b854[_0x5d2736(0x184)]=='i')return eyeDropper();};!currentSegment&&(currentSegment=path[_0xce51ae(0x178)](_0x14c304[_0xce51ae(0x180)]));_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x1cf)]&&(handToolPan=project[_0xce51ae(0x1a6)][_0xce51ae(0x1c3)]);if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x205)]){currentSegment&&(currentSegment[_0xce51ae(0x21e)]=null);;return currentSegment['selected']=!![];}if(_0x14c304['modifiers'][_0xce51ae(0x177)]){currentSegment&&(currentSegment[_0xce51ae(0x1c8)]=null);;return currentSegment[_0xce51ae(0x20f)]=!![];}if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x21d)]){currentSegment&&currentSegment[_0xce51ae(0x1a4)]();;return currentSegment[_0xce51ae(0x20f)]=!![];}currentSegment[_0xce51ae(0x20f)]=!![];}}if(changeTool===_0xce51ae(0x1e9)){tool[_0xce51ae(0x1bb)]=function(_0x41314c){var _0x133839=_0xce51ae;if(_0x41314c['key']=='z')return zoomTool();if(_0x41314c['key']=='p')return penTool();if(_0x41314c[_0x133839(0x184)]=='e')return pathEditing();if(_0x41314c[_0x133839(0x184)]=='h')return handTool();if(_0x41314c[_0x133839(0x184)]=='s')return shapeTrimmer();if(_0x41314c[_0x133839(0x184)]=='n')return freePenFunction();if(_0x41314c[_0x133839(0x184)]=='v')return moveToolFunction();if(_0x41314c[_0x133839(0x184)]=='i')return eyeDropper();};var _0x29713f=project[_0xce51ae(0x1d4)](_0x14c304[_0xce51ae(0x180)],hitOptions);if(selectGroup==undefined)return console[_0xce51ae(0x1b5)]('wala\x20pa\x20tayong\x20selection');if(selectGroup[_0xce51ae(0x1c3)][_0xce51ae(0x1a8)]>0x1){if(_0x29713f&&_0x29713f[_0xce51ae(0x17f)]&&_0x29713f[_0xce51ae(0x17f)]==shapeTrim1)return shapeHit[_0xce51ae(0x1cb)](shapeTrim1),shapeTrim1[_0xce51ae(0x1e6)]!=undefined&&shapeTrim1[_0xce51ae(0x1e6)][_0xce51ae(0x1a8)]>0x2?(shapeResult=selectGroup[_0xce51ae(0x1c3)][0x0][_0xce51ae(0x1fd)](selectGroup['children'][0x1]),combinedShape=selectGroup[_0xce51ae(0x1c3)][0x1],selectGroup['removeChildren'](),selectGroup['addChild'](shapeResult),selectGroup[_0xce51ae(0x1b4)](combinedShape)):(shapeResult=selectGroup[_0xce51ae(0x1c3)][0x0][_0xce51ae(0x1fd)](selectGroup[_0xce51ae(0x1c3)][0x1]),selectGroup[_0xce51ae(0x1fc)](),selectGroup['addChild'](shapeResult)),selectGroup=selectGroup[_0xce51ae(0x1c3)];if(_0x29713f&&_0x29713f[_0xce51ae(0x17f)]&&_0x29713f[_0xce51ae(0x17f)]==shapeTrim2)return shapeTrim2[_0xce51ae(0x1e6)]['length']>0x2&&(shapeResult=selectGroup[_0xce51ae(0x1c3)][0x0][_0xce51ae(0x18a)](selectGroup[_0xce51ae(0x1c3)][0x1]),combinedShape=selectGroup[_0xce51ae(0x1c3)][0x0][_0xce51ae(0x1fd)](selectGroup[_0xce51ae(0x1c3)][0x1]),combinedShape2=selectGroup[_0xce51ae(0x1c3)][0x1][_0xce51ae(0x1fd)](selectGroup[_0xce51ae(0x1c3)][0x0]),selectGroup[_0xce51ae(0x1fc)](),selectGroup[_0xce51ae(0x1b4)](shapeResult),selectGroup[_0xce51ae(0x1b4)](combinedShape),selectGroup[_0xce51ae(0x1b4)](combinedShape2)),selectGroup=selectGroup[_0xce51ae(0x1c3)];if(_0x29713f&&_0x29713f[_0xce51ae(0x17f)]&&_0x29713f['item']==shapeTrim3)return shapeTrim3[_0xce51ae(0x1e6)]!=undefined&&shapeTrim3['segments'][_0xce51ae(0x1a8)]>0x2?(shapeResult=selectGroup['children'][0x1][_0xce51ae(0x1fd)](selectGroup['children'][0x0]),combinedShape=selectGroup['children'][0x0],selectGroup['removeChildren'](),selectGroup[_0xce51ae(0x1b4)](shapeResult),selectGroup[_0xce51ae(0x1b4)](combinedShape)):(shapeResult=selectGroup[_0xce51ae(0x1c3)][0x1][_0xce51ae(0x1fd)](selectGroup[_0xce51ae(0x1c3)][0x0]),selectGroup[_0xce51ae(0x1fc)](),selectGroup['addChild'](shapeResult)),selectGroup=selectGroup[_0xce51ae(0x1c3)];}}if(changeTool===_0xce51ae(0x183)){tool[_0xce51ae(0x1bb)]=function(_0x2ddf9d){var _0xa48260=_0xce51ae;if(_0x2ddf9d['key']=='z')return zoomTool();if(_0x2ddf9d['key']=='p')return penTool();if(_0x2ddf9d['key']=='e')return pathEditing();if(_0x2ddf9d[_0xa48260(0x184)]=='h')return handTool();if(_0x2ddf9d[_0xa48260(0x184)]=='s')return shapeTrimmer();if(_0x2ddf9d[_0xa48260(0x184)]=='n')return freePenFunction();if(_0x2ddf9d[_0xa48260(0x184)]=='v')return moveToolFunction();if(_0x2ddf9d[_0xa48260(0x184)]=='i')return eyeDropper();};if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x177)])newZoom=paper['view'][_0xce51ae(0x208)]*0.95;else{if(_0x14c304['modifiers']['control'])newZoom=paper[_0xce51ae(0x193)][_0xce51ae(0x208)]*0.5;else{if(_0x14c304[_0xce51ae(0x179)][_0xce51ae(0x205)]){newZoom=paper['view'][_0xce51ae(0x208)]=0x1,artboardMove=project[_0xce51ae(0x1a6)]['children'],diffDelta=new Point(paper[_0xce51ae(0x193)][_0xce51ae(0x216)]['x']-artboard[_0xce51ae(0x1f4)]['x'],paper[_0xce51ae(0x193)]['center']['y']-artboard[_0xce51ae(0x1f4)]['y']);for(var _0xfd883f=0x0;_0xfd883f<artboardMove[_0xce51ae(0x1a8)];_0xfd883f++){artboardMove[_0xfd883f][_0xce51ae(0x1f4)]+=diffDelta;}}else _0x14c304[_0xce51ae(0x179)]['space']?handToolPan=project['activeLayer'][_0xce51ae(0x1c3)]:newZoom=paper['view'][_0xce51ae(0x208)]*1.05;}}paper[_0xce51ae(0x193)]['zoom']=newZoom,paper[_0xce51ae(0x193)][_0xce51ae(0x18b)]();}changeTool===_0xce51ae(0x181)&&(handToolPan=project[_0xce51ae(0x1a6)][_0xce51ae(0x1c3)],tool['onKeyDown']=function(_0x3711e1){var _0x2037d8=_0xce51ae;if(_0x3711e1[_0x2037d8(0x184)]=='z')return zoomTool();if(_0x3711e1[_0x2037d8(0x184)]=='p')return penTool();if(_0x3711e1[_0x2037d8(0x184)]=='e')return pathEditing();if(_0x3711e1[_0x2037d8(0x184)]=='h')return handTool();if(_0x3711e1[_0x2037d8(0x184)]=='s')return shapeTrimmer();if(_0x3711e1[_0x2037d8(0x184)]=='n')return freePenFunction();if(_0x3711e1[_0x2037d8(0x184)]=='v')return moveToolFunction();if(_0x3711e1[_0x2037d8(0x184)]=='i')return eyeDropper();});if(changeTool===_0xce51ae(0x21b)){tool['onKeyDown']=function(_0x223ba9){var _0x379b9c=_0xce51ae;if(_0x223ba9[_0x379b9c(0x184)]=='z')return zoomTool();if(_0x223ba9[_0x379b9c(0x184)]=='p')return penTool();if(_0x223ba9['key']=='e')return pathEditing();if(_0x223ba9[_0x379b9c(0x184)]=='h')return handTool();if(_0x223ba9[_0x379b9c(0x184)]=='s')return shapeTrimmer();if(_0x223ba9['key']=='n')return freePenFunction();if(_0x223ba9[_0x379b9c(0x184)]=='v')return moveToolFunction();if(_0x223ba9[_0x379b9c(0x184)]=='i')return eyeDropper();},document[_0xce51ae(0x1d8)]('myItemFill')[_0xce51ae(0x1e5)][_0xce51ae(0x1a1)]='antiquewhite';path&&(path[_0xce51ae(0x199)]=raster['getAverageColor'](_0x14c304[_0xce51ae(0x180)]));if(item&&item[_0xce51ae(0x18d)]!=_0xce51ae(0x17a)){var _0x29713f=project[_0xce51ae(0x1d4)](_0x14c304[_0xce51ae(0x180)],hitOptionsMove);if(_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]!=_0xce51ae(0x20e)&&_0x29713f['item'][_0xce51ae(0x18d)]!=_0xce51ae(0x17a)){var _0x21fc2f=_0x29713f[_0xce51ae(0x17f)];return item[_0xce51ae(0x199)]=_0x21fc2f['fillColor'],itemColorToDiv=item[_0xce51ae(0x199)][_0xce51ae(0x21c)](!![]),document['getElementById'](_0xce51ae(0x1c0))[_0xce51ae(0x1e5)][_0xce51ae(0x195)]=itemColorToDiv,document[_0xce51ae(0x1d8)](_0xce51ae(0x1c6))[_0xce51ae(0x212)]=itemColorToDiv;}else{if(_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]!='bounds'&&_0x29713f['item']['className']==_0xce51ae(0x17a)){raster=_0x29713f[_0xce51ae(0x17f)],selectGroup=project[_0xce51ae(0x186)];for(_0xfd883f=0x0;_0xfd883f<selectGroup[_0xce51ae(0x1a8)];_0xfd883f++){item=selectGroup[_0xfd883f],item[_0xce51ae(0x199)]=raster[_0xce51ae(0x1d5)](_0x14c304['point']);}return itemColorToDiv=item[_0xce51ae(0x199)][_0xce51ae(0x21c)](!![]),document[_0xce51ae(0x1d8)](_0xce51ae(0x1c0))[_0xce51ae(0x1e5)][_0xce51ae(0x195)]=itemColorToDiv,document['getElementById'](_0xce51ae(0x1c6))[_0xce51ae(0x212)]=itemColorToDiv;}else return alert('itama\x20mo\x20naman\x20idolo,\x20buti\x20pa\x20ako\x20may\x20tama'),![];}}else{var _0x29713f=project['hitTest'](_0x14c304[_0xce51ae(0x180)],hitOptionsMove);if(_0x29713f&&_0x29713f[_0xce51ae(0x1f5)]!=_0xce51ae(0x20e)&&_0x29713f[_0xce51ae(0x17f)][_0xce51ae(0x18d)]!=_0xce51ae(0x17a)){var _0x21fc2f=_0x29713f[_0xce51ae(0x17f)];return itemColorToDiv=_0x21fc2f['fillColor'][_0xce51ae(0x21c)](!![]),document[_0xce51ae(0x1d8)](_0xce51ae(0x1c0))[_0xce51ae(0x1e5)]['backgroundColor']=itemColorToDiv,document['getElementById'](_0xce51ae(0x1c6))[_0xce51ae(0x212)]=itemColorToDiv;}else return _0x29713f&&_0x29713f[_0xce51ae(0x1f5)]!=_0xce51ae(0x20e)&&_0x29713f[_0xce51ae(0x17f)][_0xce51ae(0x18d)]==_0xce51ae(0x17a)?(raster=_0x29713f[_0xce51ae(0x17f)],rasterColorHolder=raster['getAverageColor'](_0x14c304[_0xce51ae(0x180)]),itemColorToDiv=rasterColorHolder['toCSS'](!![]),document[_0xce51ae(0x1d8)](_0xce51ae(0x1c0))[_0xce51ae(0x1e5)][_0xce51ae(0x195)]=itemColorToDiv,document['getElementById'](_0xce51ae(0x1c6))[_0xce51ae(0x212)]=itemColorToDiv):(alert(_0xce51ae(0x198)),![]);}}}function onMouseMove(_0x21201f){var _0x14cd27=_0x183a6b;if(changeTool===_0x14cd27(0x189)){var _0x23fa81=project['hitTest'](_0x21201f[_0x14cd27(0x180)],hitOptions);project[_0x14cd27(0x1a6)][_0x14cd27(0x20f)]=![];if(_0x23fa81&&_0x23fa81[_0x14cd27(0x17f)])_0x23fa81['item'][_0x14cd27(0x1b6)]=!![];}if(changeTool===_0x14cd27(0x1e9)){var _0x23fa81=project['hitTest'](_0x21201f[_0x14cd27(0x180)],hitOptions);project[_0x14cd27(0x1a6)]['selected']=![],_0x23fa81&&_0x23fa81['item']&&(_0x23fa81[_0x14cd27(0x17f)][_0x14cd27(0x1b6)]=!![]);}}function onMouseDrag(_0x566729){var _0x7e1d6c=_0x183a6b;changeTool===_0x7e1d6c(0x1e2)&&path[_0x7e1d6c(0x178)](_0x566729['point']);if(changeTool==='moveTool'){if(_0x566729['modifiers'][_0x7e1d6c(0x1cf)])for(var _0x4bbac0=0x0;_0x4bbac0<handToolPan[_0x7e1d6c(0x1a8)];_0x4bbac0++){handToolPan[_0x4bbac0][_0x7e1d6c(0x1f4)]+=_0x566729[_0x7e1d6c(0x1a9)];}else{if(pathScaled===_0x7e1d6c(0x1fe)){document['getElementById']('itemXlocation')[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item[_0x7e1d6c(0x1f4)]['x'])/0x12c,document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x1ec))[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item['position']['y'])/0x12c,document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x19d))[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item[_0x7e1d6c(0x20e)]['width'])/0x12c,document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x219))[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item['bounds'][_0x7e1d6c(0x1b8)])/0x12c;if(_0x566729[_0x7e1d6c(0x179)][_0x7e1d6c(0x177)])item['bounds']['width']=_0x566729[_0x7e1d6c(0x180)]['x']-item[_0x7e1d6c(0x20e)][_0x7e1d6c(0x1ae)]['x'];else{if(_0x566729[_0x7e1d6c(0x179)][_0x7e1d6c(0x205)])item[_0x7e1d6c(0x20e)]['height']=_0x566729[_0x7e1d6c(0x180)]['y']-item['bounds'][_0x7e1d6c(0x1ae)]['y'];else{if(_0x566729[_0x7e1d6c(0x179)][_0x7e1d6c(0x21d)])item['bounds'][_0x7e1d6c(0x1f8)]=_0x566729[_0x7e1d6c(0x180)]['x']-item['bounds']['topLeft']['x'],item['bounds']['height']=_0x566729[_0x7e1d6c(0x180)]['y']-item[_0x7e1d6c(0x20e)][_0x7e1d6c(0x1ae)]['y'];else{var _0x36f0e7=item[_0x7e1d6c(0x20e)][_0x7e1d6c(0x1f8)];item[_0x7e1d6c(0x20e)][_0x7e1d6c(0x1f8)]=_0x566729[_0x7e1d6c(0x180)]['x']-item[_0x7e1d6c(0x20e)][_0x7e1d6c(0x1ae)]['x'];var _0x504794=item['bounds']['width']/_0x36f0e7;item[_0x7e1d6c(0x20e)]['height']=item['bounds'][_0x7e1d6c(0x1b8)]*_0x504794;}}}}else{if(selectGroup&&moveDrag==='ready'){document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x20c))[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item['position']['x'])/0x12c,document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x1ec))['value']=Math[_0x7e1d6c(0x185)](item[_0x7e1d6c(0x1f4)]['y'])/0x12c,document[_0x7e1d6c(0x1d8)]('itemWidth')[_0x7e1d6c(0x212)]=Math[_0x7e1d6c(0x185)](item[_0x7e1d6c(0x20e)]['width'])/0x12c,document[_0x7e1d6c(0x1d8)]('itemHeight')[_0x7e1d6c(0x212)]=Math['floor'](item[_0x7e1d6c(0x20e)]['height'])/0x12c;for(_0x4bbac0=0x0;_0x4bbac0<selectGroup[_0x7e1d6c(0x1a8)];_0x4bbac0++){item=selectGroup[_0x4bbac0],item[_0x7e1d6c(0x17d)](_0x566729['delta']);}return;}else{var _0x10dbba=project['hitTest'](_0x566729[_0x7e1d6c(0x180)],hitOptionsMove);_0x10dbba&&(item=_0x10dbba[_0x7e1d6c(0x17f)],item[_0x7e1d6c(0x20f)]=!![],selectGroup=project[_0x7e1d6c(0x186)]);}}}}if(changeTool===_0x7e1d6c(0x189)){if(_0x566729[_0x7e1d6c(0x179)][_0x7e1d6c(0x1cf)])for(var _0x4bbac0=0x0;_0x4bbac0<handToolPan['length'];_0x4bbac0++){handToolPan[_0x4bbac0][_0x7e1d6c(0x1f4)]+=_0x566729[_0x7e1d6c(0x1a9)];}else{if(segment)segment[_0x7e1d6c(0x180)]+=_0x566729[_0x7e1d6c(0x1a9)];else{if(handles){if(handlePoints=='handle-in')handles[_0x7e1d6c(0x1c8)]+=_0x566729[_0x7e1d6c(0x1a9)];else handlePoints==_0x7e1d6c(0x218)&&(handles[_0x7e1d6c(0x21e)]+=_0x566729['delta']);}else path&&(path['position']+=_0x566729['delta']);}}}if(changeTool==='penTool'){if(_0x566729[_0x7e1d6c(0x179)][_0x7e1d6c(0x1cf)])for(var _0x4bbac0=0x0;_0x4bbac0<handToolPan[_0x7e1d6c(0x1a8)];_0x4bbac0++){handToolPan[_0x4bbac0][_0x7e1d6c(0x1f4)]+=_0x566729['delta'];}else{if(mode==_0x7e1d6c(0x1d9)&&type=='point')currentSegment[_0x7e1d6c(0x180)]=_0x566729['point'];else{if(mode!=_0x7e1d6c(0x1a3)){var _0x114e79=_0x566729['delta'][_0x7e1d6c(0x1c1)]();if(type==_0x7e1d6c(0x21e)||mode=='add')_0x114e79=-_0x114e79;currentSegment[_0x7e1d6c(0x1c8)]+=_0x114e79,currentSegment['handleOut']-=_0x114e79;}}}}if(changeTool===_0x7e1d6c(0x183)){if(_0x566729['modifiers'][_0x7e1d6c(0x1cf)]){;for(var _0x4bbac0=0x0;_0x4bbac0<handToolPan[_0x7e1d6c(0x1a8)];_0x4bbac0++){handToolPan[_0x4bbac0]['position']+=_0x566729[_0x7e1d6c(0x1a9)];}}else{zoomStartPos=new Point(_0x566729['delta']);if(zoomStartPos['x']>0x0&&zoomStartPos['y']>0x0)newZoom=paper[_0x7e1d6c(0x193)][_0x7e1d6c(0x208)]*1.02;else zoomStartPos['x']>0x0&&zoomStartPos['y']<0x0||zoomStartPos['x']<0x0&&zoomStartPos['y']>0x0?newZoom=paper['view']['zoom']*0x1:newZoom=paper[_0x7e1d6c(0x193)][_0x7e1d6c(0x208)]*0.98;paper[_0x7e1d6c(0x193)]['zoom']=newZoom,paper[_0x7e1d6c(0x193)][_0x7e1d6c(0x18b)]();}}if(changeTool===_0x7e1d6c(0x181))for(var _0x4bbac0=0x0;_0x4bbac0<handToolPan[_0x7e1d6c(0x1a8)];_0x4bbac0++){handToolPan[_0x4bbac0][_0x7e1d6c(0x1f4)]+=_0x566729[_0x7e1d6c(0x1a9)];}if(changeTool===_0x7e1d6c(0x21b)){if(raster){rasterColorHolder=raster[_0x7e1d6c(0x1d5)](_0x566729['point']),itemColorToDiv=rasterColorHolder[_0x7e1d6c(0x21c)](!![]),document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x1c0))[_0x7e1d6c(0x1e5)][_0x7e1d6c(0x195)]=itemColorToDiv,document[_0x7e1d6c(0x1d8)](_0x7e1d6c(0x1c6))[_0x7e1d6c(0x212)]=itemColorToDiv;path&&(path[_0x7e1d6c(0x199)]=raster['getAverageColor'](_0x566729[_0x7e1d6c(0x180)]));if(item&&item[_0x7e1d6c(0x18d)]!=_0x7e1d6c(0x17a)){item[_0x7e1d6c(0x199)]=raster[_0x7e1d6c(0x1d5)](_0x566729[_0x7e1d6c(0x180)]);if(selectGroup)for(_0x4bbac0=0x0;_0x4bbac0<selectGroup[_0x7e1d6c(0x1a8)];_0x4bbac0++){item=selectGroup[_0x4bbac0],item[_0x7e1d6c(0x199)]=raster[_0x7e1d6c(0x1d5)](_0x566729[_0x7e1d6c(0x180)]);}}}}}function onMouseUp(_0x54053e){var _0x5685f8=_0x183a6b;if(changeTool===_0x5685f8(0x1e2)){path[_0x5685f8(0x1be)](0xa),path[_0x5685f8(0x1b6)]=!![];return document['getElementById'](_0x5685f8(0x1c6))[_0x5685f8(0x212)]==''?colorPickValue='#ffffff':(path['fillColor']=document[_0x5685f8(0x1d8)](_0x5685f8(0x1c6))[_0x5685f8(0x212)],colorPickValue=document['getElementById']('inputColor')['value']);;return document[_0x5685f8(0x1d8)](_0x5685f8(0x1c0))['style'][_0x5685f8(0x195)]=colorPickValue,item=path;}if(changeTool==='pathEdit'){if(!path)return;else path[_0x5685f8(0x1b6)]=!![];}changeTool===_0x5685f8(0x20a)&&(pathScaled=moveDrag=null);if(changeTool===_0x5685f8(0x21b))return;}
+                // aim to make a smooth and reliable software tool like adobe illustrator
+
+        // jQuery section main function
+        var theDivcolor;
+        $(function () {
+            // move the focus of input fields after pressing enter
+            var inputs = $(':input').keypress(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                    var nextInput = inputs.get(inputs.index(this) + 1);
+                    if (nextInput) {
+                        nextInput.focus();
+                    }
+                }
+            });
+
+            $("#toolContainer").draggable();
+            $("#controlContainer").draggable();
+            $("#toolProperties").draggable();
+
+            $("#layerContainer").draggable();
+            $("#layerContainer").resizable();
+
+            // toggle all section
+            $("#toggleAllContainer").draggable();
+            $("#toggleAllContainer").click(function () {
+                $("#toolContainer").toggle();
+                $("#controlContainer").toggle();
+                $("#toolPropertiesContainer").toggle();
+                $("#layerContainer").toggle();
+            });
+
+            // file menu jquery section
+            $("#fileMenuLabel").click(function () {
+                $("#fileContainer").toggle();
+            });
+
+            // edit menu jquery section
+            $("#EditMenuLabel").click(function () {
+                $("#editContainer").toggle();
+            });
+
+            // Window menu jquery section
+            $("#WindowMenuLabel").click(function () {
+                $("#windowContainer").toggle();
+            });
+            $("#toolWindow").click(function () {
+                $("#toolContainer").toggle();
+                $("#windowContainer").toggle();
+            });
+            $("#canvasWindow").click(function () {
+                $("#controlContainer").toggle();
+                $("#windowContainer").toggle();
+            });
+            $("#controlWindow").click(function () {
+                $("#toolPropertiesContainer").toggle();
+                $("#windowContainer").toggle();
+            });
+            $("#layerWindow").click(function () {
+                $("#layerContainer").toggle();
+                $("#windowContainer").toggle();
+            });
+
+            // fill color click event
+            $("#colorPickPreview").click(function () {
+                var current_color = $(this).css("background-color");
+                $("#current-color-text").text(current_color);
+                return theDivcolor = document.getElementById('current-color-text').innerHTML, itemChangeColor();
+            });
+        });
+        // end of jquery
+
+        // paper section
+        paper.install(window);
+        var raster, rasterColorHolder;
+        var pathFillToggle = false;
+        var item, colorPickValue, itemColorToDiv;
+        var myPalette;
+        var spiokoks;
+        var artboard, raster;
+        var itemOldWidth, itemOldHeight;
+        var group;
+        var selectGroup = [], shapeHit = [];
+        var changeTool;
+        var segment, path, handles;
+        var movePath = false;
+        var currentSegment, mode, type;
+        var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShape2, cloneCopy;
+        var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
+        var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
+        var colorGroup;
+
+
+        // variables for artboard
+        var artboardWidth = document.getElementById('controlWidth').value * 300;
+        var artboardHeight = document.getElementById('controlHeight').value * 300;
+
+        // tool click event
+        document.getElementById('freePen').addEventListener("click", freePenFunction);
+        document.getElementById('moveTool').addEventListener("click", moveToolFunction);
+        document.getElementById('pathEdit').addEventListener("click", pathEditing);
+        document.getElementById('penTool').addEventListener("click", penTool);
+        document.getElementById('zoomTool').addEventListener("click", zoomTool);
+        document.getElementById('shapeTrimmer').addEventListener("click", shapeTrimmer);
+        document.getElementById('handTool').addEventListener("click", handTool);
+        document.getElementById('eyedropper').addEventListener("click", eyeDropper);
+
+        // control click event
+        document.getElementById('canvasUpdateButton').addEventListener("click", canvasResizedWH);
+        document.getElementById('toolPropertiesLabelBtn').addEventListener("click", toolPropertiesLabelBtn);
+        document.getElementById('download-to-svg').addEventListener("click", downloadSVG);
+        document.getElementById('canvasUpdateScaleDown').addEventListener("click", scaleCanvasDown);
+        document.getElementById('canvasUpdateScaleUp').addEventListener("click", scaleCanvasUp);
+        document.getElementById('myItemFill').addEventListener("click", removeFill);
+
+        var toolFreePen = document.getElementById('freePen');
+        var toolMove = document.getElementById('moveTool');
+        var toolPathEdit = document.getElementById('pathEdit');
+        var toolPen = document.getElementById('penTool');
+        var toolZoom = document.getElementById('zoomTool');
+        var toolShapeTrim = document.getElementById('shapeTrimmer');
+        var toolHand = document.getElementById('handTool');
+        var toolEyedropper = document.getElementById('eyedropper');
+
+
+
+        // key down global switching tools
+        tool.onKeyDown = function (event) {
+            // toolSwitch section from pen
+            if (event.key == 'z') {
+                return zoomTool();
+            }
+            if (event.key == 'p') {
+                return penTool();
+            }
+            if (event.key == 'a') {
+                return pathEditing();
+            }
+            if (event.key == 'h') {
+                return handTool();
+            }
+            if (event.key == 's') {
+                return shapeTrimmer();
+            }
+            if (event.key == 'n') {
+                return freePenFunction();
+            }
+            if (event.key == 'v') {
+                return moveToolFunction();
+            }
+            if (event.key == 'i') {
+                return eyeDropper();
+            }
+        }
+
+        // function for resizing canvas
+        function canvasResizedWH() {
+            artboard.bounds.width = document.getElementById('controlWidth').value * 300;
+            artboard.bounds.height = document.getElementById('controlHeight').value * 300;
+            return artboard;
+        }
+
+        // function for scaling canvas
+        function scaleCanvasDown() {
+            for (i = 0; i < project.activeLayer.children.length; i++) {
+                project.activeLayer.children[i].scale(0.60);
+            }
+            return false;
+        }
+        function scaleCanvasUp() {
+            for (i = 0; i < project.activeLayer.children.length; i++) {
+                project.activeLayer.children[i].scale(1.4);
+            }
+            return false;
+        }
+
+        // function for resizing items using input fields
+        function toolPropertiesLabelBtn() {
+            item.bounds.width = document.getElementById('itemWidth').value * 300;
+            item.bounds.height = document.getElementById('itemHeight').value * 300;
+            item.position.x = document.getElementById('itemXlocation').value * 300;
+            item.position.y = document.getElementById('itemYlocation').value * 300;
+            return item;
+        }
+
+
+        // input interactions section
+
+        // Get the input field for width
+        var itemWidth = document.getElementById("itemWidth");
+        // Execute a function when the user presses a key on the keyboard
+        itemWidth.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // execute your code here
+                item.bounds.width = document.getElementById('itemWidth').value * 300;
+                var itemNewWidth = item.bounds.width;
+                var scaleFactor = (itemOldWidth / 300) / (itemNewWidth / 300);
+                item.bounds.height = item.bounds.height / scaleFactor;
+            }
+        });
+
+        // Get the input field for height
+        var itemHeight = document.getElementById("itemHeight");
+        // Execute a function when the user presses a key on the keyboard
+        itemHeight.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // execute your code here
+                item.bounds.height = document.getElementById('itemHeight').value * 300;
+                var itemNewHeight = item.bounds.height;
+                var scaleFactorHeight = (itemOldHeight / 300) / (itemNewHeight / 300);
+                item.bounds.width = item.bounds.width / scaleFactorHeight;
+            }
+        });
+
+
+        // Get the input field for colorPicker
+        var inputColorPicker = document.getElementById("inputColor");
+        // Execute a function when the user presses a key on the keyboard
+        inputColorPicker.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+
+                // execute your code here
+                colorPickValue = document.getElementById('inputColor').value;
+                if (item) {
+                    item.fillColor = colorPickValue;
+                }
+                return document.getElementById('colorPickPreview').style.backgroundColor = colorPickValue;
+            }
+        });
+
+        // Get the div color to path
+        function itemChangeColor() {
+            item.fillColor = theDivcolor;
+        }
+
+        // Get the input field for colorPickerStroke
+        var inputColorPickerStroke = document.getElementById("inputColorStroke");
+        // Execute a function when the user presses a key on the keyboard
+        inputColorPickerStroke.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // execute your code here
+                item.strokeColor = document.getElementById('inputColorStroke').value;
+                document.getElementById('colorPickPreviewStroke').style.backgroundColor = document.getElementById('inputColorStroke').value;
+            }
+        });
+
+        // Get the input field for strokeThickness
+        var strokeThickness = document.getElementById("strokeThickness");
+        // Execute a function when the user presses a key on the keyboard
+        strokeThickness.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // execute your code here
+                item.strokeWidth = document.getElementById('strokeThickness').value;
+            }
+        });
+
+        // Get the input field for pathOpacity
+        var pathOpacity = document.getElementById("pathOpacity");
+        // Execute a function when the user presses a key on the keyboard
+        pathOpacity.addEventListener("keypress", function (event) {
+            // If the user presses the "Enter" key on the keyboard
+            if (event.key === "Enter") {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // execute your code here
+                item.opacity = document.getElementById('pathOpacity').value / 100;
+            }
+        });
+
+        // ARTBOARD SECTION
+        var rectangle = new Rectangle(new Point(0, 0), artboardWidth, artboardHeight);
+        artboard = new Path.Rectangle(rectangle);
+        artboard.position = paper.view.center;
+        artboard.fillColor = 'white';
+        artboard.locked = true;
+
+
+
+        // color pallet section
+        // var myUrl = 'palette.jpg';
+        // var palettePosition = new Point(500, 200);
+        // myPalette = new Raster({ source: myUrl, position: palettePosition });
+
+        // myPalette.onLoad = function () {
+        //    console.log('palette loaded');
+        // };
+        // myPalette.selected = true;
+
+
+        // import section
+        var imageUpload = document.getElementById('imageUpload');
+        imageUpload.onchange = function () {
+            const [file] = imageUpload.files
+            if (file) {
+                myImageUrl = URL.createObjectURL(file);
+            }
+            raster = new Raster({ source: myImageUrl, position: view.center });
+            raster.onLoad = function () {
+                console.log('Successfully loaded image!');
+            };
+            return raster;
+        }
+        // put it somewhere
+        // // color picker test
+        // myCircle.fillColor = raster.getAverageColor(event.point);
+
+        // export section
+        function downloadSVG() {
+            artboard.visible = false;
+            var fileName = "iGuhit.svg"
+            // var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({ asString: true }));
+            var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({ asString: true }));
+            var link = document.createElement("a");
+            link.download = fileName;
+            link.href = url;
+            link.click();
+            alert('file saved successfully');
+            artboard.visible = true;
+        }
+
+        // removefill function section
+        function removeFill() {
+            var fillToggle = document.getElementById("myItemFill");
+            if (fillToggle.style.color === "red") {
+                fillToggle.style.color = "antiquewhite";
+                var colorBackAgain = document.getElementById('colorPickPreview').style.backgroundColor;
+
+                if (path) {
+                    path.fillColor = colorBackAgain;
+                }
+                if (selectGroup) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        item = selectGroup[i];
+                        item.fillColor = colorBackAgain;
+                    }
+                }
+                if (item) {
+                    var inputColorValue = item.fillColor.toCSS(true);
+                    return document.getElementById('inputColor').value = inputColorValue;
+                } else if (path) {
+                    var inputColorValue = path.fillColor.toCSS(true);
+                    return document.getElementById('inputColor').value = inputColorValue;
+                } else {
+                    return;
+                }
+
+            } else {
+                fillToggle.style.color = "red";
+
+                // if (item && item.className == 'Path') { item.fillColor = null; }
+                if (path) {
+                    path.fillColor = null;
+                }
+                if (selectGroup) {
+                    for (i = 0; i < selectGroup.length; i++) {
+                        item = selectGroup[i];
+                        item.fillColor = null;
+                    }
+                }
+                return document.getElementById('inputColor').value = "";
+            }
+        }
+
+        // functions tools toggle and value set
+        function pathEditing() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.add("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            return changeTool = 'pathEdit';
+        }
+        function moveToolFunction() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.add("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            // show tool properties for move tool
+            document.getElementById('myItemFill').style.display = 'block';
+            document.getElementById('colorPickPreview').style.display = 'block';
+            document.getElementById('inputColor').style.display = 'block';
+            document.getElementById('strokeLabel').style.display = 'block';
+            document.getElementById('colorPickPreviewStroke').style.display = 'block';
+            document.getElementById('inputColorStroke').style.display = 'block';
+            document.getElementById('strokeThickness').style.display = 'block';
+            document.getElementById('itemOpacity').style.display = 'block';
+            document.getElementById('pathOpacity').style.display = 'block';
+            document.getElementById('labelAlign').style.display = 'block';
+
+            document.getElementById('alignLeft').style.display = 'block';
+            document.getElementById('alignCenter').style.display = 'block';
+            document.getElementById('alignRight').style.display = 'block';
+            document.getElementById('---').style.display = 'block';
+            document.getElementById('alignTop').style.display = 'block';
+            document.getElementById('alignVerticalCenter').style.display = 'block';
+            document.getElementById('alignBot').style.display = 'block';
+            document.getElementById('xPos').style.display = 'block';
+            document.getElementById('itemXlocation').style.display = 'block';
+            document.getElementById('yPos').style.display = 'block';
+            document.getElementById('itemYlocation').style.display = 'block';
+            document.getElementById('widthLabel').style.display = 'block';
+            document.getElementById('itemWidth').style.display = 'block';
+            document.getElementById('heightLabel').style.display = 'block';
+            document.getElementById('itemHeight').style.display = 'block';
+            document.getElementById('toolPropertiesLabelBtn').style.display = 'block';
+
+            return changeTool = 'moveTool';
+        }
+        function freePenFunction() {
+            toolFreePen.classList.add("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            // show tool properties for free pen tool
+            document.getElementById('myItemFill').style.display = 'block';
+            document.getElementById('colorPickPreview').style.display = 'block';
+            document.getElementById('inputColor').style.display = 'block';
+            document.getElementById('strokeLabel').style.display = 'block';
+            document.getElementById('colorPickPreviewStroke').style.display = 'block';
+            document.getElementById('inputColorStroke').style.display = 'block';
+            document.getElementById('strokeThickness').style.display = 'block';
+            document.getElementById('itemOpacity').style.display = 'block';
+            document.getElementById('pathOpacity').style.display = 'block';
+            document.getElementById('labelAlign').style.display = 'block';
+
+            document.getElementById('alignLeft').style.display = 'none';
+            document.getElementById('alignCenter').style.display = 'none';
+            document.getElementById('alignRight').style.display = 'none';
+            document.getElementById('---').style.display = 'none';
+            document.getElementById('alignTop').style.display = 'none';
+            document.getElementById('alignVerticalCenter').style.display = 'none';
+            document.getElementById('alignBot').style.display = 'none';
+            document.getElementById('xPos').style.display = 'none';
+            document.getElementById('itemXlocation').style.display = 'none';
+            document.getElementById('yPos').style.display = 'none';
+            document.getElementById('itemYlocation').style.display = 'none';
+            document.getElementById('widthLabel').style.display = 'none';
+            document.getElementById('itemWidth').style.display = 'none';
+            document.getElementById('heightLabel').style.display = 'none';
+            document.getElementById('itemHeight').style.display = 'none';
+            document.getElementById('toolPropertiesLabelBtn').style.display = 'none';
+
+            return changeTool = 'pen';
+        }
+        function penTool() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.add("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            return changeTool = 'penTool';
+        }
+        function zoomTool() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.add("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            return changeTool = 'zoomTool';
+        }
+        function handTool() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.add("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            return changeTool = 'handTool';
+        }
+        function shapeTrimmer() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.add("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.remove("toolToggle");
+
+            if (selectGroup == undefined || selectGroup.length === 0 || selectGroup.length != 2) return alert('dapat 2 objects and selected');
+            // converts the array selectGroup into a group first
+            selectGroup = new Group(selectGroup);
+            // continue if selectGroup is not null or it has a value greater then 1
+            if (selectGroup && selectGroup.children.length > 1) {
+                selectGroup.children[0].bounds.selected = false;
+                selectGroup.children[1].bounds.selected = false;
+                shapeTrim1 = selectGroup.children[0].subtract(selectGroup.children[1]);
+                shapeTrim2 = selectGroup.children[0].intersect(selectGroup.children[1]);
+                shapeTrim3 = selectGroup.children[1].subtract(selectGroup.children[0]);
+                shapeTrim1.bounds.selected = false;
+                shapeTrim2.bounds.selected = false;
+                shapeTrim3.bounds.selected = false;
+
+                if (shapeTrim1 && shapeTrim1.segments != undefined && shapeTrim1.segments.length > 2) {
+                    shapeTrim1.selected = true;
+                    shapeTrim1.fillColor = { hue: 240, alpha: 0.01 };
+                    selectGroup.addChild(shapeTrim1);
+                }
+                if (shapeTrim2 && shapeTrim2.segments != undefined && shapeTrim2.segments.length > 2) {
+                    shapeTrim2.selected = true;
+                    shapeTrim2.fillColor = { hue: 240, alpha: 0.01 };
+                    selectGroup.addChild(shapeTrim2);
+                }
+                if (shapeTrim3 && shapeTrim3.segments != undefined && shapeTrim3.segments.length > 2) {
+                    shapeTrim3.selected = true;
+                    shapeTrim3.fillColor = { hue: 240, alpha: 0.01 };
+                    selectGroup.addChild(shapeTrim3);
+                }
+            } else {
+                return;
+            }
+            return changeTool = 'shapeTrimmer';
+        }
+        function eyeDropper() {
+            toolFreePen.classList.remove("toolToggle");
+            toolMove.classList.remove("toolToggle");
+            toolPathEdit.classList.remove("toolToggle");
+            toolPen.classList.remove("toolToggle");
+            toolZoom.classList.remove("toolToggle");
+            toolShapeTrim.classList.remove("toolToggle");
+            toolHand.classList.remove("toolToggle");
+            toolEyedropper.classList.add("toolToggle");
+
+            if (shapeTrim1, shapeTrim2, shapeTrim3) {
+                shapeTrim1.remove();
+                shapeTrim2.remove();
+                shapeTrim3.remove();
+            }
+            return changeTool = 'eyedropper';
+        }
+
+
+        // VIP variables
+        var values = {
+            paths: 50,
+            minPoints: 5,
+            maxPoints: 15,
+            minRadius: 30,
+            maxRadius: 90
+        };
+        var hitOptions = {
+            segments: true,
+            handles: true,
+            stroke: true,
+            fill: true,
+            bounds: true,
+            tolerance: 5
+        };
+        var hitOptionsMove = {
+            fill: true,
+            bounds: true,
+            stroke: true,
+            tolerance: 10
+        };
+        var hitOptionsDrag = {
+            segments: true,
+            handles: true,
+            stroke: true,
+            fill: true,
+            bounds: true,
+            tolerance: 10
+        };
+
+        // MOUSE EVENTS SECTION
+        var types = ['point', 'handleIn', 'handleOut'];
+        function findHandle(point) {
+            for (var i = 0, l = path.segments.length; i < l; i++) {
+                for (var j = 0; j < 3; j++) {
+                    var type = types[j];
+                    var segment = path.segments[i];
+                    var segmentPoint = type == 'point'
+                        ? segment.point
+                        : segment.point + segment[type];
+                    var distance = (point - segmentPoint).length;
+                    if (distance < 3) {
+                        return {
+                            type: type,
+                            segment: segment
+                        };
+                    }
+                }
+            }
+            return null;
+        }
+        // mouseDown section
+        function onMouseDown(event) {
+            // spiokoks = window.location.href;
+            // if (spiokoks != 'https://sensielong.github.io/iGuhit/') return;
+
+            // freepen section
+            if (changeTool === 'pen') {
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'delete') {
+                        if (!path.selected) {
+                            alert('anong buburahin mo?');
+                        } else {
+                            path.remove();
+                            return false;
+                        }
+                    }
+
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+                // If we produced a path before, deselect it:
+                // we reset the selected items
+                selectGroup = null;
+
+                if (path) {
+                    path.selected = false;
+                }
+
+                // Create a new path and set its stroke color to black:
+                path = new Path({
+                    segments: [event.point],
+                    strokeColor: 'black',
+                    // Select the path, so we can see its segment points:
+                    fullySelected: true
+                });
+            }
+            // moveTool section
+            if (changeTool === 'moveTool') {
+                segment = path = handles = null;
+                // move keyboard interaction
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'delete') {
+                        if (!item.selected) {
+                            alert('anong buburahin mo?');
+                        } else {
+                            for (i = 0; i < selectGroup.length; i++) {
+                                item = selectGroup[i];
+                                item.remove();
+                            }
+                            return false;
+                        }
+                    }
+
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                    if (event.key == ']') {
+                        if (selectGroup && selectGroup.length > 0) {
+                            item.insertAbove(item.nextSibling);
+                            artboard.sendToBack();
+                        }
+                    }
+
+                    if (event.key == '[') {
+                        if (selectGroup && selectGroup.length > 0) {
+                            item.insertBelow(item.previousSibling);
+                            artboard.sendToBack();
+                        }
+                    }
+                    if (event.key == '{') {
+                        if (selectGroup && selectGroup.length > 0) {
+                            item.sendToBack();
+                            artboard.sendToBack();
+                        }
+                    }
+                    if (event.key == '}') {
+                        if (selectGroup && selectGroup.length > 0) {
+                            item.bringToFront();
+                            artboard.sendToBack();
+                        }
+                    }
+                }
+
+                // move hitest
+                if (event.modifiers.space) {
+                    handToolPan = project.activeLayer.children;
+                }
+                if (event.modifiers.shift) {
+                    var hitResult = project.hitTest(event.point, hitOptionsMove);
+                    if (hitResult) {
+                        item = hitResult.item;
+                        item.selected = false;
+                        item.bounds.selected = false;
+                        selectGroup = project.selectedItems;
+                    }
+                } else {
+                    var hitResult = project.hitTest(event.point, hitOptionsMove);
+                    // if the hit is fill then proceed
+                    if (hitResult && hitResult.type != 'bounds' && hitResult.item.className != 'CompoundPath') {
+                        item = hitResult.item;
+                        item.selected = true;
+                        selectGroup = project.selectedItems;
+
+                        // set the size of the item in input field
+                        document.getElementById('itemXlocation').value = (Math.floor(item.position.x)) / 300;
+                        document.getElementById('itemYlocation').value = (Math.floor(item.position.y)) / 300;
+                        document.getElementById('itemWidth').value = (Math.floor(item.bounds.width)) / 300;
+                        document.getElementById('itemHeight').value = (Math.floor(item.bounds.height)) / 300;
+                        itemOldWidth = document.getElementById('itemWidth').value * 300;
+                        itemOldHeight = document.getElementById('itemHeight').value * 300;
+
+
+                        if (selectGroup.length > 0) {
+                            for (i = 0; i < selectGroup.length; i++) {
+                                selectGroup[i].bounds.selected = true;
+                            }
+                        }
+
+                        if (event.modifiers.alt) {
+                            if (selectGroup.length > 0) {
+                                for (i = 0; i < selectGroup.length; i++) {
+                                    selectGroup[i].selected = false;
+                                    selectGroup[i].bounds.selected = false;
+                                    cloneCopy = selectGroup[i].clone();
+                                    cloneCopy.selected = true;
+                                }
+                            };
+                            moveDrag = 'ready';
+                            selectGroup.selected = false;
+                            return;
+                        }
+                        moveDrag = 'ready';
+                        return selectGroup;
+                    }
+
+                    // if the hit is compoundPath then proceed
+                    if (hitResult && hitResult.type === 'fill' && hitResult.item.className == 'CompoundPath') {
+                        item = hitResult.item;
+                        item.selected = true;
+                        selectGroup = project.selectedItems;
+
+                        // set the size of the item in input field
+                        document.getElementById('itemXlocation').value = (Math.floor(item.position.x)) / 300;
+                        document.getElementById('itemYlocation').value = (Math.floor(item.position.y)) / 300;
+                        document.getElementById('itemWidth').value = (Math.floor(item.bounds.width)) / 300;
+                        document.getElementById('itemHeight').value = (Math.floor(item.bounds.height)) / 300;
+                        itemOldWidth = document.getElementById('itemWidth').value * 300;
+                        itemOldHeight = document.getElementById('itemHeight').value * 300;
+
+
+                        if (selectGroup.length > 0) {
+                            for (i = 0; i < selectGroup.length; i++) {
+                                selectGroup[i].bounds.selected = true;
+                            }
+                        }
+
+                        if (event.modifiers.alt) {
+                            if (selectGroup.length > 0) {
+                                for (i = 0; i < selectGroup.length; i++) {
+                                    selectGroup[i].selected = false;
+                                    selectGroup[i].bounds.selected = false;
+                                    cloneCopy = selectGroup[i].clone();
+                                    cloneCopy.selected = true;
+                                }
+                            };
+                            moveDrag = 'ready';
+                            selectGroup.selected = false;
+                            return;
+                        }
+                        moveDrag = 'ready';
+                        return selectGroup;
+                    }
+
+                    // if the hit is bounds then proceed
+                    if (hitResult && hitResult.type === 'bounds') {
+                        tool.onKeyDown = function (event) {
+                            if (event.key == ']') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.insertAbove(item.nextSibling);
+                                    artboard.sendToBack();
+                                }
+                            }
+
+                            if (event.key == '[') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.insertBelow(item.previousSibling);
+                                    artboard.sendToBack();
+                                }
+                            }
+                            if (event.key == '{') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.sendToBack();
+                                    artboard.sendToBack();
+                                }
+                            }
+                            if (event.key == '}') {
+                                if (selectGroup && selectGroup.length > 0) {
+                                    item.bringToFront();
+                                    artboard.sendToBack();
+                                }
+                            }
+                            // group the selected item when pressing key g
+                            if (event.key == 'g') {
+                                group = new Group(selectGroup);
+                            }
+                        }
+                        item = hitResult.item;
+                        pathScaled = 'ready';
+                    }
+                    // if there is no hit
+                    if (!hitResult) {
+                        pathScaled = item = null;
+                        if (selectGroup) {
+                            for (i = 0; i < selectGroup.length; i++) {
+                                selectGroup[i].bounds.selected = false;
+                            }
+                        }
+                        project.activeLayer.bounds.selected = false;
+                        project.activeLayer.selected = false;
+                        project.activeLayer.fullySelected = false;
+                        return selectGroup = null;
+                    }
+                }
+            }
+            // path editing section
+            if (changeTool === 'pathEdit') {
+                segment = path = handles = null;
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+                var hitResult = project.hitTest(event.point, hitOptions);
+                if (!hitResult)
+                    return;
+                // event modifiers section
+                if (event.modifiers.space) {
+                    handToolPan = project.activeLayer.children;
+                }
+
+                if (event.modifiers.alt) {
+                    if (hitResult.type == 'segment') {
+                        hitResult.segment.handleOut = null;
+                    };
+                    return;
+                }
+
+                if (event.modifiers.shift) {
+                    if (hitResult.type == 'segment') {
+                        if (hitResult.segment.handleIn != null) {
+                            hitResult.segment.handleIn = null;
+                        } else {
+                            return;
+                        }
+                    };
+                    return;
+                }
+                if (event.modifiers.control) {
+                    if (hitResult.type == 'segment') {
+                        hitResult.segment.smooth();
+                    };
+                    return;
+                }
+                if (event.modifiers.capsLock) {
+                    if (hitResult.type == 'segment') {
+                        hitResult.segment.remove();
+                    };
+                    return;
+                }
+
+                if (hitResult) {
+                    path = hitResult.item;
+                    if (hitResult.type == 'segment') {
+                        segment = hitResult.segment;
+                    } else if (hitResult.type == 'handle-in') {
+                        handles = hitResult.segment;
+                        handlePoints = hitResult.type;
+                    } else if (hitResult.type == 'handle-out') {
+                        handles = hitResult.segment;
+                        handlePoints = hitResult.type;
+                    } else if (hitResult.type == 'stroke') {
+                        var location = hitResult.location;
+                        segment = path.insert(location.index + 1, event.point);
+                    }
+                }
+
+                movePath = hitResult.type == 'fill';
+                if (movePath) {
+                    project.activeLayer.addChild(hitResult.item);
+                    path.fullySelected = true;
+                }
+            }
+            // for penTool section
+            if (changeTool === 'penTool') {
+                if (currentSegment)
+                    currentSegment.selected = false;
+                mode = type = currentSegment = null;
+
+                if (!path) {
+                    path = new Path();
+                    // path.fillColor = document.getElementById('inputColor').value;
+                    // path.fillColor = {
+                    //    hue: 360 * Math.random(),
+                    //    saturation: 1,
+                    //    brightness: 1,
+                    // };
+                    path.strokeColor = 'black';
+                }
+
+                var result = findHandle(event.point);
+                if (result) {
+                    currentSegment = result.segment;
+                    type = result.type;
+
+                    // check if this event is on the first array of segments and closed the path if ever
+                    if (path.segments.length > 1 && result.type == 'point'
+                        && result.segment.index == 0) {
+                        mode = 'close';
+                        path.closed = true;
+                        path.selected = false;
+                        path = null;
+                    }
+                }
+                // if the event.point is not in the first array point of the segment? then add segement
+                if (mode != 'close') {
+                    mode = currentSegment ? 'move' : 'add';
+                    tool.onKeyDown = function (event) {
+                        if (event.key == 'x') {
+                            if (!currentSegment) {
+                                alert('wala kapa ngang path');
+                            } else {
+                                currentSegment.remove();
+                                currentSegment = path.lastSegment;
+                                console.log('tuloy mo lang');
+                                return false;
+                            }
+                        }
+                        // toolSwitch section from eyedropper
+                        if (event.key == 'z') {
+                            return zoomTool();
+                        }
+                        if (event.key == 'p') {
+                            return penTool();
+                        }
+                        if (event.key == 'e') {
+                            return pathEditing();
+                        }
+                        if (event.key == 'h') {
+                            return handTool();
+                        }
+                        if (event.key == 's') {
+                            return shapeTrimmer();
+                        }
+                        if (event.key == 'n') {
+                            return freePenFunction();
+                        }
+                        if (event.key == 'v') {
+                            return moveToolFunction();
+                        }
+                        if (event.key == 'i') {
+                            return eyeDropper();
+                        }
+                    }
+
+                    if (!currentSegment) {
+                        currentSegment = path.add(event.point);
+                    }
+                    if (event.modifiers.space) {
+                        handToolPan = project.activeLayer.children;
+                    }
+                    if (event.modifiers.alt) {
+                        if (currentSegment) {
+                            currentSegment.handleOut = null;
+                        };
+                        return currentSegment.selected = true;
+                    }
+                    if (event.modifiers.shift) {
+                        if (currentSegment) {
+                            currentSegment.handleIn = null;
+                        };
+                        return currentSegment.selected = true;
+                    }
+                    if (event.modifiers.control) {
+                        if (currentSegment) {
+                            currentSegment.remove();
+                        };
+                        return currentSegment.selected = true;
+                    }
+
+                    currentSegment.selected = true;
+                }
+            }
+            // for shapeTrimmer section
+            if (changeTool === 'shapeTrimmer') {
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+                var hitResult = project.hitTest(event.point, hitOptions);
+                if (selectGroup == undefined) return console.log('wala pa tayong selection');
+                // if the selection is more than 1 then do this
+                if (selectGroup.children.length > 1) {
+                    // if you hit the shapeTrim1
+                    if (hitResult && hitResult.item && hitResult.item == shapeTrim1) {
+                        //  add the shapetrim1 to array shapeHit
+                        shapeHit.push(shapeTrim1);
+
+                        if (shapeTrim1.segments != undefined && shapeTrim1.segments.length > 2) {
+                            shapeResult = selectGroup.children[0].subtract(selectGroup.children[1]);
+                            combinedShape = selectGroup.children[1];
+                            selectGroup.removeChildren();
+                            selectGroup.addChild(shapeResult);
+                            selectGroup.addChild(combinedShape);
+                        } else {
+                            // if the shape is inside the other shape this should create a compound path
+                            shapeResult = selectGroup.children[0].subtract(selectGroup.children[1]);
+                            selectGroup.removeChildren();
+                            selectGroup.addChild(shapeResult);
+                        }
+                        return selectGroup = selectGroup.children;
+                    }
+                    // if you hit the shapeTrim2
+                    if (hitResult && hitResult.item && hitResult.item == shapeTrim2) {
+                        if (shapeTrim2.segments.length > 2) {
+                            shapeResult = selectGroup.children[0].intersect(selectGroup.children[1]);
+                            combinedShape = selectGroup.children[0].subtract(selectGroup.children[1]);
+                            combinedShape2 = selectGroup.children[1].subtract(selectGroup.children[0]);
+                            selectGroup.removeChildren();
+                            selectGroup.addChild(shapeResult);
+                            selectGroup.addChild(combinedShape);
+                            selectGroup.addChild(combinedShape2);
+                        }
+                        return selectGroup = selectGroup.children;
+                    }
+                    // if you hit the shapeTrim3
+                    if (hitResult && hitResult.item && hitResult.item == shapeTrim3) {
+                        if (shapeTrim3.segments != undefined && shapeTrim3.segments.length > 2) {
+                            shapeResult = selectGroup.children[1].subtract(selectGroup.children[0]);
+                            combinedShape = selectGroup.children[0];
+                            selectGroup.removeChildren();
+                            selectGroup.addChild(shapeResult);
+                            selectGroup.addChild(combinedShape);
+                        } else {
+                            // if the shape is inside the other shape this should create a compound path
+                            shapeResult = selectGroup.children[1].subtract(selectGroup.children[0]);
+                            selectGroup.removeChildren();
+                            selectGroup.addChild(shapeResult);
+                        }
+                        return selectGroup = selectGroup.children;
+                    }
+                }
+            }
+            // zoom section
+            if (changeTool === 'zoomTool') {
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+                if (event.modifiers.shift) {
+                    newZoom = paper.view.zoom * 0.95;
+
+                } else if (event.modifiers.control) {
+                    newZoom = paper.view.zoom * 0.5;
+
+                } else if (event.modifiers.alt) {
+                    newZoom = paper.view.zoom = 1;
+
+                    // center everything in the canvas
+                    artboardMove = project.activeLayer.children;
+                    diffDelta = new Point(paper.view.center.x - artboard.position.x, paper.view.center.y - artboard.position.y);
+
+                    for (var i = 0; i < artboardMove.length; i++) {
+                        artboardMove[i].position += diffDelta;
+                    }
+
+                } else if (event.modifiers.space) {
+                    handToolPan = project.activeLayer.children;
+                } else {
+                    newZoom = paper.view.zoom * 1.05;
+                }
+                paper.view.zoom = newZoom;
+                paper.view.draw();
+            }
+            // handTool section
+            if (changeTool === 'handTool') {
+                handToolPan = project.activeLayer.children;
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+            }
+            if (changeTool === 'eyedropper') {
+                tool.onKeyDown = function (event) {
+                    // toolSwitch section from eyedropper
+                    if (event.key == 'z') {
+                        return zoomTool();
+                    }
+                    if (event.key == 'p') {
+                        return penTool();
+                    }
+                    if (event.key == 'e') {
+                        return pathEditing();
+                    }
+                    if (event.key == 'h') {
+                        return handTool();
+                    }
+                    if (event.key == 's') {
+                        return shapeTrimmer();
+                    }
+                    if (event.key == 'n') {
+                        return freePenFunction();
+                    }
+                    if (event.key == 'v') {
+                        return moveToolFunction();
+                    }
+                    if (event.key == 'i') {
+                        return eyeDropper();
+                    }
+                }
+
+                // bring back the original color of the fill: from red to antiquewhite
+                document.getElementById("myItemFill").style.color = 'antiquewhite';
+
+                // if there is a path selected, change its color
+                if (path) {
+                    path.fillColor = raster.getAverageColor(event.point);
+                }
+                if (item && item.className != 'Raster') {
+                    // we perform hitest if there is a selected item
+                    var hitResult = project.hitTest(event.point, hitOptionsMove);
+
+                    if (hitResult && hitResult.type != 'bounds' && hitResult.item.className != 'Raster') {
+                        var recoloritem = hitResult.item;
+                        item.fillColor = recoloritem.fillColor;
+
+                        // change the background color of fill after item hit
+                        itemColorToDiv = item.fillColor.toCSS(true);
+                        document.getElementById('colorPickPreview').style.backgroundColor = itemColorToDiv;
+                        return document.getElementById('inputColor').value = itemColorToDiv;
+
+                    } else if (hitResult && hitResult.type != 'bounds' && hitResult.item.className == 'Raster') {
+                        raster = hitResult.item;
+                        selectGroup = project.selectedItems;
+                        for (i = 0; i < selectGroup.length; i++) {
+                            item = selectGroup[i];
+                            item.fillColor = raster.getAverageColor(event.point);
+                        }
+
+                        // change the background color of fill after item hit
+                        itemColorToDiv = item.fillColor.toCSS(true);
+                        document.getElementById('colorPickPreview').style.backgroundColor = itemColorToDiv;
+                        return document.getElementById('inputColor').value = itemColorToDiv;
+
+                    } else {
+                        alert('itama mo naman idolo, buti pa ako may tama');
+                        return false;
+                    }
+                } else {
+                    // if there is no selected path, just simply re color the div and the input color value
+                    var hitResult = project.hitTest(event.point, hitOptionsMove);
+
+                    if (hitResult && hitResult.type != 'bounds' && hitResult.item.className != 'Raster') {
+                        var recoloritem = hitResult.item;
+
+                        // change the background color of fill after item hit
+                        itemColorToDiv = recoloritem.fillColor.toCSS(true);
+                        document.getElementById('colorPickPreview').style.backgroundColor = itemColorToDiv;
+                        return document.getElementById('inputColor').value = itemColorToDiv;
+
+                    } else if (hitResult && hitResult.type != 'bounds' && hitResult.item.className == 'Raster') {
+                        raster = hitResult.item;
+                        rasterColorHolder = raster.getAverageColor(event.point);
+
+                        // change the background color of fill after item hit
+                        itemColorToDiv = rasterColorHolder.toCSS(true);
+                        document.getElementById('colorPickPreview').style.backgroundColor = itemColorToDiv;
+                        return document.getElementById('inputColor').value = itemColorToDiv;
+                    } else {
+                        alert('itama mo naman idolo, buti pa ako may tama');
+                        return false;
+                    }
+                }
+            }
+        }
+        // mouseMove section
+        function onMouseMove(event) {
+            if (changeTool === 'pathEdit') {
+                var hitResult = project.hitTest(event.point, hitOptions);
+                project.activeLayer.selected = false;
+                if (hitResult && hitResult.item)
+                    hitResult.item.fullySelected = true;
+            }
+            if (changeTool === 'shapeTrimmer') {
+                var hitResult = project.hitTest(event.point, hitOptions);
+                project.activeLayer.selected = false;
+                if (hitResult && hitResult.item) {
+                    hitResult.item.fullySelected = true;
+                }
+            }
+        }
+        // mouseDrag section
+        function onMouseDrag(event) {
+            // freePen section
+            if (changeTool === 'pen') {
+                path.add(event.point);
+            }
+            // moveTool section.
+            if (changeTool === 'moveTool') {
+                if (event.modifiers.space) {
+                    for (var i = 0; i < handToolPan.length; i++) {
+                        handToolPan[i].position += event.delta;
+                    }
+                } else {
+                    if (pathScaled === 'ready') {
+                        document.getElementById('itemXlocation').value = (Math.floor(item.position.x)) / 300;
+                        document.getElementById('itemYlocation').value = (Math.floor(item.position.y)) / 300;
+                        document.getElementById('itemWidth').value = (Math.floor(item.bounds.width)) / 300;
+                        document.getElementById('itemHeight').value = (Math.floor(item.bounds.height)) / 300;
+                        if (event.modifiers.shift) {
+                            item.bounds.width = (event.point.x - item.bounds.topLeft.x);
+                        } else if (event.modifiers.alt) {
+                            item.bounds.height = (event.point.y - item.bounds.topLeft.y);
+                        } else if (event.modifiers.control) {
+                            item.bounds.width = (event.point.x - item.bounds.topLeft.x);
+                            item.bounds.height = (event.point.y - item.bounds.topLeft.y);
+                        } else {
+                            var constraintsScale = item.bounds.width;
+                            item.bounds.width = (event.point.x - item.bounds.topLeft.x);
+                            var heightConstraints = item.bounds.width / constraintsScale;
+                            item.bounds.height = item.bounds.height * heightConstraints;
+                        }
+                    } else if (selectGroup && moveDrag === 'ready') {
+                        document.getElementById('itemXlocation').value = (Math.floor(item.position.x)) / 300;
+                        document.getElementById('itemYlocation').value = (Math.floor(item.position.y)) / 300;
+                        document.getElementById('itemWidth').value = (Math.floor(item.bounds.width)) / 300;
+                        document.getElementById('itemHeight').value = (Math.floor(item.bounds.height)) / 300;
+                        for (i = 0; i < selectGroup.length; i++) {
+                            item = selectGroup[i];
+                            item.translate(event.delta);
+                        }
+                        return;
+                    } else {
+                        // if nothing is selected using drag, select everything in its way
+                        var hitResult = project.hitTest(event.point, hitOptionsMove);
+                        if (hitResult) {
+                            item = hitResult.item;
+                            item.selected = true;
+                            selectGroup = project.selectedItems;
+                        }
+                    }
+                }
+            }
+            // path editing section
+            if (changeTool === 'pathEdit') {
+                if (event.modifiers.space) {
+                    for (var i = 0; i < handToolPan.length; i++) {
+                        handToolPan[i].position += event.delta;
+                    }
+                } else if (segment) {
+                    segment.point += event.delta;
+                    //path.smooth();
+                } else if (handles) {
+                    if (handlePoints == 'handle-in') {
+                        handles.handleIn += event.delta;
+                    } else if (handlePoints == 'handle-out') {
+                        handles.handleOut += event.delta;
+                    }
+                } else if (path) {
+                    path.position += event.delta;
+                }
+            }
+            // penTool section
+            if (changeTool === 'penTool') {
+                if (event.modifiers.space) {
+                    for (var i = 0; i < handToolPan.length; i++) {
+                        handToolPan[i].position += event.delta;
+                    }
+                } else if (mode == 'move' && type == 'point') {
+                    currentSegment.point = event.point;
+                } else if (mode != 'close') {
+                    var delta = event.delta.clone();
+                    if (type == 'handleOut' || mode == 'add')
+                        delta = -delta;
+                    currentSegment.handleIn += delta;
+                    currentSegment.handleOut -= delta;
+                }
+            }
+            // zoomTool section
+            if (changeTool === 'zoomTool') {
+                if (event.modifiers.space) {
+                    ;
+                    for (var i = 0; i < handToolPan.length; i++) {
+                        handToolPan[i].position += event.delta;
+                    }
+                } else {
+                    zoomStartPos = new Point(event.delta);
+                    if (zoomStartPos.x > 0 && zoomStartPos.y > 0) {
+                        newZoom = paper.view.zoom * 1.02;
+                    } else if (zoomStartPos.x > 0 && zoomStartPos.y < 0 || zoomStartPos.x < 0 && zoomStartPos.y > 0) {
+                        newZoom = paper.view.zoom * 1;
+                    } else {
+                        newZoom = paper.view.zoom * 0.98;
+                    }
+                    paper.view.zoom = newZoom;
+                    paper.view.draw();
+                }
+            }
+            // handTool section for drag
+            if (changeTool === 'handTool') {
+                for (var i = 0; i < handToolPan.length; i++) {
+                    handToolPan[i].position += event.delta;
+                }
+            }
+            if (changeTool === 'eyedropper') {
+                if (raster) {
+                    rasterColorHolder = raster.getAverageColor(event.point);
+                    // change the background color of fill after item hit
+                    itemColorToDiv = rasterColorHolder.toCSS(true);
+                    document.getElementById('colorPickPreview').style.backgroundColor = itemColorToDiv;
+                    document.getElementById('inputColor').value = itemColorToDiv;
+                    if (path) {
+                        path.fillColor = raster.getAverageColor(event.point);
+                    }
+                    if (item && item.className != 'Raster') {
+                        item.fillColor = raster.getAverageColor(event.point);
+                        if (selectGroup) {
+                            for (i = 0; i < selectGroup.length; i++) {
+                                item = selectGroup[i];
+                                item.fillColor = raster.getAverageColor(event.point);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // mouseUp section
+        function onMouseUp() {
+            // freePen section
+            if (changeTool === 'pen') {
+
+                if (path.segments.length > 2) {
+                    var para = document.createElement("p");
+                    var i = 0;
+                    para.innerHTML = "Path";
+                    document.getElementById("layerContainer").appendChild(para);
+                }
+
+                // var segmentCount = path.segments.length;
+
+                // When the mouse is released, simplify it:
+                path.simplify(10);
+
+                // Select the path, so we can see its segments:
+                path.fullySelected = true;
+                if (document.getElementById('inputColor').value == "") {
+                    return colorPickValue = '#ffffff';
+                } else {
+                    path.fillColor = document.getElementById('inputColor').value;
+                    return colorPickValue = document.getElementById('inputColor').value;
+                };
+
+                // return all
+                return document.getElementById('colorPickPreview').style.backgroundColor = colorPickValue, item = path;
+            }
+            // pathEdit section in mouse up event
+            if (changeTool === 'pathEdit') {
+                if (!path) {
+                    return;
+                } else {
+                    path.fullySelected = true;
+                }
+            }
+            // moveTool section in up
+            if (changeTool === 'moveTool') {
+                pathScaled = moveDrag = null;
+            }
+            if (changeTool === 'eyedropper') {
+                return;
+            }
+        }
+
     </script>
 
 </head>
 <body>
+    <!-- menu bar label -->
     <label id="fileMenuLabel" class="globalText">File</label>
     <label id="EditMenuLabel" class="globalText">Edit</label>
-    <label id="ImageMenuLabel" class="globalText">Image</label>
+    <label id="ObjectMenuLabel" class="globalText">Object</label>
     <label id="LayerMenuLabel" class="globalText">Layers</label>
     <label id="TypeMenuLabel" class="globalText">Type</label>
     <label id="SelectMenuLabel" class="globalText">Select</label>
@@ -27,6 +1594,7 @@
     <label id="WindowMenuLabel" class="globalText">Window</label>
     <label id="HelpMenuLabel" class="globalText">Help</label>
 
+    <!-- inside of this div are all draggables -->
     <div id="toolControl">
         <div id="toolContainer">
             <img src=".\toolImages\bx-move.svg" class="toolIcon" id="moveTool" />
@@ -38,16 +1606,16 @@
             <img src=".\toolImages\bxs-hand.svg" class="toolIcon" id="handTool" />
             <img src=".\toolImages\bxs-eyedropper.svg" class="toolIcon" id="eyedropper" />
         </div>
-        <div id="controlContainer" style="display: none;">
+        <div id="controlContainer">
             <input type="file" class="buttonGlobal" id="imageUpload" name="imageUpload" accept="image/jpeg, image/png, svg" style="display: none;" />
             <label id="uploadFile" for="imageUpload" class="globalText">Upload file</label>
 
             <button id="download-to-svg" class="buttonGlobal">EXPORT SVG</button>
             <p id="canvasLabel">Canvas Size:</p>
             <p class="widthHeight">Width :</p>
-            <input type="text" id="controlWidth" class="inputWidthSize" value="7" />
+            <input type="text" id="controlWidth" class="inputWidthSize" value="5" />
             <p class="widthHeight">Height :</p>
-            <input type="text" id="controlHeight" class="inputWidthSize" value="4.5" />
+            <input type="text" id="controlHeight" class="inputWidthSize" value="3.5" />
             <p class="widthHeight">in</p>
             <button id="canvasUpdateButton"><strong>✓</strong></button>
             <p class="ScaleCanvas">ScaleProject</p>
@@ -55,11 +1623,17 @@
             <button id="canvasUpdateScaleUp" class="canvasUpdateScale"><strong>+</strong></button>
         </div>
     </div>
-    <div id="windowContainer" class="containerAccent" style="display: none;">
-        <div id="toolWindow" class="dropDownText">tools</div>
-        <div id="canvasWindow" class="dropDownText">canvas</div>
-        <div id="controlWindow" class="dropDownText">control</div>
+    <div id="layerParentDiv">
+        <div id="layerContainer">
+            <p id="layerPanel">Layers</p>
+            <p>layer 1</p>
+        </div>
     </div>
+    <div id="toggleAllElements">
+        <div id="toggleAllContainer">☻</div>
+    </div>
+
+    <!-- file menu  -->
     <div id="fileContainer" class="containerAccent" style="display: none;">
         <div id="artsGallery" class="dropDownText">arts gallery</div>
         <div id="newFile" class="dropDownText">new file</div>
@@ -67,6 +1641,27 @@
         <div id="importFile" class="dropDownText">import file</div>
         <div id="exportfile" class="dropDownText">export file</div>
     </div>
+    <!-- edit menu  -->
+    <div id="editContainer" class="containerAccent" style="display: none;">
+        <div id="menuCut" class="dropDownText">cut</div>
+        <div id="menuCopy" class="dropDownText">copy</div>
+        <div id="menuPaste" class="dropDownText">paste</div>
+        <div id="menuPreferences" class="dropDownText">preferences</div>
+        <div id="menuKeyShortcuts" class="dropDownText">shortcuts</div>
+    </div>
+
+    <!-- window menu  -->
+    <div id="windowContainer" class="containerAccent" style="display: none;">
+        <div id="toolWindow" class="dropDownText">tools</div>
+        <div id="canvasWindow" class="dropDownText">canvas</div>
+        <div id="controlWindow" class="dropDownText">control</div>
+        <div id="layerWindow" class="dropDownText">layers</div>
+    </div>
+
+    <!-- end of menu bar  -->
+
+
+
     <div id="canvasContainer">
         <canvas id="canvas"></canvas>
     </div>
@@ -86,19 +1681,19 @@
             <input type="text" id="pathOpacity" style="display: none;" class="strokeThicknessClass" value="100" />
 
             <p class="toolPropertiesLabel" id="labelAlign" style="display: none;">align:</p>
-            <img src="./control_images/align_left.svg" class="toolControlIcon" id="alignLeft" style="display: none;"/>
+            <img src="./control_images/align_left.svg" class="toolControlIcon" id="alignLeft" style="display: none;" />
             <img src="./control_images/align_center-01.svg" class="toolControlIcon" id="alignCenter" style="display: none;" />
-            <img src="./control_images/align_right.svg" class="toolControlIcon" id="alignRight"  style="display: none;"/>
+            <img src="./control_images/align_right.svg" class="toolControlIcon" id="alignRight" style="display: none;" />
             <p class="toolPropertiesLabel" id="---" style="display: none;">---</p>
-            <img src="./control_images/align_top.svg" class="toolControlIcon" id="alignTop" style="display: none;"/>
-            <img src="./control_images/align_V_center.svg" class="toolControlIcon" id="alignVerticalCenter" style="display: none;"/>
-            <img src="./control_images/align_bottom.svg" class="toolControlIcon" id="alignBot" style="display: none;"/>
+            <img src="./control_images/align_top.svg" class="toolControlIcon" id="alignTop" style="display: none;" />
+            <img src="./control_images/align_V_center.svg" class="toolControlIcon" id="alignVerticalCenter" style="display: none;" />
+            <img src="./control_images/align_bottom.svg" class="toolControlIcon" id="alignBot" style="display: none;" />
 
 
             <p class="toolPropertiesLabel" id="xPos" style="display: none;">X:</p>
             <input type="text" id="itemXlocation" class="inputWidthSize" value="x pos" style="display: none;" />
             <p class="toolPropertiesLabel" id="yPos" style="display: none;">Y:</p>
-            <input type="text" id="itemYlocation" class="inputWidthSize" value="y pos" style="display: none;"/>
+            <input type="text" id="itemYlocation" class="inputWidthSize" value="y pos" style="display: none;" />
             <p class="toolPropertiesLabel" id="widthLabel" style="display: none;">W:</p>
             <input type="text" id="itemWidth" class="inputWidthSize" value="width" style="display: none;" />
             <p class="toolPropertiesLabel" id="heightLabel" style="display: none;">H:</p>
@@ -107,5 +1702,7 @@
 
         </div>
     </div>
+    <div><a href="https://www.facebook.com/longscreation">visit my fb page</a></div>
+
 </body>
 </html>
