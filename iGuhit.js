@@ -634,19 +634,6 @@ var hitOptionsDrag = {
     tolerance: 10
 };
 
-
-// function for internet connection
-function checkInternetConnection() {
-    var isOnLine = navigator.onLine;
-    if (isOnLine) {
-        //alert('we have internet');
-        return;
-    } else {
-        alert('Check your internet connection!');
-        return location.reload();
-    }
-}
-
 // MOUSE EVENTS SECTION
 var types = ['point', 'handleIn', 'handleOut'];
 function findHandle(point) {
@@ -670,24 +657,6 @@ function findHandle(point) {
 }
 // mouseDown section
 function onMouseDown(event) {
-    // security set up github.io
-    var headCheck = window.location.href;
-    var headCheckString = headCheck.toString();
-    var headCheckSimplify = headCheckString.substring(0, 24);
-    var headCheckSafari = headCheckString.substring(0, 23);
-    var pass = 'https://iguhit.enums.org';
-    var safari = 'http://iguhit.enums.org';
-
-    // check internet connection first
-    checkInternetConnection();
-    // check if the app is not in other domain, alert app not genuin if so
-    if (headCheckSimplify == pass || headCheckSafari == safari) {
-        alert('Thank you for using enums.org');
-    } else {
-        alert('app not genuin'), location.reload();
-    };
-    // end of verification
-
     // freepen section
     if (changeTool === 'pen') {
         tool.onKeyDown = function (event) {
