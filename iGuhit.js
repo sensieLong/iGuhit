@@ -77,6 +77,17 @@ var headCheckSafari = headCheckString.substring(0, 23);
 var pass = 'https://iguhit.enums.org';
 var safari = 'http://iguhit.enums.org';
 // check internet connection first
+// function for internet connection
+function checkInternetConnection() {
+    var isOnLine = navigator.onLine;
+    if (isOnLine) {
+        //alert('we have internet');
+        return;
+    } else {
+        alert('Check your internet connection!');
+        return location.reload();
+    }
+}
 checkInternetConnection();
 // check if the app is not in other domain, alert app not genuin if so
 if (headCheckSimplify == pass || headCheckSafari == safari) {
