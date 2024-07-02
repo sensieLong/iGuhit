@@ -73,10 +73,10 @@ $(function () {
 // security set up github.io
 var headCheck = window.location.href;
 var headCheckString = headCheck.toString();
-var headCheckSimplify = headCheckString.substring(0, 17);
-var headCheckSafari = headCheckString.substring(0, 16);
-var pass = 'https://enums.org';
-var safari = 'http://enums.org';
+var headCheckSimplify = headCheckString.substring(0, 24);
+var headCheckSafari = headCheckString.substring(0, 23);
+var pass = 'https://iguhit.enums.org';
+var safari = 'http://iguhit.enums.org';
 // check internet connection first
 checkInternetConnection();
 // check if the app is not in other domain, alert app not genuin if so
