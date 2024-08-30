@@ -650,10 +650,10 @@ function checkInternetConnection() {
 // security set up github.io
 var headCheck = window.location.href;
 var headCheckString = headCheck.toString();
-var headCheckSimplify = headCheckString.substring(0, 24);
-var headCheckSafari = headCheckString.substring(0, 23);
-var pass = 'https://iguhit.enums.org';
-var safari = 'http://iguhit.enums.org';
+var headCheckSimplify = headCheckString.substring(0, 20);
+var headCheckSafari = headCheckString.substring(0, 19);
+var pass = 'https://iguhitko.pro';
+var safari = 'http://iguhitko.pro';
 
 // check internet connection first
 checkInternetConnection();
