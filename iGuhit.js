@@ -647,18 +647,18 @@ function checkInternetConnection() {
     }
 }
 
-// security set up github.io
+// security set up domain may 28, 2025
 var headCheck = window.location.href;
 var headCheckString = headCheck.toString();
 var headCheckSimplify = headCheckString.substring(0, 20);
 var headCheckSafari = headCheckString.substring(0, 19);
-var pass = 'https://iguhitko.pro';
-var safari = 'http://iguhitko.pro';
+var pass = 'https://www.iguhitko';
+var safari = 'http://www.iguhitko.';
 
 // check internet connection first
 checkInternetConnection();
 // check if the app is not in other domain, alert app not genuin if so
-if (headCheckSimplify == pass || headCheckSafari == safari || headCheckSimplify == safari) {
+if (headCheckSimplify == pass || headCheckSafari == safari) {
     alert('Thank you for using enums.org');
 } else {
     alert('app not genuin '), alert(headCheckSimplify), location.reload();
