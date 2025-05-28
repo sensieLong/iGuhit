@@ -666,6 +666,7 @@ if (headCheckSimplify == pass || headCheckSafari == safari) {
 // end of verification
 
 // MOUSE EVENTS SECTION
+// main function for path edit
 var types = ['point', 'handleIn', 'handleOut'];
 function findHandle(point) {
     for (var i = 0, l = path.segments.length; i < l; i++) {
@@ -753,6 +754,8 @@ function onMouseDown(event) {
                 if (!item.selected) {
                     alert('anong buburahin mo?');
                 } else {
+                    // check natin kung may laman ang selectgroup
+                    // kung mayron selected item yun ang mabura
                     for (i = 0; i < selectGroup.length; i++) {
                         item = selectGroup[i];
                         item.remove();
@@ -760,7 +763,8 @@ function onMouseDown(event) {
                     return false;
                 }
             }
-
+            
+            // key quick swith while in move tool
             if (event.key == 'z') {
                 return zoomTool();
             }
