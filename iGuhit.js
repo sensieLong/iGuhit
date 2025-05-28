@@ -658,10 +658,10 @@ var safari = 'http://iguhitko.pro';
 // check internet connection first
 checkInternetConnection();
 // check if the app is not in other domain, alert app not genuin if so
-if (headCheckSimplify == pass || headCheckSafari == safari) {
+if (headCheckSimplify == pass || headCheckSafari == safari || headCheckSimplify == safari) {
     alert('Thank you for using enums.org');
 } else {
-    alert('app not genuin'), location.reload();
+    alert('app not genuin '), alert(headCheckSimplify), location.reload();
 };
 // end of verification
 
