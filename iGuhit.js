@@ -661,7 +661,8 @@ checkInternetConnection();
 if (headCheckSimplify == pass || headCheckSimplify == safari) {
     alert('Thank you for using enums.org');
 } else {
-    alert('app not genuin '), alert(headCheckSimplify), location.reload();
+    alert("The app is not Geniun But i allowed it for now 1-26-2026");
+    // alert('app not genuin '), alert(headCheckSimplify), location.reload();
 };
 // end of verification
 
@@ -1604,3 +1605,4 @@ function onMouseUp() {
         return;
     }
 }
+
