@@ -69,7 +69,7 @@ body {
     margin-left: 2790px;
     margin-top: 55px;
     width: 250px;
-    height: 100px;
+    height: 75vh; /* im using vewport height kaysa pixel hight it's like 75% height */
     position: absolute;
     overflow: hidden;
 }
@@ -191,6 +191,14 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 10px;
+}
+#deleteBtn {
+    margin: 5px 5px 0px 5px;
+    width: 75px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: red;
 }
 
 .buttonGlobal {

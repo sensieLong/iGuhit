@@ -108,6 +108,7 @@ document.getElementById('eyedropper').addEventListener("click", eyeDropper);
 // control click event
 document.getElementById('canvasUpdateButton').addEventListener("click", canvasResizedWH);
 document.getElementById('toolPropertiesLabelBtn').addEventListener("click", toolPropertiesLabelBtn);
+document.getElementById('deleteBtn').addEventListener('click', deleteBtn);
 document.getElementById('download-to-svg').addEventListener("click", downloadSVG);
 document.getElementById('canvasUpdateScaleDown').addEventListener("click", scaleCanvasDown);
 document.getElementById('canvasUpdateScaleUp').addEventListener("click", scaleCanvasUp);
@@ -182,6 +183,9 @@ function toolPropertiesLabelBtn() {
     //item.position.x = document.getElementById('itemXlocation').value * 300;
     //item.position.y = document.getElementById('itemYlocation').value * 300;
     return item;
+}
+function deleteBtn(){
+    return item.remove();
 }
 
 
@@ -442,6 +446,7 @@ function moveToolFunction() {
     document.getElementById('heightLabel').style.display = 'block';
     document.getElementById('itemHeight').style.display = 'block';
     document.getElementById('toolPropertiesLabelBtn').style.display = 'block';
+    document.getElementById('deleteBtn').style.display = 'block';
 
     return changeTool = 'moveTool';
 }
