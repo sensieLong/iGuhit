@@ -446,6 +446,7 @@ function moveToolFunction() {
     document.getElementById('heightLabel').style.display = 'block';
     document.getElementById('itemHeight').style.display = 'block';
     document.getElementById('toolPropertiesLabelBtn').style.display = 'block';
+    // add the delete button to javacript if the movetool is clicked
     document.getElementById('deleteBtn').style.display = 'block';
 
     return changeTool = 'moveTool';
