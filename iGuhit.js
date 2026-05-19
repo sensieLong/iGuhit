@@ -70,7 +70,7 @@ $(function () {
 });
 // end of jquery
 
-// paper section
+// paper section global variables
 paper.install(window);
 var raster, rasterColorHolder;
 var pathFillToggle = false;
@@ -89,6 +89,10 @@ var shapeTrim1, shapeTrim2, shapeTrim3, shapeResult, combinedShape, combinedShap
 var newZoom, zoomStartPos, zoomEndPos, mousePosition, viewPosition;
 var handToolPan, artboardMove, diffDelta, pathScaled, itemScaledH, itemScaledY, moveDrag;
 var colorGroup;
+
+// undo redo array initialization set as empty
+var undo = [];
+var redo = [];
 
 
 // variables for artboard
@@ -114,6 +118,7 @@ document.getElementById('canvasUpdateScaleDown').addEventListener("click", scale
 document.getElementById('canvasUpdateScaleUp').addEventListener("click", scaleCanvasUp);
 document.getElementById('myItemFill').addEventListener("click", removeFill);
 
+// assigning variable from html element by id
 var toolFreePen = document.getElementById('freePen');
 var toolMove = document.getElementById('moveTool');
 var toolPathEdit = document.getElementById('pathEdit');
@@ -699,7 +704,29 @@ function onMouseDown(event) {
 
     // freepen section
     if (changeTool === 'pen') {
+        // tool.onKeyDown for pen
         tool.onKeyDown = function (event) {
+            // when you press the ctrl + z = undo
+            if (event.modifiers.control && event.key === 'b'){
+                console.log('control + z is pressed');
+                if (undo.length != 0){
+                    undo[undo.length -1].remove();
+                    undo.pop();
+                }else{
+                    alert("there is nothing to undo");
+                }
+            }
+            // when you press the alt + z = redo
+            if (event.modifiers.alt && event.key === 'b'){
+                // check first if the undo and redo length is not equal
+                if (redo.length != undo.length){
+                    // make the redo visible before the copy
+                    redo[undo.length].visible = true;
+                    undo.push(redo[undo.length]);
+                }else{
+                    alert('there is no redo left');
+                }
+            }
             // toolSwitch section from eyedropper
             if (event.key == 'delete') {
                 if (!path.selected) {
@@ -1584,7 +1611,40 @@ function onMouseUp() {
         path.simplify(10);
 
         // Select the path, so we can see its segments:
+        // gumamit lagi ng if statement kahit sa alert para no errors
         path.fullySelected = true;
+        
+        // gagana lang ang susunod na section kapag naka select ang path
+        if (path.fullySelected){
+            path.closePath(); // closed the path after mouse up
+
+            // dito mo nalang ilagay ang path recovered by json
+            var pathPasokRedo = path.exportJSON();
+
+            // Bagong path na papasukan ng json file mo if ever kailangan mo ulit
+            var recoveredPath = new Path();
+            recoveredPath.importJSON(pathPasokRedo);
+            // hide muna natin, show nalang kapag i redo na natin siya
+            recoveredPath.visible = false;
+            // gawa tayo ng condition if walang laman ang redo
+            // i push natin yung path directly pero
+            // kung mayron naman itong laman, isingit natin ang 
+            // bagong redo path depende kung ilan ang laman ng undo
+
+            // example, kung ang laman ng undo ay 3 tapos ang redo ay 5
+            // palitan natin ng bagong redo sa position 3 ex=(0,1,2)
+            // eto ay magiging (0,1,"new redo",2,3,4) ganyan na
+            if (redo.length == 0){
+                redo.push(recoveredPath);
+            }else{
+                redo.splice(undo.length -1,0,recoveredPath);
+            };
+
+            // kailangan natin maging item ang path na ito
+            item = path;
+            return undo.push(item), alert("undo is = " + undo + " | and redo is = " + redo);
+        };
+
         if (document.getElementById('inputColor').value == "") {
             return colorPickValue = '#ffffff';
         } else {
