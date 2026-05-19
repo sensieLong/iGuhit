@@ -131,9 +131,32 @@ var toolEyedropper = document.getElementById('eyedropper');
 
 
 // key down global switching tools
+// tool switch 
 tool.onKeyDown = function (event) {
-    // toolSwitch section from pen
-    if (event.key == 'z') {
+        
+    // undo redo global
+    // when you press the ctrl + z = undo
+    if (event.modifiers.control && event.key === 'z'){
+        alert('control + z is pressed and undo is '+ undo);
+        if (undo.length != 0){
+            undo[undo.length -1].fullySelected = false;
+            undo[undo.length -1].remove();
+            undo.pop();
+            alert('this is the undo after '+ undo);
+        }
+    }
+    // when you press the alt + z = redo
+    if (event.modifiers.alt && event.key === 'z'){
+        // check first if the undo and redo length is not equal
+        if (redo.length != undo.length){
+            // make the redo visible before the copy
+            redo[undo.length].visible = true;
+            undo.push(redo[undo.length]);
+        }
+    }
+
+    // toolSwitch section start
+    if (!event.modifiers.control && !event.modifiers.alt && event.key == 'z') {
         return zoomTool();
     }
     if (event.key == 'p') {
@@ -706,27 +729,6 @@ function onMouseDown(event) {
     if (changeTool === 'pen') {
         // tool.onKeyDown for pen
         tool.onKeyDown = function (event) {
-            // when you press the ctrl + z = undo
-            if (event.modifiers.control && event.key === 'b'){
-                console.log('control + z is pressed');
-                if (undo.length != 0){
-                    undo[undo.length -1].remove();
-                    undo.pop();
-                }else{
-                    alert("there is nothing to undo");
-                }
-            }
-            // when you press the alt + z = redo
-            if (event.modifiers.alt && event.key === 'b'){
-                // check first if the undo and redo length is not equal
-                if (redo.length != undo.length){
-                    // make the redo visible before the copy
-                    redo[undo.length].visible = true;
-                    undo.push(redo[undo.length]);
-                }else{
-                    alert('there is no redo left');
-                }
-            }
             // toolSwitch section from eyedropper
             if (event.key == 'delete') {
                 if (!path.selected) {
@@ -736,8 +738,29 @@ function onMouseDown(event) {
                     return false;
                 }
             }
+            // undo redo freepen
+            
+            // when you press the ctrl + z = undo
+            if (event.modifiers.control && event.key === 'z'){
+                // alert('control + z is pressed and undo is '+ undo);
+                if (undo.length != 0){ 
+                    undo[undo.length -1].remove();
+                    undo.pop();
+                   // alert('this is the undo after '+ undo);
+                }
+            }
+            // when you press the alt + z = redo
+            if (event.modifiers.alt && event.key === 'z'){
+                // check first if the undo and redo length is not equal
+                if (redo.length != undo.length){
+                    // make the redo visible before the copy
+                    redo[undo.length].visible = true;
+                    undo.push(redo[undo.length]);
+                }
+            }
+            
 
-            if (event.key == 'z') {
+            if (!event.modifiers.control && !event.modifiers.alt && event.key == 'z') {
                 return zoomTool();
             }
             if (event.key == 'p') {
@@ -765,11 +788,10 @@ function onMouseDown(event) {
         // If we produced a path before, deselect it:
         // we reset the selected items
         selectGroup = null;
-
-        if (path) {
+        
+        if (path){
             path.selected = false;
         }
-
         // Create a new path and set its stroke color to black:
         path = new Path({
             segments: [event.point],
@@ -795,6 +817,32 @@ function onMouseDown(event) {
                         item.remove();
                     }
                     return false;
+                }
+            }
+            // undo redo movetool
+            
+            // when you press the ctrl + z = undo
+            if (event.modifiers.control && event.key === 'z'){
+               // alert('control + z is pressed and undo is '+ undo);
+                if (undo.length != 0){
+                    undo[undo.length -1].selected = false;
+                    undo[undo.length -1].remove();
+                    undo.pop();
+                  //  alert('this is the undo after '+ undo);
+                    if (path.fullySelected){
+                        path.fullySelected = false;
+                    }
+                }
+            }
+
+            // when you press the alt + z = redo
+            if (event.modifiers.alt && event.key === 'z'){
+                // check first if the undo and redo length is not equal
+                if (redo.length != undo.length){
+                    // make the redo visible before the copy
+                    redo[undo.length].visible = true;
+                    undo.push(redo[undo.length]);
+                    alert('the undo is = '+undo);
                 }
             }
             
@@ -1612,39 +1660,36 @@ function onMouseUp() {
 
         // Select the path, so we can see its segments:
         // gumamit lagi ng if statement kahit sa alert para no errors
-        path.fullySelected = true;
+        path.selected = true;
+
+        if (path){
+            path.closePath();
+        }
         
         // gagana lang ang susunod na section kapag naka select ang path
-        if (path.fullySelected){
-            path.closePath(); // closed the path after mouse up
-
+        if (path.selected){
+            // redo section
+            
+            // undo redo freepen section
             // dito mo nalang ilagay ang path recovered by json
             var pathPasokRedo = path.exportJSON();
-
-            // Bagong path na papasukan ng json file mo if ever kailangan mo ulit
             var recoveredPath = new Path();
-            recoveredPath.importJSON(pathPasokRedo);
-            // hide muna natin, show nalang kapag i redo na natin siya
-            recoveredPath.visible = false;
-            // gawa tayo ng condition if walang laman ang redo
-            // i push natin yung path directly pero
-            // kung mayron naman itong laman, isingit natin ang 
-            // bagong redo path depende kung ilan ang laman ng undo
 
-            // example, kung ang laman ng undo ay 3 tapos ang redo ay 5
-            // palitan natin ng bagong redo sa position 3 ex=(0,1,2)
-            // eto ay magiging (0,1,"new redo",2,3,4) ganyan na
+            recoveredPath.importJSON(pathPasokRedo); 
+            recoveredPath.visible = false;
+            // deselect natin kasi parang si undo ang selected nakakalito
+            recoveredPath.selected = false;
             if (redo.length == 0){
                 redo.push(recoveredPath);
             }else{
                 redo.splice(undo.length -1,0,recoveredPath);
-            };
+            }; // end of undo redo freepen
 
             // kailangan natin maging item ang path na ito
             item = path;
             return undo.push(item), alert("undo is = " + undo + " | and redo is = " + redo);
         };
-
+        
         if (document.getElementById('inputColor').value == "") {
             return colorPickValue = '#ffffff';
         } else {
